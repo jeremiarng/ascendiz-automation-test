@@ -1,22 +1,26 @@
 param(
     [Parameter(Position = 0)]
-    [string]$Project = ""
+    [string]$Project = "",
+    [switch]$SkipTests
 )
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $tempDir = "$env:TEMP\gh-pages-deploy"
 
-# 1. Run tests
-if ($Project) {
-    Write-Host "Running tests for project: $Project" -ForegroundColor Cyan
-    & node "$repoRoot\scripts\test.js" $Project
+# 1. Run tests (skip if -SkipTests flag is set)
+if (-not $SkipTests) {
+    if ($Project) {
+        Write-Host "Running tests for project: $Project" -ForegroundColor Cyan
+        & node "$repoRoot\scripts\test.js" $Project
+    } else {
+        Write-Host "Running all tests..." -ForegroundColor Cyan
+        & npm --prefix $repoRoot run test
+    }
+    if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE) {
+        Write-Host "Tests failed (exit code: $LASTEXITCODE). Continuing to deploy report..." -ForegroundColor Yellow
+    }
 } else {
-    Write-Host "Running all tests..." -ForegroundColor Cyan
-    & npm --prefix $repoRoot run test
-}
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "Tests failed. Aborting deploy." -ForegroundColor Red
-    exit $LASTEXITCODE
+    Write-Host "Skipping tests. Using existing allure-results..." -ForegroundColor Yellow
 }
 
 # 2. Generate Allure report

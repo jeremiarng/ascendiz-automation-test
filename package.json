@@ -7,7 +7,7 @@
     "test:smoke": "npx playwright test --grep @smoke",
     "t": "node scripts/test.js",
     "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
-    "deploy:report": "powershell -NoProfile -File scripts/deploy-report.ps1"
+    "deploy:report": "powershell -ExecutionPolicy Bypass -NoProfile -File scripts/deploy-report.ps1"
   },
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
