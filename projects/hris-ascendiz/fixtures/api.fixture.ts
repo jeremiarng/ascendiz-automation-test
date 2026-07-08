@@ -20,15 +20,12 @@ export class ApiFixture {
   ) {
     const response = await this.request.get(url, { params: params as any });
     const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'GET', url },
       requestParams: params,
       paramsTitle: options?.paramsTitle || `Request Params For GET ${url}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders: response.headers(),
       responseBody,
-      resTitle: options?.resTitle || `Response Body For GET ${url}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For GET ${url}`,
     });
     return { response, responseBody };
   }
@@ -40,15 +37,12 @@ export class ApiFixture {
   ) {
     const response = await this.request.post(url, { data });
     const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'POST', url },
       requestBody: data,
       reqTitle: options?.reqTitle || `Request Body For POST ${url}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders: response.headers(),
       responseBody,
-      resTitle: options?.resTitle || `Response Body For POST ${url}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For POST ${url}`,
     });
     return { response, responseBody };
   }
@@ -60,15 +54,12 @@ export class ApiFixture {
   ) {
     const response = await this.request.patch(url, { data });
     const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'PATCH', url },
       requestBody: data,
       reqTitle: options?.reqTitle || `Request Body For PATCH ${url}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders: response.headers(),
       responseBody,
-      resTitle: options?.resTitle || `Response Body For PATCH ${url}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For PATCH ${url}`,
     });
     return { response, responseBody };
   }
@@ -79,13 +70,10 @@ export class ApiFixture {
   ) {
     const response = await this.request.delete(url);
     const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'DELETE', url },
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders: response.headers(),
       responseBody,
-      resTitle: options?.resTitle || `Response Body For DELETE ${url}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For DELETE ${url}`,
     });
     return { response, responseBody };
   }
@@ -103,15 +91,12 @@ export class ApiFixture {
     }
     const response = await this.request.post(url, { multipart: multipartPayload });
     const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'POST', url },
       requestBody: data,
       reqTitle: options?.reqTitle || `Request Body (multipart) For POST ${url}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders: response.headers(),
       responseBody,
-      resTitle: options?.resTitle || `Response Body For POST ${url}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For POST ${url}`,
     });
     return { response, responseBody };
   }

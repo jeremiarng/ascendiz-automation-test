@@ -20,19 +20,15 @@ export class ApiFixture {
       params: options.params,
     });
     const responseBody = await response.json().catch(() => null);
-    const responseHeaders = response.headers();
+    const status = response.status();
 
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'POST', url: endpoint },
       requestParams: options.params,
       paramsTitle: options.paramsTitle || "Request Params",
       requestBody: payload,
       reqTitle: options.reqTitle || `Request Body For POST ${endpoint}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders,
       responseBody,
-      resTitle: options.resTitle || `Response Body For POST ${endpoint}`,
+      resTitle: options.resTitle || `Response Body [${status}] For POST ${endpoint}`,
     });
 
     return { response, responseBody };
@@ -51,18 +47,14 @@ export class ApiFixture {
       multipart: multipartPayload,
     });
     const responseBody = await response.json().catch(() => null);
-    const responseHeaders = response.headers();
+    const status = response.status();
 
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'POST', url: endpoint },
       requestBody: formData,
       reqTitle:
         options.reqTitle || `Request Body (multipart) For POST ${endpoint}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders,
       responseBody,
-      resTitle: options.resTitle || `Response Body For POST ${endpoint}`,
+      resTitle: options.resTitle || `Response Body [${status}] For POST ${endpoint}`,
     });
 
     return { response, responseBody };
@@ -83,19 +75,15 @@ export class ApiFixture {
       params: options.params,
     });
     const responseBody = await response.json().catch(() => null);
-    const responseHeaders = response.headers();
+    const status = response.status();
 
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'PATCH', url: endpoint },
       requestParams: options.params,
       paramsTitle: options.paramsTitle || "Request Params",
       requestBody: payload,
       reqTitle: options.reqTitle || `Request Body For PATCH ${endpoint}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders,
       responseBody,
-      resTitle: options.resTitle || `Response Body For PATCH ${endpoint}`,
+      resTitle: options.resTitle || `Response Body [${status}] For PATCH ${endpoint}`,
     });
 
     return { response, responseBody };
@@ -103,15 +91,11 @@ export class ApiFixture {
   async delete(endpoint: string, options: { resTitle?: string } = {}) {
     const response = await this.apiContext.delete(endpoint);
     const responseBody = await response.json().catch(() => null);
-    const responseHeaders = response.headers();
+    const status = response.status();
 
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'DELETE', url: endpoint },
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders,
       responseBody,
-      resTitle: options.resTitle || `Response Body For DELETE ${endpoint}`,
+      resTitle: options.resTitle || `Response Body [${status}] For DELETE ${endpoint}`,
     });
 
     return { response, responseBody };
@@ -123,17 +107,13 @@ export class ApiFixture {
   ) {
     const response = await this.apiContext.get(endpoint, { params });
     const responseBody = await response.json().catch(() => null);
-    const responseHeaders = response.headers();
+    const status = response.status();
 
     await attachLog(this.testInfo, {
-      requestInfo: { method: 'GET', url: endpoint },
       requestParams: params,
       paramsTitle: options.paramsTitle || `Request Params For GET ${endpoint}`,
-      responseStatus: response.status(),
-      responseStatusText: response.statusText(),
-      responseHeaders,
       responseBody,
-      resTitle: options.resTitle || `Response Body For GET ${endpoint}`,
+      resTitle: options.resTitle || `Response Body [${status}] For GET ${endpoint}`,
     });
 
     return { response, responseBody };
