@@ -6,6 +6,11 @@ import {
   generateRandomCode,
 } from "@hris-ascendiz/factories/office-list.factory";
 import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { setAllureLabels } from "@shared/helpers/allure-labels";
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe("Office List API Tests - Negative Cases", () => {
   let apiContext: APIRequestContext;

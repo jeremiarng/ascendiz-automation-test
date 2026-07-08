@@ -7,6 +7,11 @@ import {
   getNextJobPosition,
 } from "@hris-ascendiz/factories/schedules.factory";
 import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { setAllureLabels } from "@shared/helpers/allure-labels";
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe("Schedules API Tests - Positive Cases", () => {
   let apiContext: APIRequestContext;

@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { DashboardPage } from '../pages';
+import { setAllureLabels } from '@shared/helpers/allure-labels';
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe('Dashboard', { tag: ['@smoke', '@ui'] }, () => {
   test('should display dashboard after login', async ({ page }) => {

@@ -20,12 +20,17 @@ export class ApiFixture {
       params: options.params,
     });
     const responseBody = await response.json().catch(() => null);
+    const responseHeaders = response.headers();
 
     await attachLog(this.testInfo, {
+      requestInfo: { method: 'POST', url: endpoint },
       requestParams: options.params,
       paramsTitle: options.paramsTitle || "Request Params",
       requestBody: payload,
       reqTitle: options.reqTitle || `Request Body For POST ${endpoint}`,
+      responseStatus: response.status(),
+      responseStatusText: response.statusText(),
+      responseHeaders,
       responseBody,
       resTitle: options.resTitle || `Response Body For POST ${endpoint}`,
     });
@@ -46,11 +51,16 @@ export class ApiFixture {
       multipart: multipartPayload,
     });
     const responseBody = await response.json().catch(() => null);
+    const responseHeaders = response.headers();
 
     await attachLog(this.testInfo, {
+      requestInfo: { method: 'POST', url: endpoint },
       requestBody: formData,
       reqTitle:
         options.reqTitle || `Request Body (multipart) For POST ${endpoint}`,
+      responseStatus: response.status(),
+      responseStatusText: response.statusText(),
+      responseHeaders,
       responseBody,
       resTitle: options.resTitle || `Response Body For POST ${endpoint}`,
     });
@@ -73,12 +83,17 @@ export class ApiFixture {
       params: options.params,
     });
     const responseBody = await response.json().catch(() => null);
+    const responseHeaders = response.headers();
 
     await attachLog(this.testInfo, {
+      requestInfo: { method: 'PATCH', url: endpoint },
       requestParams: options.params,
       paramsTitle: options.paramsTitle || "Request Params",
       requestBody: payload,
       reqTitle: options.reqTitle || `Request Body For PATCH ${endpoint}`,
+      responseStatus: response.status(),
+      responseStatusText: response.statusText(),
+      responseHeaders,
       responseBody,
       resTitle: options.resTitle || `Response Body For PATCH ${endpoint}`,
     });
@@ -88,8 +103,13 @@ export class ApiFixture {
   async delete(endpoint: string, options: { resTitle?: string } = {}) {
     const response = await this.apiContext.delete(endpoint);
     const responseBody = await response.json().catch(() => null);
+    const responseHeaders = response.headers();
 
     await attachLog(this.testInfo, {
+      requestInfo: { method: 'DELETE', url: endpoint },
+      responseStatus: response.status(),
+      responseStatusText: response.statusText(),
+      responseHeaders,
       responseBody,
       resTitle: options.resTitle || `Response Body For DELETE ${endpoint}`,
     });
@@ -103,10 +123,15 @@ export class ApiFixture {
   ) {
     const response = await this.apiContext.get(endpoint, { params });
     const responseBody = await response.json().catch(() => null);
+    const responseHeaders = response.headers();
 
     await attachLog(this.testInfo, {
+      requestInfo: { method: 'GET', url: endpoint },
       requestParams: params,
       paramsTitle: options.paramsTitle || `Request Params For GET ${endpoint}`,
+      responseStatus: response.status(),
+      responseStatusText: response.statusText(),
+      responseHeaders,
       responseBody,
       resTitle: options.resTitle || `Response Body For GET ${endpoint}`,
     });

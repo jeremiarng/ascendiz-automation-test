@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage, DashboardPage } from '../pages';
+import { setAllureLabels } from '@shared/helpers/allure-labels';
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe('Login', { tag: ['@smoke', '@ui'] }, () => {
   test('should login with valid admin credentials', async ({ page }) => {

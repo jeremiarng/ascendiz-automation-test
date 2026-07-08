@@ -2,6 +2,11 @@ import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildTransactionPayload, buildScheduleUpdatePayload } from '@hris-ascendiz/factories/all-schedules.factory';
 import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { setAllureLabels } from '@shared/helpers/allure-labels';
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe('All Schedules API Tests - Positive Cases', () => {
   let adminContext: APIRequestContext;

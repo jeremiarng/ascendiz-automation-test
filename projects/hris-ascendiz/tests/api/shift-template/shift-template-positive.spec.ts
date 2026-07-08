@@ -2,6 +2,11 @@ import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildPayload, generateRandomName } from '@hris-ascendiz/factories/shift-template.factory';
 import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { setAllureLabels } from '@shared/helpers/allure-labels';
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
 
 test.describe('Shift Templates API Tests - Positive Cases', () => {
   let apiContext: APIRequestContext;

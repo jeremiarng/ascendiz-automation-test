@@ -2,6 +2,12 @@ import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildShiftTransactionPayload, buildShiftTransactionUpdatePayload } from '@hris-ascendiz/factories/shift-request-history.factory';
 import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { setAllureLabels } from '@shared/helpers/allure-labels';
+
+test.beforeEach(async ({}, testInfo) => {
+  await setAllureLabels(testInfo);
+});
+
 test.describe('Shift Request History API Tests - Positive Cases', () => {
   let adminContext: APIRequestContext;
   let managerContext: APIRequestContext;
