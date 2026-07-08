@@ -35,20 +35,25 @@ if ($LASTEXITCODE -ne 0) {
 Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
 
 try {
-    & git -C $repoRoot worktree add --force $tempDir gh-pages 2>&1
-    if (-not $?) { throw "Failed to create worktree" }
+    git -C $repoRoot worktree add --force $tempDir gh-pages 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "Failed to create worktree" }
 
     Remove-Item -Path "$tempDir\*" -Recurse -Force -ErrorAction SilentlyContinue
     Copy-Item -Path "$repoRoot\allure-report\*" -Destination $tempDir -Recurse -Force
 
-    & git -C $tempDir add -A 2>&1
-    & git -C $tempDir commit -m "deploy: update Allure report $(Get-Date -Format 'yyyy-MM-dd HH:mm')" 2>&1
-    & git -C $tempDir push origin gh-pages 2>&1
+    git -C $tempDir add -A 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "git add failed" }
+
+    git -C $tempDir commit -m "deploy: update Allure report $(Get-Date -Format 'yyyy-MM-dd HH:mm')" 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
+
+    git -C $tempDir push origin gh-pages 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "git push failed" }
 
     Write-Host "Deploy complete! Report published to GitHub Pages." -ForegroundColor Green
 } catch {
     Write-Host "Deploy failed: $_" -ForegroundColor Red
 } finally {
-    & git -C $repoRoot worktree remove --force $tempDir 2>&1 | Out-Null
+    git -C $repoRoot worktree remove --force $tempDir 2>$null
     Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
 }
