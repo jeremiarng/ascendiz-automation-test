@@ -1,11 +1,11 @@
 import { test, expect, APIRequestContext } from "@playwright/test";
-import { getAccessToken } from '@hris-ascendiz/helpers/auth';
+import { getAccessToken } from "@hris-ascendiz/helpers/auth";
 import {
   createSchedulePayload,
   generateRandomName,
-} from '@hris-ascendiz/factories/schedules.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
-import { setAllureLabels } from '@shared/helpers/allure-labels';
+} from "@hris-ascendiz/factories/work-schedule.factory";
+import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { setAllureLabels } from "@shared/helpers/allure-labels";
 
 test.beforeEach(async ({}, testInfo) => {
   await setAllureLabels(testInfo);

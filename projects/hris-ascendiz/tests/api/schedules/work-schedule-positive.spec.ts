@@ -5,7 +5,7 @@ import {
   generateRandomName,
   getRandomItem,
   getNextJobPosition,
-} from "@hris-ascendiz/factories/schedules.factory";
+} from "@hris-ascendiz/factories/work-schedule.factory";
 import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
 import { setAllureLabels } from "@shared/helpers/allure-labels";
 
