@@ -31,14 +31,16 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
-# 3. Deploy to gh-pages via worktree
+# 3. Deploy to gh-pages via clone
 Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
 
-try {
-    git -C $repoRoot worktree add --force $tempDir gh-pages 2>$null
-    if ($LASTEXITCODE -ne 0) { throw "Failed to create worktree" }
+$remoteUrl = git -C $repoRoot remote get-url origin
 
-    Remove-Item -Path "$tempDir\*" -Recurse -Force -ErrorAction SilentlyContinue
+try {
+    git clone --branch gh-pages --single-branch $remoteUrl $tempDir 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "Failed to clone gh-pages branch" }
+
+    Get-ChildItem -Path $tempDir | Where-Object { $_.Name -ne ".git" } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
     Copy-Item -Path "$repoRoot\allure-report\*" -Destination $tempDir -Recurse -Force
 
     git -C $tempDir add -A 2>$null
@@ -54,6 +56,5 @@ try {
 } catch {
     Write-Host "Deploy failed: $_" -ForegroundColor Red
 } finally {
-    git -C $repoRoot worktree remove --force $tempDir 2>$null
     Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
 }
