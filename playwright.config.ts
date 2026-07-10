@@ -35,7 +35,7 @@ export default defineConfig({
       },
     },
     {
-      name: 'Hris-Ascendiz-UI-Chrome',
+      name: 'Hris-Ascendiz-UI',
       testDir: './projects/hris-ascendiz/tests/ui',
       use: {
         baseURL: process.env.HRIS_WEB_URL,
@@ -49,6 +49,11 @@ export default defineConfig({
       name: 'Hris-Ascendiz-UI-Setup',
       testDir: './projects/hris-ascendiz/tests/ui/setup',
       testMatch: 'auth.setup.ts',
+      use: {
+        baseURL: process.env.HRIS_WEB_URL,
+        browserName: 'chromium',
+        viewport: { width: 1280, height: 720 },
+      },
     },
     {
       name: "ProjectB-API",
