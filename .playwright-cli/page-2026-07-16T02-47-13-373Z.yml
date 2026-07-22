@@ -1,0 +1,758 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [ref=e1214] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - generic [ref=e1215]:
+        - heading "Register Employee" [level=5] [ref=e1217]
+        - list [ref=e1218]:
+          - listitem [ref=e1219]:
+            - text: 
+            - link "Employee List" [ref=e1220] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e1221]: Register Employee
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - generic [ref=e1228] [cursor=pointer]: 1. Employee Data
+          - generic [ref=e1229] [cursor=pointer]: 2. Employment Data
+          - generic [ref=e1230] [cursor=pointer]: 3. Payroll
+        - generic [ref=e1231]:
+          - generic [ref=e1919]:
+            - generic [ref=e2129]: Permanent Hire Date is required
+            - generic [ref=e1920]:
+              - generic [ref=e1921]:
+                - generic [ref=e1922]:
+                  - generic [ref=e1923]: Employment Details
+                  - generic [ref=e1926]:
+                    - generic [ref=e1928]:
+                      - generic [ref=e1929]: Employee Code
+                      - generic [ref=e1930]: "*"
+                    - textbox "Please select Department + Employee Type to generate Employee ID" [disabled] [ref=e1933]: "316"
+                  - generic [ref=e1935]:
+                    - generic [ref=e1936]:
+                      - generic [ref=e1937]: Hire Date
+                      - textbox "Select date" [ref=e1940] [cursor=pointer]: 2026-07-16
+                    - generic [ref=e1941]:
+                      - generic [ref=e1942]: Exit Date
+                      - textbox "Select date" [ref=e1945] [cursor=pointer]: 2026-07-16
+                  - generic [ref=e1947]:
+                    - generic [ref=e1949]:
+                      - generic [ref=e1950]: Employee Type
+                      - generic [ref=e1951]: "*"
+                    - combobox [ref=e1952]:
+                      - option "Select Employee Type"
+                      - option "Contract"
+                      - option "Permanent" [selected]
+                      - option "OJT"
+                      - option "Internship"
+                      - option "Probation"
+                  - generic [ref=e2118]:
+                    - generic [ref=e2120]:
+                      - generic [ref=e2121]: Permanent Hire Date
+                      - text: "*"
+                      - textbox "Select date" [ref=e2123]
+                    - generic [ref=e2125]:
+                      - generic [ref=e2126]: Permanent End Date
+                      - textbox "Select date" [ref=e2128] [cursor=pointer]
+                  - generic [ref=e1955]:
+                    - generic [ref=e1956]: Remarks
+                    - textbox "Remarks" [ref=e1958]
+                  - generic [ref=e1959]:
+                    - generic [ref=e1961]:
+                      - generic [ref=e1962]: Work Location
+                      - combobox [ref=e1965]:
+                        - option "Select Location"
+                        - option "WHAT 2"
+                        - option "Ascendiz Intermoda" [selected]
+                        - option "WHAT"
+                        - option "Testing Edits"
+                        - option "Pasar Modern Intermoda BSD"
+                        - option "Intermoda BSD"
+                        - option "Casa De Parco"
+                        - option "Pasar Moden"
+                        - option "Sozo Dental - Medan Helvetia"
+                        - option "Sozo Dental - Bali 2 (Renon)"
+                        - option "Sozo Dental - Citra Raya"
+                        - option "Sozo Dental - Pasar Kemis"
+                        - option "Sozo Dental - Bandung 3 (Mekarwangi)"
+                        - option "Sozo Dental - Madiun"
+                        - option "Sozo Dental - Tambun Grand Wisata"
+                        - option "Sozo Dental - Bogor 2 (Pajajaran)"
+                        - option "Sozo Dental - Kelapa Gading 2"
+                        - option "Sozo Dental - Sukabumi"
+                        - option "Sozo Dental - Kudus"
+                        - option "Sozo Dental - Karawaci"
+                        - option "Sozo Dental - Serang"
+                        - option "Sozo Dental - Mangga Besar"
+                        - option "Sozo Dental - Mataram"
+                        - option "Sozo Dental - Pekalongan"
+                        - option "Sozo Dental - Tegal"
+                        - option "Sozo Dental - Malang"
+                        - option "Sozo Dental - Karawang"
+                        - option "Sozo Dental - Tasikmalaya (Lite)"
+                        - option "Sozo Dental - Banjarmasin (Lite)"
+                        - option "Sozo Dental - Samarinda (Lite)"
+                        - option "Sozo Dental - Padang"
+                        - option "Sozo Dental - Jambi"
+                        - option "Sozo Dental - Pekanbaru"
+                        - option "Sozo Dental - Manado"
+                        - option "Sozo Dental - Pontianak"
+                        - option "Sozo Dental - Solo"
+                        - option "Sozo Dental - Rawamangun"
+                        - option "Sozo Dental - Lampung"
+                        - option "Sozo Dental - Summarecon Bekasi"
+                        - option "Sozo Dental - Surabaya 2 (Dharmahusada)"
+                        - option "Sozo Dental - Palembang"
+                        - option "Sozo Dental - Cirebon"
+                        - option "Sozo Dental - Bandung 2 (Buah Batu)"
+                        - option "Sozo Dental - Cikarang"
+                        - option "Sozo Dental - Makassar"
+                        - option "Sozo Dental - Bali 1 (Denpasar)"
+                        - option "Sozo Dental - Medan"
+                        - option "Sozo Dental - Batam"
+                        - option "Sozo Dental - Bandung 1 (Pasir Kaliki)"
+                        - option "Sozo Dental - Tebet"
+                        - option "Sozo Dental - Balikpapan"
+                        - option "Sozo Dental - Semarang 2 (Setiabudi)"
+                        - option "Sozo Dental - Kotwis Cibubur"
+                        - option "Sozo Dental - Ciputat"
+                        - option "Sozo Dental - Bogor 1 (Bogor Utara)"
+                        - option "Sozo Dental - Tangerang City"
+                        - option "Sozo Dental - Surabaya 1 (Bukit Darmo)"
+                        - option "Sozo Dental - Greenlake"
+                        - option "Sozo Dental - Cinere"
+                        - option "Sozo Dental - Yogyakarta"
+                        - option "Sozo Dental - Gading Serpong"
+                        - option "Sozo Dental - PIK"
+                        - option "Sozo Dental - Margonda Depok"
+                        - option "Sozo Dental - Pesanggrahan/Puri Indah"
+                        - option "Sozo Dental - BSD"
+                        - option "Sozo Dental - Kemang"
+                        - option "Sozo Dental - Arteri"
+                        - option "Sozo Dental - Kelapa Gading"
+                        - option "Sozo Dental - Bintaro"
+                        - option "Sozo Dental - Semarang 1 (Mayjen Sutoyo)"
+                        - option "Sozo Dental - Bekasi"
+                        - option "Sozo Dental - Tanjung Duren"
+                        - option "Sozo Dental - Pondok Bambu"
+                        - option "Tumbuh Plus - Tebet"
+                        - option "Tumbuh Plus - SMB"
+                        - option "Tumbuh Plus - Rawamangun"
+                        - option "Tumbuh Plus - Puri Pesanggrahan"
+                        - option "Tumbuh Plus - Depok"
+                        - option "Tumbuh Plus - Cibinong"
+                        - option "Tumbuh Plus - BSD 2"
+                        - option "Tumbuh Plus - BSD 1"
+                        - option "Tumbuh Plus - Bogor"
+                        - option "Move - Tanjung Duren 2"
+                        - option "Move - Bekasi"
+                        - option "Move - Bintaro"
+                        - option "Sparks Art & Music - Taman Palem"
+                        - option "Sparks Art & Music - Sunter"
+                        - option "Sparks Art & Music - Bekasi Harapan Indah"
+                        - option "Sparks Swim - Taman Palem"
+                        - option "Sparks Swim - Kalimalang"
+                        - option "Sparks Swim - Bekasi Harapan Indah"
+                        - option "Sparks Swim - Pamulang"
+                        - option "Sparks Swim - Karawaci"
+                        - option "Sparks Preschool - Yogyakarta Colombo"
+                        - option "Sparks Preschool - Tebet"
+                        - option "Sparks Preschool - Tanjung Duren"
+                        - option "Sparks Preschool - Taman Palem"
+                        - option "Sparks Preschool - Surabaya Gubeng"
+                        - option "Sparks Preschool - Sunter"
+                        - option "Sparks Preschool - Kemang"
+                    - generic [ref=e1967]:
+                      - generic [ref=e1969]:
+                        - generic [ref=e1970]: Employee Status
+                        - generic [ref=e1971]: "*"
+                      - combobox [ref=e1972]:
+                        - option "Active" [selected]
+                        - option "Will Be Join"
+                        - option "Will Be Resign"
+                        - option "Inactive"
+                    - generic [ref=e1974]:
+                      - generic [ref=e1975]: Work Tenure
+                      - textbox [disabled] [ref=e1980]: "-"
+                    - generic [ref=e1983]:
+                      - generic [ref=e1984]: Employee Change Status
+                      - combobox [ref=e1987]:
+                        - option "Select Employee Change Status" [selected]
+                        - option "Prosedure"
+                        - option "Non Prosedure"
+                        - option "Termination"
+                        - option "Not Renew"
+                        - option "Mutation"
+                - generic [ref=e1988]:
+                  - generic [ref=e1989]: Job Details
+                  - generic [ref=e1991]:
+                    - generic [ref=e1992]:
+                      - generic [ref=e1993]:
+                        - generic [ref=e1994]: Manager Name
+                        - text: "*"
+                      - generic [ref=e1996] [cursor=pointer]:
+                        - generic [ref=e1997]:
+                          - combobox "Select Manager" [expanded] [active] [ref=e1998]
+                          - generic: Select Manager
+                          - button [ref=e1999]
+                        - listbox [ref=e2134]:
+                          - option "Select Manager" [selected] [ref=e2135]
+                          - option "2026010315 - Demo Baru1" [ref=e2137]
+                          - option "2026010314 - Demo Retail6" [ref=e2139]
+                          - option "2026070313 - Demo Retail5" [ref=e2141]
+                          - option "2026010312 - Demo Retail4" [ref=e2143]
+                          - option "2026010311 - Demo Retail3" [ref=e2145]
+                          - option "2026010310 - Demo Retail2" [ref=e2147]
+                          - option "2026010309 - Demo Retail1" [ref=e2149]
+                          - option "2026010308 - Demo Seven4" [ref=e2151]
+                          - option "2026010307 - Demo Seven3" [ref=e2153]
+                          - option "2026010306 - Demo Seven2" [ref=e2155]
+                          - option "2026010305 - Demo Seven1" [ref=e2157]
+                          - option "2026070304 - Hahahihi" [ref=e2159]
+                          - option "2026010303 - Test Demo8" [ref=e2161]
+                          - option "2026010302 - Test Demo7" [ref=e2163]
+                          - option "2026010301 - Test Demo6" [ref=e2165]
+                          - option "2026010300 - Test Demo5" [ref=e2167]
+                          - option "2026010299 - Test Demo4" [ref=e2169]
+                          - option "2026010298 - Test Demo3" [ref=e2171]
+                          - option "2026010297 - Test Demo2" [ref=e2173]
+                          - option "2026010296 - Test Demo1" [ref=e2175]
+                          - option "2023070284 - Demo Sam5" [ref=e2177]
+                          - option "2026070285 - Duyi Go" [ref=e2179]
+                          - option "TEMP0000 - Delima" [ref=e2181]
+                          - option "2026070283 - Dahlia" [ref=e2183]
+                          - option "2026070282 - Demo Sam4" [ref=e2185]
+                          - option "2021070281 - Demo Sam3" [ref=e2187]
+                          - option "2026070280 - Duyi" [ref=e2189]
+                          - option "2026010279 - Demo Dodo1" [ref=e2191]
+                          - option "2025010274 - Manager Justin" [ref=e2193]
+                          - option "2021010273 - Demo Sam2" [ref=e2195]
+                          - option "2026070272 - Demo Sam10" [ref=e2197]
+                          - option "2026070271 - Ini Employee 2" [ref=e2199]
+                          - option "TEMP0000 - Dummy User" [ref=e2201]
+                          - option "2026010270 - Demo Sam1" [ref=e2203]
+                          - option "2026010269 - Demo Rangga6" [ref=e2205]
+                          - option "2026010268 - Demo Rangga5" [ref=e2207]
+                          - option "2026010267 - Demo Rangga4" [ref=e2209]
+                          - option "2026010266 - Demo Rangga3" [ref=e2211]
+                          - option "2026010265 - Demo Rangga2" [ref=e2213]
+                          - option "2026010264 - Demo Rangga1" [ref=e2215]
+                          - option "2026070219 - Ini VP" [ref=e2217]
+                          - option "2026070218 - Beben" [ref=e2219]
+                          - option "2026060216 - Test Probation 23" [ref=e2221]
+                          - option "2026060009 - Sadness Part3" [ref=e2223]
+                          - option "2026060214 - Ini Manajer" [ref=e2225]
+                          - option "2026060215 - Ini Employee" [ref=e2227]
+                          - option "2026060213 - Danang t" [ref=e2229]
+                          - option "2026060212 - Ifran Hilmi" [ref=e2231]
+                          - option "2026060211 - Test Probation 22" [ref=e2233]
+                          - option "2026060210 - Keke" [ref=e2235]
+                          - option "2025060209 - Rara t" [ref=e2237]
+                          - option "090908 - FirstSadness2 LastSadness2" [ref=e2239]
+                          - option "090909 - FirstSadness LastSadness" [ref=e2241]
+                          - option "2026060208 - Dinda" [ref=e2243]
+                          - option "2026060207 - Kina" [ref=e2245]
+                          - option "2024060206 - Lili" [ref=e2247]
+                          - option "2026060205 - Ifran" [ref=e2249]
+                          - option "2026060203 - Test Probation 21" [ref=e2251]
+                          - option "2026060202 - Test Test" [ref=e2253]
+                          - option "2024060201 - Lisa t" [ref=e2255]
+                          - option "2026060200 - Test Test" [ref=e2257]
+                          - option "2024060199 - diandra demo" [ref=e2259]
+                          - option "TEMP0000 - validate" [ref=e2261]
+                          - option "2026060198 - test Probation 20" [ref=e2263]
+                          - option "TEMP0000 - first" [ref=e2265]
+                          - option "TEMP0000 - test 12345" [ref=e2267]
+                          - option "2026060197 - first Name last Name" [ref=e2269]
+                          - option "2026060196 - nice" [ref=e2271]
+                          - option "2026060195 - test Contact 1" [ref=e2273]
+                          - option "2026060194 - ifran" [ref=e2275]
+                          - option "2026060193 - vran" [ref=e2277]
+                          - option "2026060192 - Bali bali" [ref=e2279]
+                          - option "2026060191 - Bala bali" [ref=e2281]
+                          - option "2026060190 - Bala bala" [ref=e2283]
+                          - option "2026060189 - test Tina 1" [ref=e2285]
+                          - option "2026060188 - first last" [ref=e2287]
+                          - option "2026060187 - Kiu kiu" [ref=e2289]
+                          - option "2026060186 - test test" [ref=e2291]
+                          - option "2026060185 - test2 test2" [ref=e2293]
+                          - option "2026060183 - name" [ref=e2295]
+                          - option "2026060184 - samuel hendrawan" [ref=e2297]
+                          - option "2026060182 - first name" [ref=e2299]
+                          - option "2026060181 - test Probation 16" [ref=e2301]
+                          - option "2026060180 - test Probation 13 test" [ref=e2303]
+                          - option "TEMP0000 - demo dina8" [ref=e2305]
+                          - option "TEMP0000 - demo dina7" [ref=e2307]
+                          - option "2026060179 - Legion" [ref=e2309]
+                          - option "2026060177 - Test Contract 16" [ref=e2311]
+                          - option "2026060176 - Test Contract 15" [ref=e2313]
+                          - option "2026060175 - test dokter 6" [ref=e2315]
+                          - option "2025060174 - Demo Dina6" [ref=e2317]
+                          - option "2026060173 - Gogo1" [ref=e2319]
+                          - option "TEMP0000 - Gogo" [ref=e2321]
+                          - option "2026060172 - Demo Dina5" [ref=e2323]
+                          - option "2026062026062026062026060171 - Test Ifran 4 ijin" [ref=e2325]
+                          - option "2026060170 - first name" [ref=e2327]
+                          - option "2026060169 - Demo Dina4" [ref=e2329]
+                          - option "2026060168 - Demo Dina2" [ref=e2331]
+                          - option "2021060167 - Demo Dina2" [ref=e2333]
+                          - option "2026060166 - Test Contract 14" [ref=e2335]
+                          - option "2021060165 - BU PAB Dina" [ref=e2337]
+                          - option "2021060164 - BU SNI" [ref=e2339]
+                          - option "2023060163 - Chief SNI" [ref=e2341]
+                          - option "2019060162 - Chief PAB" [ref=e2343]
+                          - option "2020060161 - Demo Dina" [ref=e2345]
+                          - option "2026060160 - Test Contract 12" [ref=e2347]
+                          - option "2026060159 - contract24 test" [ref=e2349]
+                          - option "2026060158 - Test Contract 11" [ref=e2351]
+                          - option "2026060157 - testprobation2 test" [ref=e2353]
+                          - option "2026060156 - Test Probation 12" [ref=e2355]
+                          - option "2026060155 - Ifran" [ref=e2357]
+                          - option "2025060154 - Keisha" [ref=e2359]
+                          - option "2026060153 - Henry" [ref=e2361]
+                          - option "2026060152 - Wanwan" [ref=e2363]
+                          - option "2026060151 - Wanwan" [ref=e2365]
+                          - option "2026060150 - Wanwan" [ref=e2367]
+                          - option "2026060149 - Test Probation 11" [ref=e2369]
+                          - option "2026060148 - Test Contract 10_UAT" [ref=e2371]
+                          - option "2026060147 - Test Dokter 5" [ref=e2373]
+                          - option "2026060146 - Test non Dokter" [ref=e2375]
+                          - option "2026060145 - Test Dokter 4" [ref=e2377]
+                          - option "2026060144 - Test Dokter 3" [ref=e2379]
+                          - option "2026060143 - test dokter 2" [ref=e2381]
+                          - option "2026060142 - Test Doctor" [ref=e2383]
+                          - option "2026060141 - testvolun tesvo" [ref=e2385]
+                          - option "2026060140 - test" [ref=e2387]
+                          - option "TEMP0000 - Reyhan Doctor" [ref=e2389]
+                          - option "TEMP0000 - Veronica3" [ref=e2391]
+                          - option "2026060138 - Veronica3" [ref=e2393]
+                          - option "2026060139 - Veronica2" [ref=e2395]
+                          - option "TEMP0000 - Veronica" [ref=e2397]
+                          - option "2026060137 - test probation 3" [ref=e2399]
+                          - option "2026060136 - test offboarding" [ref=e2401]
+                          - option "2026060135 - Vero" [ref=e2403]
+                          - option "2026060134 - test dokter" [ref=e2405]
+                          - option "2026060133 - tes" [ref=e2407]
+                          - option "2026060132 - contractest" [ref=e2409]
+                          - option "2026060131 - test probation" [ref=e2411]
+                          - option "2026060130 - christinacokro+7@gmail.com" [ref=e2413]
+                          - option "2026060129 - test.probation14" [ref=e2415]
+                          - option "2026060128 - testprobation" [ref=e2417]
+                          - option "2026060127 - Bara" [ref=e2419]
+                          - option "2026060126 - Indi7" [ref=e2421]
+                          - option "2026060125 - Indi6" [ref=e2423]
+                          - option "2026060124 - Indi5" [ref=e2425]
+                          - option "2026060123 - Indi4" [ref=e2427]
+                          - option "2026060122 - Indi3" [ref=e2429]
+                          - option "TEMP0000 - Indi2" [ref=e2431]
+                          - option "TEMP0000 - Indi" [ref=e2433]
+                          - option "2026060121 - test contract" [ref=e2435]
+                          - option "2026060120 - test.probation" [ref=e2437]
+                          - option "2026060119 - Reyhan Jovie" [ref=e2439]
+                          - option "2026040118 - Test Ifran Dari Reyhan" [ref=e2441]
+                          - option "2026060117 - Doff2 invol_off" [ref=e2443]
+                          - option "2026060116 - Doff tes" [ref=e2445]
+                          - option "2025060115 - Payroll Salsa" [ref=e2447]
+                          - option "2025060114 - IT Salsa" [ref=e2449]
+                          - option "2025060113 - GA Salsa" [ref=e2451]
+                          - option "2025060112 - Finance Salsa" [ref=e2453]
+                          - option "2025060111 - Demo Salsa12" [ref=e2455]
+                          - option "2025060110 - CEO Salsa" [ref=e2457]
+                          - option "2025060109 - Chief Salsa" [ref=e2459]
+                          - option "2025060108 - BU Salsa" [ref=e2461]
+                          - option "2025060107 - Demo Salsa11" [ref=e2463]
+                          - option "2026060106 - David7 test_involuntary notif" [ref=e2465]
+                          - option "2025060105 - Demo Salsa10" [ref=e2467]
+                          - option "2025062025060104 - Manager Salsa2" [ref=e2469]
+                          - option "2025060103 - Admin 7R2" [ref=e2471]
+                          - option "2026060101 - Manager Ifran" [ref=e2473]
+                          - option "2026060100 - Test Ifran" [ref=e2475]
+                          - option "2026050099 - tenant_test" [ref=e2477]
+                          - option "2025060102 - Demo Salsa9" [ref=e2479]
+                          - option "2025060098 - Demo Salsa8" [ref=e2481]
+                          - option "2025050097 - Demo Salsa7" [ref=e2483]
+                          - option "TEMP0000 - Demo Salsa6" [ref=e2485]
+                          - option "2025060096 - Demo Salsa5" [ref=e2487]
+                          - option "2025060095 - Demo Salsa4" [ref=e2489]
+                          - option "2026050094 - David6" [ref=e2491]
+                          - option "2026050093 - David5" [ref=e2493]
+                          - option "2026050092 - David4" [ref=e2495]
+                          - option "2026050091 - David3" [ref=e2497]
+                          - option "2026050090 - David2" [ref=e2499]
+                          - option "2026050089 - David1 voluntaryoff" [ref=e2501]
+                          - option "2025060088 - Demo Salsa3" [ref=e2503]
+                          - option "2026050087 - Demo Salsa2" [ref=e2505]
+                          - option "2025030086 - Demo Salsa Testing Aja" [ref=e2507]
+                          - option "2025050085 - Manager Salsa" [ref=e2509]
+                          - option "2026050083 - Deline2" [ref=e2511]
+                          - option "2026050082 - Deline" [ref=e2513]
+                          - option "2026062026060178 - Manager Tina" [ref=e2515]
+                          - option "2026050081 - Poke3" [ref=e2517]
+                          - option "2026050080 - Poke3" [ref=e2519]
+                          - option "2026050079 - Poke2" [ref=e2521]
+                          - option "2026050078 - Poke1" [ref=e2523]
+                          - option "TEMP0000 - Poke" [ref=e2525]
+                          - option "2026050077 - Bibit abc" [ref=e2527]
+                          - option "2026050076 - Tota" [ref=e2529]
+                          - option "2026050075 - Tote" [ref=e2531]
+                          - option "2026050074 - Totu" [ref=e2533]
+                          - option "2026050073 - Toti" [ref=e2535]
+                          - option "2026050072 - Toto" [ref=e2537]
+                          - option "2026050071 - Tata Tuti" [ref=e2539]
+                          - option "2026050070 - Bro" [ref=e2541]
+                          - option "2026050069 - Bri" [ref=e2543]
+                          - option "2026050068 - Tiri iii" [ref=e2545]
+                          - option "TEMP0000 - test satu" [ref=e2547]
+                          - option "2026050067 - Turu TARA" [ref=e2549]
+                          - option "2026050066 - Tara tiri" [ref=e2551]
+                          - option "2026050065 - Tari" [ref=e2553]
+                          - option "2026050064 - GA 2 Nih" [ref=e2555]
+                          - option "2026050063 - IT 2 nih" [ref=e2557]
+                          - option "2026050062 - payroll nih" [ref=e2559]
+                          - option "2026050061 - Finance Nih" [ref=e2561]
+                          - option "2026050060 - IT nih" [ref=e2563]
+                          - option "2026050059 - GA nih" [ref=e2565]
+                          - option "2026050058 - David" [ref=e2567]
+                          - option "2026050056 - Manager SR" [ref=e2569]
+                          - option "2026050057 - Tanggo Exp" [ref=e2571]
+                          - option "2026050055 - tina tina" [ref=e2573]
+                          - option "2026050054 - Diana" [ref=e2575]
+                          - option "2026040053 - Wanto In aja" [ref=e2577]
+                          - option "2026010052 - Pauli P" [ref=e2579]
+                          - option "2025050051 - Mutiara Kifli" [ref=e2581]
+                          - option "2024090050 - Destiny Priandari" [ref=e2583]
+                          - option "2025060049 - Kelvin Gani" [ref=e2585]
+                          - option "2024060048 - Ardeliass Apti" [ref=e2587]
+                          - option "2024020047 - Tegar Iman Susila" [ref=e2589]
+                          - option "2025120045 - Ryansyah Fathin" [ref=e2591]
+                          - option "2025120044 - Jodhi Leonata Pratama" [ref=e2593]
+                          - option "2025120043 - Andrea Maria" [ref=e2595]
+                          - option "2025110042 - Natasya Sahda Luthfiah" [ref=e2597]
+                          - option "2025090041 - Gersianto Bagusputra" [ref=e2599]
+                          - option "2025040040 - Vinthoaviano Vebrusharlakhi" [ref=e2601]
+                          - option "2025030039 - Hansel Muhammad Falah" [ref=e2603]
+                          - option "2025020038 - Tsaniya Mahadiva" [ref=e2605]
+                          - option "2025010037 - Billy" [ref=e2607]
+                          - option "2024120036 - Meidy Mulia Putri Maulana" [ref=e2609]
+                          - option "2024050035 - Risna Alya Syahrani" [ref=e2611]
+                          - option "2024040034 - Albert Hans Christian M" [ref=e2613]
+                          - option "2024020033 - Bella Amanda" [ref=e2615]
+                          - option "2023080032 - Wella Wulandari" [ref=e2617]
+                          - option "2023070031 - Christian Andre Gunawan" [ref=e2619]
+                          - option "2023070030 - Rea Candra Oktaviara" [ref=e2621]
+                          - option "2023010029 - Try Habibie Arief" [ref=e2623]
+                          - option "2021020028 - Fitri Wulandari" [ref=e2625]
+                          - option "2020080027 - Claudia Lesmana" [ref=e2627]
+                          - option "2026010026 - Karina Indah Putri" [ref=e2629]
+                          - option "2026010025 - Khairina Amalia" [ref=e2631]
+                          - option "2025100024 - Carissa Caroline" [ref=e2633]
+                          - option "2025080023 - Primadhya Arif Ekaputra" [ref=e2635]
+                          - option "2025080022 - Jeffrey Fonda" [ref=e2637]
+                          - option "2025070021 - Dhimas Satria Pinilih" [ref=e2639]
+                          - option "2025040020 - Khairul Rizal" [ref=e2641]
+                          - option "2024100019 - Sry Ayu Nashria" [ref=e2643]
+                          - option "2024040018 - Shofia Haniyah" [ref=e2645]
+                          - option "2024020017 - Willy Tjahjana" [ref=e2647]
+                          - option "2024020016 - Riani Gianti" [ref=e2649]
+                          - option "2023100015 - Stephan Suherman" [ref=e2651]
+                          - option "2023050014 - David Liga" [ref=e2653]
+                          - option "2023030013 - Hidayatussolekhah" [ref=e2655]
+                          - option "2022100012 - Hoang Ky Vu" [ref=e2657]
+                          - option "2022050011 - Anniltal Manzilah" [ref=e2659]
+                          - option "2020080010 - Edward Djaja" [ref=e2661]
+                          - option "2026040005 - Yosina Noya" [ref=e2663]
+                          - option "2026040004 - Yosin Noya" [ref=e2665]
+                          - option "2026030003 - Paul Paul" [ref=e2667]
+                          - option "2026030002 - Lalu Teriyaki" [ref=e2669]
+                          - option "2025040001 -" [ref=e2671]
+                        - generic [ref=e2001]: Select Manager
+                    - text: Manager Name is required
+                  - generic [ref=e2002]:
+                    - generic [ref=e2004]:
+                      - generic [ref=e2006]:
+                        - generic [ref=e2007]: Division
+                        - generic [ref=e2008]: "*"
+                      - combobox [ref=e2009]:
+                        - option "Select Division"
+                        - option "Growth"
+                        - option "Hr Operations Management"
+                        - option "Recruitment"
+                        - option "Management Department"
+                        - option "Hr & Ga" [selected]
+                        - option "Operations Management"
+                        - option "Management"
+                        - option "Payroll & Comben"
+                        - option "Hr-Talent Acquisition"
+                        - option "Hr-People & Organization Development"
+                        - option "Hr Operations"
+                    - generic [ref=e2011]:
+                      - generic [ref=e2013]:
+                        - generic [ref=e2014]: Department
+                        - generic [ref=e2015]: "*"
+                      - combobox [ref=e2016]:
+                        - option "Select Department"
+                        - option "Payroll & Comben"
+                        - option "Hr-Talent Acquisition"
+                        - option "Hr-People & Organization Development"
+                        - option "Hr Operations" [selected]
+                    - generic [ref=e2018]:
+                      - generic [ref=e2020]:
+                        - generic [ref=e2021]: Company
+                        - generic [ref=e2022]: "*"
+                      - combobox [ref=e2023]:
+                        - option "Select Company"
+                        - option "PT. Pendidikan Anak Bangsa" [selected]
+                        - option "PT. Tujuh Anugerah Makmur"
+                        - option "PT. Sumber Natural Indonesia"
+                        - option "PT. Cahaya Generasi Kreatif"
+                        - option "PT. Pohon Biru Jaya"
+                        - option "Test Mana"
+                        - option "Add new Tenant Test"
+                        - option "PT Ascendiz-Test"
+                        - option "PT Jaya Makmur"
+                        - option "PT Ini Company"
+                    - generic [ref=e2025]:
+                      - generic [ref=e2027]:
+                        - generic [ref=e2028]: Business Unit
+                        - generic [ref=e2029]: "*"
+                      - combobox [ref=e2030]:
+                        - option "Select Business Unit"
+                        - option "Sparks Education (CBO Office)"
+                        - option "Sparks English"
+                        - option "Sparks Sports Academy"
+                        - option "Sparks Math"
+                        - option "Sparks Preschool"
+                        - option "Sparks Music"
+                        - option "Sparks Swim"
+                        - option "Shared Service" [selected]
+                  - generic [ref=e2031]:
+                    - generic [ref=e2033]:
+                      - generic [ref=e2035]:
+                        - generic [ref=e2036]: Job Title
+                        - generic [ref=e2037]: "*"
+                      - combobox [ref=e2038]:
+                        - option "Select Job Title"
+                        - option "Unskill"
+                        - option "Skill"
+                        - option "Wakil Mandor"
+                        - option "Mandor"
+                        - option "Dokter"
+                        - option "Recruitment Supervisor"
+                        - option "Recruitment Staff"
+                        - option "Hr Supervisor"
+                        - option "Talent Acquisition Associate Manager"
+                        - option "Strategy Ops. Assistant Manager"
+                        - option "Recruitment Specialist"
+                        - option "Vp Of Strategy & Operations"
+                        - option "Vp Of Corporate Finance"
+                        - option "Senior Manager Coo Office"
+                        - option "Product Growth Head"
+                        - option "Group Coo"
+                        - option "Generalist" [selected]
+                        - option "Evp Operations & Strategy"
+                        - option "Chief Of Staff"
+                        - option "CEO"
+                        - option "Business Unit Head"
+                        - option "Business Unit Director"
+                        - option "Avp, Head Of Data"
+                        - option "Assistant Vice President"
+                        - option "Payroll Senior Staff"
+                        - option "Payroll & Compensations Benefit Staff"
+                        - option "Payroll & Comben Supervisor"
+                        - option "Talent Acquisition Senior Manager"
+                        - option "Senior Talent Acquisition"
+                        - option "People Strategy Senior Manager"
+                        - option "People Strategy Intern"
+                        - option "People Strategy Associate Manager"
+                        - option "People Strategy Analyst"
+                        - option "Hr Manager"
+                    - generic [ref=e2040]:
+                      - generic [ref=e2042]:
+                        - generic [ref=e2043]: Management Level
+                        - generic [ref=e2044]: "*"
+                      - combobox [ref=e2045]:
+                        - option "Select Management Level"
+                        - option "Freelance"
+                        - option "Intern"
+                        - option "Junior Associate"
+                        - option "Associate" [selected]
+                        - option "Senior Associate"
+                        - option "Associate Manager"
+                        - option "Manager"
+                        - option "Senior Manager"
+                        - option "AVP"
+                        - option "VP"
+                        - option "EVP"
+                        - option "Chief"
+                        - option "CEO"
+                        - option "Staff"
+              - generic [ref=e2046]:
+                - generic [ref=e2048]:
+                  - generic [ref=e2049]: Employee Documents
+                  - generic [ref=e2050]:
+                    - generic [ref=e2052]:
+                      - generic [ref=e2054]:
+                        - generic [ref=e2055]: Document Name
+                        - generic [ref=e2056]: "*"
+                      - textbox "Enter document name" [ref=e2059]
+                    - generic [ref=e2062]:
+                      - generic [ref=e2063]: Document Type
+                      - combobox [ref=e2066]:
+                        - option "Select Doc. type" [selected]
+                        - option "KK"
+                        - option "KTP"
+                  - generic [ref=e2067]:
+                    - generic [ref=e2069]:
+                      - generic [ref=e2070]: Valid From
+                      - textbox "Select date" [ref=e2072] [cursor=pointer]
+                    - generic [ref=e2074]:
+                      - generic [ref=e2075]: Valid To
+                      - textbox "Select date" [ref=e2077] [cursor=pointer]
+                  - generic [ref=e2078]:
+                    - generic [ref=e2079]: File Upload
+                    - generic [ref=e2080]:
+                      - heading [level=5] [ref=e2087] [cursor=pointer]:
+                        - text: Drag and drop your files or
+                        - link "browse" [ref=e2088]:
+                          - /url: "#!"
+                        - text: your files
+                      - list:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - region "scrollable content"
+                  - button "Save Document" [ref=e2090] [cursor=pointer]
+                - generic [ref=e2091]:
+                  - generic [ref=e2092]: Employee Documents
+                  - generic [ref=e2093]:
+                    - table [ref=e2095]:
+                      - rowgroup [ref=e2096]:
+                        - row [ref=e2097]:
+                          - columnheader "Document Type" [ref=e2098]
+                          - columnheader "Document File" [ref=e2100]
+                          - columnheader "Valid From" [ref=e2102]
+                          - columnheader "Valid To" [ref=e2104]
+                          - columnheader "Action" [ref=e2106]
+                      - rowgroup
+                    - heading "Sorry! No Result Found" [level=5] [ref=e2113]
+          - generic [ref=e1600]:
+            - button "Previous" [ref=e2115] [cursor=pointer]
+            - generic [ref=e1601]:
+              - button "Save" [ref=e1602] [cursor=pointer]
+              - button "Next" [disabled] [ref=e1604]
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz

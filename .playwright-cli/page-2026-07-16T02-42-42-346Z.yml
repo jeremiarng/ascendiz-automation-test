@@ -1,0 +1,344 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [ref=e1214] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - generic [ref=e1215]:
+        - heading "Register Employee" [level=5] [ref=e1217]
+        - list [ref=e1218]:
+          - listitem [ref=e1219]:
+            - text: 
+            - link "Employee List" [ref=e1220] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e1221]: Register Employee
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - generic [ref=e1228] [cursor=pointer]: 1. Employee Data
+          - generic [ref=e1229] [cursor=pointer]: 2. Employment Data
+          - generic [ref=e1230] [cursor=pointer]: 3. Payroll
+        - generic [ref=e1231]:
+          - generic [ref=e1233]:
+            - generic [ref=e1235]:
+              - generic [ref=e1236]: Account Info
+              - generic [ref=e1237]:
+                - generic [ref=e1239]:
+                  - generic [ref=e1241]:
+                    - generic [ref=e1242]: Username
+                    - generic [ref=e1243]: "*"
+                  - textbox "Enter username" [ref=e1246]: Playright
+                - generic [ref=e1249]:
+                  - generic [ref=e1251]:
+                    - generic [ref=e1252]: Email Address
+                    - generic [ref=e1253]: "*"
+                  - textbox "Email Address" [ref=e1259]: play.right@gmail.com
+                - generic [ref=e1262]:
+                  - generic [ref=e1264]:
+                    - generic [ref=e1265]: Phone Number
+                    - generic [ref=e1266]: "*"
+                  - generic [ref=e1267]:
+                    - generic [ref=e1269]:
+                      - img "Indonesia" [ref=e1270]
+                      - generic [ref=e1271]: "+62"
+                    - textbox "Phone number" [ref=e1272]: "81234567890"
+                - generic [ref=e1275]:
+                  - generic [ref=e1276]: Password
+                  - textbox "Password" [ref=e1284]: Password123!
+            - generic [ref=e1287]:
+              - generic [ref=e1288]: Personal Info
+              - generic [ref=e1289]:
+                - generic [ref=e1290]:
+                  - generic [ref=e1292]:
+                    - generic [ref=e1294]:
+                      - generic [ref=e1295]: First Name
+                      - generic [ref=e1296]: "*"
+                    - textbox "Enter your first name" [ref=e1299]: Play
+                  - generic [ref=e1301]:
+                    - generic [ref=e1302]: Last Name
+                    - textbox "Enter your last name" [ref=e1307]: Right
+                  - generic [ref=e1310]:
+                    - generic [ref=e1312]:
+                      - generic [ref=e1313]: Gender
+                      - generic [ref=e1314]: "*"
+                    - combobox [ref=e1315]:
+                      - option "Select Gender"
+                      - option "Male" [selected]
+                      - option "Female"
+                - generic [ref=e1316]:
+                  - generic [ref=e1318]:
+                    - generic [ref=e1319]: Date of Birth
+                    - text: "*"
+                    - textbox "Select date" [ref=e1321] [cursor=pointer]: 15-07-1990
+                  - generic [ref=e1324]:
+                    - generic [ref=e1326]:
+                      - generic [ref=e1327]: Place of Birth
+                      - generic [ref=e1328]: "*"
+                    - textbox "Enter your place of birth" [active] [ref=e1331]: Jakarta
+                  - generic [ref=e1334]:
+                    - generic [ref=e1335]: Age
+                    - textbox [disabled] [ref=e1340]: 0 years 0 months
+                - generic [ref=e1342]:
+                  - generic [ref=e1344]:
+                    - generic [ref=e1346]:
+                      - generic [ref=e1347]: Last Education
+                      - generic [ref=e1348]: "*"
+                    - combobox [ref=e1349]:
+                      - option "Select Last Education"
+                      - option "SD (Sekolah Dasar)"
+                      - option "SMP / MTs (Sekolah Menengah Pertama / Madrasah Tsanawiyah) / SLTP"
+                      - option "SMA (Sekolah Menengah Atas) / SLTA / SMU"
+                      - option "SMK (Sekolah Menengah Kejuruan) / SLTA / STM"
+                      - option "MA (Madrasah Aliyah) / SLTA"
+                      - option "D1 (Diploma 1)"
+                      - option "D2 (Diploma 2)"
+                      - option "D3 (Diploma 3 / Ahli Madya)"
+                      - option "D4 (Diploma 4 / Sarjana Terapan)"
+                      - option "S1 (Sarjana)" [selected]
+                      - option "S2 (Magister)"
+                      - option "S3 (Doktor)"
+                  - generic [ref=e1351]:
+                    - generic [ref=e1353]:
+                      - generic [ref=e1354]: Institution
+                      - generic [ref=e1355]: "*"
+                    - textbox "Enter Institution" [ref=e1358]
+                - generic [ref=e1360]:
+                  - generic [ref=e1363]:
+                    - generic [ref=e1365]:
+                      - generic [ref=e1366]: KTP Number
+                      - generic [ref=e1367]: "*"
+                    - textbox "Enter KTP Number" [ref=e1370]
+                  - generic [ref=e1373]:
+                    - generic [ref=e1375]:
+                      - generic [ref=e1376]: Nationality
+                      - generic [ref=e1377]: "*"
+                    - textbox "Search Nationality" [ref=e1380]: Select Nationality
+                  - generic [ref=e1382]:
+                    - generic [ref=e1384]:
+                      - generic [ref=e1385]: Personal Email
+                      - generic [ref=e1386]: "*"
+                    - textbox "Enter your personal email" [ref=e1389]
+                - generic [ref=e1391]:
+                  - generic [ref=e1393]:
+                    - generic [ref=e1395]:
+                      - generic [ref=e1396]: Religion
+                      - generic [ref=e1397]: "*"
+                    - combobox [ref=e1398]:
+                      - option "Select Religion" [selected]
+                      - option "Christianity"
+                      - option "Catholicism"
+                      - option "Islam"
+                      - option "Hinduism"
+                      - option "Buddhism"
+                      - option "Confucianism"
+                      - option "Others"
+                  - generic [ref=e1400]:
+                    - generic [ref=e1402]:
+                      - generic [ref=e1403]: Marital Status
+                      - generic [ref=e1404]: "*"
+                    - combobox [ref=e1405]:
+                      - option "Select Marital Status" [selected]
+                      - option "Single"
+                      - option "Married"
+                      - option "Divorced"
+                  - generic [ref=e1407]:
+                    - generic [ref=e1408]: Blood Type
+                    - combobox [ref=e1411]:
+                      - option "Select Blood Type" [selected]
+                      - option "A"
+                      - option "B"
+                      - option "AB"
+                      - option "O"
+            - generic [ref=e1413]:
+              - generic [ref=e1414]: Address
+              - generic [ref=e1415]: KTP Address
+              - generic [ref=e1416]:
+                - generic [ref=e1418]:
+                  - generic [ref=e1419]: Province
+                  - textbox "Enter province" [ref=e1424]
+                - generic [ref=e1427]:
+                  - generic [ref=e1428]: City
+                  - textbox "Enter city" [ref=e1433]
+              - generic [ref=e1435]:
+                - generic [ref=e1437]:
+                  - generic [ref=e1438]: District
+                  - textbox "Enter district" [ref=e1443]
+                - generic [ref=e1446]:
+                  - generic [ref=e1447]: Sub District
+                  - textbox "Enter sub district" [ref=e1452]
+              - generic [ref=e1454]:
+                - generic [ref=e1456]:
+                  - generic [ref=e1457]: Postal Code
+                  - textbox "Enter postal code" [ref=e1462]
+                - generic [ref=e1465]:
+                  - generic [ref=e1466]: RT
+                  - textbox "Enter RT" [ref=e1471]
+                - generic [ref=e1474]:
+                  - generic [ref=e1475]: RW
+                  - textbox "Enter RW" [ref=e1480]
+              - generic [ref=e1483]:
+                - generic [ref=e1484]: Address Details
+                - textbox "Enter address details" [ref=e1489]
+              - generic [ref=e1491]: Residential Address
+              - generic [ref=e1492] [cursor=pointer]:
+                - checkbox "Same as KTP Address" [ref=e1493]
+                - text: Same as KTP Address
+              - generic [ref=e1494]:
+                - generic [ref=e1495]:
+                  - generic [ref=e1497]:
+                    - generic [ref=e1498]: Province
+                    - textbox "Enter province" [ref=e1503]
+                  - generic [ref=e1506]:
+                    - generic [ref=e1507]: City
+                    - textbox "Enter city" [ref=e1512]
+                - generic [ref=e1514]:
+                  - generic [ref=e1516]:
+                    - generic [ref=e1517]: District
+                    - textbox "Enter district" [ref=e1522]
+                  - generic [ref=e1525]:
+                    - generic [ref=e1526]: Sub District
+                    - textbox "Enter sub district" [ref=e1531]
+                - generic [ref=e1533]:
+                  - generic [ref=e1535]:
+                    - generic [ref=e1536]: Postal Code
+                    - textbox "Enter postal code" [ref=e1541]
+                  - generic [ref=e1544]:
+                    - generic [ref=e1545]: RT
+                    - textbox "Enter RT" [ref=e1550]
+                  - generic [ref=e1553]:
+                    - generic [ref=e1554]: RW
+                    - textbox "Enter RW" [ref=e1559]
+                - generic [ref=e1562]:
+                  - generic [ref=e1563]: Address Details
+                  - textbox "Enter address details" [ref=e1568]
+            - generic [ref=e1571]:
+              - generic [ref=e1572]:
+                - generic [ref=e1573]: Emergency Contacts
+                - button "Add" [ref=e1576] [cursor=pointer]
+              - generic [ref=e1578]:
+                - table [ref=e1580]:
+                  - rowgroup [ref=e1581]:
+                    - row [ref=e1582]:
+                      - columnheader "No" [ref=e1583]
+                      - columnheader "Name" [ref=e1585]
+                      - columnheader "Relationship" [ref=e1587]
+                      - columnheader "Phone" [ref=e1589]
+                      - columnheader "Action" [ref=e1591]
+                  - rowgroup
+                - heading "Sorry! No Result Found" [level=5] [ref=e1598]
+          - generic [ref=e1601]:
+            - button "Save" [ref=e1602] [cursor=pointer]
+            - button "Next" [disabled] [ref=e1604]
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz
