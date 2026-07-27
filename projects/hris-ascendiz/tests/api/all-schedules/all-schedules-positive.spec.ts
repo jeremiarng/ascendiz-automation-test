@@ -3,6 +3,7 @@ import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildTransactionPayload, buildScheduleUpdatePayload } from '@hris-ascendiz/factories/all-schedules.factory';
 import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
+import { z } from 'zod';
 
 test.beforeEach(async ({}, testInfo) => {
   await setAllureLabels(testInfo);
@@ -319,7 +320,14 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
 
       const status = response.status();
       expect([200].includes(status), `Expected: 200, but Received: ${status}`).toBeTruthy();
-      expect(responseBody?.schedule?.id).toBe(createdScheduleId);
+      const getScheduleResponseSchema = z.object({
+        schedule: z.object({
+          id: z.literal(createdScheduleId),
+          shift_name: z.string().min(1, 'shift_name must not be empty'),
+        }),
+      });
+
+      getScheduleResponseSchema.parse(responseBody);
     });
 
     test('PATCH /v1/shifts/schedules/:id - Update Shift Schedule', async ({ }, testInfo) => {

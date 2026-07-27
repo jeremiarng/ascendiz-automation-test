@@ -16,6 +16,7 @@
     "allure-playwright": "^3.0.0",
     "dotenv": "^17.0.0",
     "rimraf": "^6.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "zod": "^4.4.3"
   }
 }
