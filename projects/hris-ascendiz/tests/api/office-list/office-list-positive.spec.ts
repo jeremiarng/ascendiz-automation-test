@@ -4,7 +4,8 @@ import {
   buildCreatePayload,
   buildUpdatePayload,
 } from "@hris-ascendiz/factories/office-list.factory";
-import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { ApiFixture } from "@shared/fixtures/api.fixture";
+import { ENDPOINTS } from "@hris-ascendiz/config/endpoints";
 import { setAllureLabels } from "@shared/helpers/allure-labels";
 
 test.beforeEach(async ({}, testInfo) => {
@@ -27,7 +28,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
     for (const id of createdRecordIds) {
-      await api.delete(`/api/v1/locations/${id}`, {
+      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(id), {
         resTitle: "Response Body For Cleanup Delete Location",
       });
     }
@@ -38,7 +39,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
     test("TC-04: GET /v1/provinces - List all provinces", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const { response, responseBody } = await api.get(
-        "/api/v1/provinces",
+        ENDPOINTS.LOCATIONS.PROVINCES,
         undefined,
         {
           resTitle: "Response Body For List Provinces",
@@ -62,7 +63,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { province_id: 30, limit: 500 };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/cities",
+        ENDPOINTS.LOCATIONS.CITIES,
         params,
         {
           paramsTitle: "Request Params For List Cities By Province",
@@ -94,7 +95,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { offset: 0, limit: 10, name: "" };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         params,
         {
           paramsTitle: "Request Params For List Locations",
@@ -118,7 +119,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { offset: 0, limit: 10, name: "Pasar" };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         params,
         {
           paramsTitle: "Request Params For Search Location By Name",
@@ -142,7 +143,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { limit: 500 };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         params,
         {
           paramsTitle: "Request Params For List All Locations",
@@ -172,7 +173,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       originalPayload = buildCreatePayload();
 
       const { response, responseBody } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         originalPayload,
         {
           reqTitle: "Request Body (multipart) For Create Location",
@@ -201,7 +202,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       expect(createdLocationId).toBeDefined();
 
       const { response, responseBody } = await api.get(
-        `/api/v1/locations/${createdLocationId}`,
+        ENDPOINTS.LOCATIONS.BY_ID(createdLocationId),
         undefined,
         {
           resTitle: "Response Body For Get Location Detail",
@@ -223,7 +224,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const updatePayload = buildUpdatePayload();
 
       const { response, responseBody } = await api.patch(
-        `/api/v1/locations/${createdLocationId}`,
+        ENDPOINTS.LOCATIONS.BY_ID(createdLocationId),
         updatePayload,
         {
           reqTitle: "Request Body For Update Location",
@@ -246,7 +247,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { offset: 0, limit: 10, name: "" };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         params,
         {
           paramsTitle: "Request Params For Verify Updated Location",
@@ -275,7 +276,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const params = { location_id: createdLocationId, offset: 0, limit: 10 };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/employees",
+        ENDPOINTS.LOCATIONS.EMPLOYEES,
         params,
         {
           paramsTitle: "Request Params For Employees At Location",
@@ -298,7 +299,7 @@ test.describe("Office List API Tests - Positive Cases", () => {
       const api = new ApiFixture(apiContext, testInfo);
 
       const { response, responseBody } = await api.delete(
-        `/api/v1/locations/${createdLocationId}`,
+        ENDPOINTS.LOCATIONS.BY_ID(createdLocationId),
         {
           resTitle: "Response Body For Delete Location",
         },

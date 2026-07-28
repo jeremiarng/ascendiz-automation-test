@@ -1,7 +1,8 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildPayload, generateRandomName } from '@hris-ascendiz/factories/shift-template.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -22,17 +23,17 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
     for (const id of createdRecordIds) {
-      await api.delete(`/api/v1/shift-templates/${id}`, { resTitle: 'Response Body For Cleanup Delete Template' });
+      await api.delete(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(id), { resTitle: 'Response Body For Cleanup Delete Template' });
     }
     if (apiContext) await apiContext.dispose();
   });
 
   test.describe('Read Shift Templates', () => {
-    test('GET /v1/shift-templates - List shifts with pagination limits and search', async ({}, testInfo) => {
+    test('TC-01: GET /v1/shift-templates - List shifts with pagination limits and search', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const params = { name: 'shift', limit: 5, offset: 0 };
       
-      const { response, responseBody } = await api.get('/api/v1/shift-templates', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFT_TEMPLATES.BASE, params, {
         paramsTitle: 'Request Params For List Shift Templates'
       });
 
@@ -47,11 +48,11 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
     let createdId: number;
     let originalPayload: any;
 
-    test('POST /v1/shift-templates - Create successfully', async ({}, testInfo) => {
+    test('TC-02: POST /v1/shift-templates - Create successfully', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       originalPayload = buildPayload();
       
-      const { response, responseBody } = await api.post('/api/v1/shift-templates', originalPayload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, originalPayload, {
         reqTitle: 'Request Body For Create Shift Template'
       });
 
@@ -66,11 +67,11 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
       expect(createdId).toBeDefined();
     });
 
-    test('GET /v1/shift-templates/:id - Read successfully', async ({}, testInfo) => {
+    test('TC-03: GET /v1/shift-templates/:id - Read successfully', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       expect(createdId).toBeDefined();
       
-      const { response, responseBody } = await api.get(`/api/v1/shift-templates/${createdId}`, undefined, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(createdId), undefined, {
         resTitle: 'Response Body For Read Created Shift Template'
       });
 
@@ -83,7 +84,7 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
     test.afterAll(async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       if (createdId) {
-        await api.delete(`/api/v1/shift-templates/${createdId}`, { resTitle: 'Response Body For Cleanup Delete Template' });
+        await api.delete(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(createdId), { resTitle: 'Response Body For Cleanup Delete Template' });
       }
     });
   });
@@ -95,7 +96,7 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
       const api = new ApiFixture(apiContext, testInfo);
       const initialPayload = buildPayload();
       
-      const { responseBody } = await api.post('/api/v1/shift-templates', initialPayload, {
+      const { responseBody } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, initialPayload, {
         reqTitle: 'Request Body For Dummy Shift Template Data'
       });
       shiftId = responseBody?.shift?.id;
@@ -105,19 +106,19 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
     test.afterEach(async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       if (shiftId) {
-        await api.delete(`/api/v1/shift-templates/${shiftId}`, { resTitle: 'Response Body For Cleanup Delete Dummy Template' });
+        await api.delete(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(shiftId), { resTitle: 'Response Body For Cleanup Delete Dummy Template' });
         shiftId = 0;
       }
     });
 
-    test('PATCH /v1/shift-templates/:id - Update successfully', async ({}, testInfo) => {
+    test('TC-04: PATCH /v1/shift-templates/:id - Update successfully', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const updatePayload = buildPayload({
         name: generateRandomName('Updated_Shift'),
         end_time: '17:00',
       });
 
-      const { response, responseBody } = await api.patch(`/api/v1/shift-templates/${shiftId}`, updatePayload, {
+      const { response, responseBody } = await api.patch(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(shiftId), updatePayload, {
         reqTitle: 'Request Body For Update Shift Template'
       });
 
@@ -128,9 +129,9 @@ test.describe('Shift Templates API Tests - Positive Cases', () => {
       expect(responseBody.shift.end_time).toBe(updatePayload.end_time);
     });
 
-    test('DELETE /v1/shift-templates/:id - Delete successfully', async ({}, testInfo) => {
+    test('TC-05: DELETE /v1/shift-templates/:id - Delete successfully', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
-      const { response, responseBody } = await api.delete(`/api/v1/shift-templates/${shiftId}`, {
+      const { response, responseBody } = await api.delete(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(shiftId), {
         resTitle: 'Response Body For Delete Shift Template'
       });
 

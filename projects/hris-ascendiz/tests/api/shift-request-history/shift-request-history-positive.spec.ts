@@ -1,7 +1,8 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildShiftTransactionPayload, buildShiftTransactionUpdatePayload } from '@hris-ascendiz/factories/shift-request-history.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -37,7 +38,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(adminContext, testInfo);
       const params = { limit: 10, offset: 0 };
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/all-transactions', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.ALL_TRANSACTIONS, params, {
         paramsTitle: 'Request Params For View All Shift History'
       });
 
@@ -49,7 +50,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(managerContext, testInfo);
       const params = { limit: 10, offset: 0 };
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/subordinate-transactions', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.SUBORDINATE_TRANSACTIONS, params, {
         paramsTitle: 'Request Params For Subordinate Shift History'
       });
 
@@ -61,7 +62,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(employeeContext, testInfo);
       const params = { limit: 10, offset: 0 };
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/transactions/me', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.MY_TRANSACTIONS, params, {
         paramsTitle: 'Request Params For My Shift History'
       });
 
@@ -75,7 +76,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const endDate = '2026-06-30';
       const params = { start_date: startDate, end_date: endDate };
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/all-transactions', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.ALL_TRANSACTIONS, params, {
         paramsTitle: 'Request Params For Date Filtered History'
       });
 
@@ -101,12 +102,12 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
     test.afterAll(async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
       for (const scheduleId of scheduleIds) {
-        await api.delete(`/api/v1/shifts/schedules/${scheduleId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(scheduleId), {
           resTitle: 'Fallback Cleanup: Delete Schedule'
         });
       }
       if (transactionId) {
-        await api.delete(`/api/v1/shifts/transactions/${transactionId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(transactionId), {
           resTitle: 'Fallback Cleanup: Delete Shift Transaction'
         });
       }
@@ -115,7 +116,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(adminContext, testInfo);
       const payload = buildShiftTransactionPayload(masterEmployeeIds);
 
-      const { response, responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Create Dummy Transaction'
       });
 
@@ -130,7 +131,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
     test('TC-04: GET /v1/shifts/transactions/:id - View Request Details by ID', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
 
-      const { response, responseBody } = await api.get(`/api/v1/shifts/transactions/${transactionId}`, undefined, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(transactionId), undefined, {
         resTitle: 'Response Body For Request Details'
       });
 
@@ -142,7 +143,7 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(adminContext, testInfo);
       const updatePayload = buildShiftTransactionUpdatePayload({ id: transactionId, start_time: '10:00' });
 
-      const { response, responseBody } = await api.patch(`/api/v1/shifts/transactions/${transactionId}`, updatePayload, {
+      const { response, responseBody } = await api.patch(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(transactionId), updatePayload, {
         reqTitle: 'Request Body For Update Transaction'
       });
 
@@ -158,12 +159,12 @@ test.describe('Shift Request History API Tests - Positive Cases', () => {
       const api = new ApiFixture(adminContext, testInfo);
 
       for (const scheduleId of scheduleIds) {
-        await api.delete(`/api/v1/shifts/schedules/${scheduleId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(scheduleId), {
           resTitle: 'Response Body For Delete Schedule'
         });
       }
 
-      const { response } = await api.delete(`/api/v1/shifts/transactions/${transactionId}`, {
+      const { response } = await api.delete(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(transactionId), {
         resTitle: 'Response Body For Delete Transaction'
       });
 

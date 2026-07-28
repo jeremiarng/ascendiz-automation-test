@@ -5,7 +5,8 @@ import {
   buildUpdatePayload,
   generateRandomCode,
 } from "@hris-ascendiz/factories/office-list.factory";
-import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { ApiFixture } from "@shared/fixtures/api.fixture";
+import { ENDPOINTS } from "@hris-ascendiz/config/endpoints";
 import { setAllureLabels } from "@shared/helpers/allure-labels";
 
 test.beforeEach(async ({}, testInfo) => {
@@ -30,7 +31,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
     for (const id of createdRecordIds) {
-      await api.delete(`/api/v1/locations/${id}`, {
+      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(id), {
         resTitle: "Response Body For Cleanup Delete Location",
       });
     }
@@ -41,7 +42,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
   test.describe("Authentication & Authorization", () => {
     test("TC-N08: GET /v1/locations - Access without Bearer token", async ({}, testInfo) => {
       const api = new ApiFixture(unauthContext, testInfo);
-      const { response } = await api.get("/api/v1/locations", undefined, {
+      const { response } = await api.get(ENDPOINTS.LOCATIONS.BASE, undefined, {
         resTitle: "Response Body For Unauthenticated Request",
       });
 
@@ -59,7 +60,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const payload = { code: generateRandomCode() };
 
       const { response, responseBody } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         payload,
         {
           reqTitle: "Request Body For Missing Required Fields",
@@ -82,7 +83,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
 
       const firstPayload = buildCreatePayload({ code: duplicateCode });
       const { response: res1, responseBody: body1 } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         firstPayload,
         {
           reqTitle: "Request Body For First Location",
@@ -93,7 +94,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
 
       const secondPayload = buildCreatePayload({ code: duplicateCode });
       const { response: res2 } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         secondPayload,
         {
           reqTitle: "Request Body For Duplicate Code Location",
@@ -113,7 +114,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const payload = buildCreatePayload({ email: "invalid-email-format" });
 
       const { response, responseBody } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         payload,
         {
           reqTitle: "Request Body For Invalid Email Format",
@@ -138,7 +139,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       });
 
       const { response, responseBody } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         payload,
         {
           reqTitle: "Request Body For Invalid Lat/Lng",
@@ -160,7 +161,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
     test("TC-N01: GET /v1/locations/:id - Non-existent location ID", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const { response } = await api.get(
-        "/api/v1/locations/99999999",
+        ENDPOINTS.LOCATIONS.BY_ID(99999999),
         undefined,
         {
           resTitle: "Response Body For Non-Existent Location ID",
@@ -178,7 +179,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const api = new ApiFixture(apiContext, testInfo);
       const params = { limit: -5, offset: -1 };
 
-      const { response } = await api.get("/api/v1/locations", params, {
+      const { response } = await api.get(ENDPOINTS.LOCATIONS.BASE, params, {
         paramsTitle: "Request Params For Negative Pagination",
         resTitle: "Response Body For Negative Pagination",
       });
@@ -194,7 +195,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const api = new ApiFixture(apiContext, testInfo);
       const params = { province_id: 99999 };
 
-      const { response } = await api.get("/api/v1/cities", params, {
+      const { response } = await api.get(ENDPOINTS.LOCATIONS.CITIES, params, {
         paramsTitle: "Request Params For Invalid Province ID",
         resTitle: "Response Body For Invalid Province ID",
       });
@@ -210,7 +211,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const api = new ApiFixture(apiContext, testInfo);
       const params = { location_id: 99999999, offset: 0, limit: 10 };
 
-      const { response } = await api.get("/api/v1/employees", params, {
+      const { response } = await api.get(ENDPOINTS.LOCATIONS.EMPLOYEES, params, {
         paramsTitle: "Request Params For Non-Existent Location Employees",
         resTitle: "Response Body For Non-Existent Location Employees",
       });
@@ -231,7 +232,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
       const payload = buildCreatePayload();
 
       const { responseBody } = await api.postMultipart(
-        "/api/v1/locations",
+        ENDPOINTS.LOCATIONS.BASE,
         payload,
         {
           reqTitle: "Request Body For Dummy Location",
@@ -249,7 +250,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
     test("TC-N06: PATCH /v1/locations/:id - Update non-existent location", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const { response } = await api.patch(
-        "/api/v1/locations/99999999",
+        ENDPOINTS.LOCATIONS.BY_ID(99999999),
         buildUpdatePayload(),
         {
           reqTitle: "Request Body For Update Non-Existent Location",
@@ -268,7 +269,7 @@ test.describe("Office List API Tests - Negative Cases", () => {
     //   const api = new ApiFixture(apiContext, testInfo);
 
     //   const { response, responseBody } = await api.delete(
-    //     `/api/v1/locations/${tempLocationId}`,
+    //     ENDPOINTS.LOCATIONS.BY_ID(tempLocationId),
     //     {
     //       resTitle: "Response Body For Delete Location With Employees",
     //     },

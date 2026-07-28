@@ -1,6 +1,7 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -36,7 +37,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
     test.describe('Authentication & Authorization Validation', () => {
         test('TC-09: GET /v1/attendance/me - Access API without Bearer Token', async ({ }, testInfo) => {
             const api = new ApiFixture(unauthContext, testInfo);
-            const { response } = await api.get('/api/v1/attendance/me', undefined, {
+            const { response } = await api.get(ENDPOINTS.ATTENDANCE.MY, undefined, {
                 resTitle: 'Response Body For Unauthenticated Request'
             });
 
@@ -46,7 +47,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
 
         test('TC-12: GET /v1/attendance/superior/:id - Manager viewing unauthorized subordinates', async ({ }, testInfo) => {
             const api = new ApiFixture(managerContext, testInfo);
-            const { response, responseBody } = await api.get('/api/v1/attendance/superior/9999', undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.SUPERIOR(9999), undefined, {
                 resTitle: 'Response Body For Unauthorized Superior ID'
             });
 
@@ -66,7 +67,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
             const api = new ApiFixture(managerContext, testInfo);
             const params = { date_from: '2026-06-30', date_to: '2026-06-01' };
 
-            const { response } = await api.get('/api/v1/attendance/me/per-date', params, {
+            const { response } = await api.get(ENDPOINTS.ATTENDANCE.MY_PER_DATE, params, {
                 paramsTitle: 'Request Params For Invalid Date Logic'
             });
 
@@ -78,7 +79,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
             const api = new ApiFixture(managerContext, testInfo);
             const params = { date_from: '26-06-2026' }; // Wrong format YYYY-MM-DD
 
-            const { response } = await api.get('/api/v1/attendance/me', params, {
+            const { response } = await api.get(ENDPOINTS.ATTENDANCE.MY, params, {
                 paramsTitle: 'Request Params For Invalid Date Format'
             });
 
@@ -88,7 +89,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
 
         test('TC-13: GET /v1/attendance/employee/:id - Get specific employee data with non-existent ID', async ({ }, testInfo) => {
             const api = new ApiFixture(adminContext, testInfo);
-            const { response, responseBody } = await api.get('/api/v1/attendance/employee/000000', undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.EMPLOYEE('000000'), undefined, {
                 resTitle: 'Response Body For Non-Existent Employee ID'
             });
 
@@ -106,7 +107,7 @@ test.describe('Attendance View API Tests - Negative Cases', () => {
             const api = new ApiFixture(adminContext, testInfo);
             const params = { limit: -5, offset: -1 };
 
-            const { response } = await api.get('/api/v1/attendance/', params, {
+            const { response } = await api.get(ENDPOINTS.ATTENDANCE.BASE, params, {
                 paramsTitle: 'Request Params For Negative Pagination'
             });
 

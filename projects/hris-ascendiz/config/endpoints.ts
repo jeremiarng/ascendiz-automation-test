@@ -27,6 +27,7 @@ export const ENDPOINTS = {
     MY_PER_DATE: '/api/v1/attendance/me/per-date',
     MY_STATISTICS: '/api/v1/attendance/me/statistics',
     SUPERIOR: (id: number | string) => `/api/v1/attendance/superior/${id}`,
+    EMPLOYEE: (id: number | string) => `/api/v1/attendance/employee/${id}`,
     EMPLOYEE_PER_DATE: (id: number | string) => `/api/v1/attendance/employee/${id}/per-date`,
   },
   TENANTS: {

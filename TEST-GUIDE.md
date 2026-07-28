@@ -32,7 +32,7 @@ projects/<project-name>/
 |-------|-------------|
 | `@hris-ascendiz/helpers/auth` | `projects/hris-ascendiz/helpers/auth` |
 | `@hris-ascendiz/factories/<name>` | `projects/hris-ascendiz/factories/<name>` |
-| `@hris-ascendiz/fixtures/api.fixture` | `projects/hris-ascendiz/fixtures/api.fixture` |
+| `@shared/fixtures/api.fixture` | `shared/fixtures/api.fixture` |
 | `@hris-ascendiz/config/endpoints` | `projects/hris-ascendiz/config/endpoints` |
 | `@shared/helpers/allure-labels` | `shared/helpers/allure-labels` |
 
@@ -50,7 +50,7 @@ File: `tests/api/<module>/<module>-positive.spec.ts`
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildCreatePayload } from '@hris-ascendiz/factories/<module>.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -126,7 +126,7 @@ File: `tests/api/<module>/<module>-negative.spec.ts`
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildCreatePayload } from '@hris-ascendiz/factories/<module>.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
