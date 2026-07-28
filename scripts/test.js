@@ -4,10 +4,12 @@ const path = require('path');
 
 const project = process.argv[2];
 const moduleName = process.argv[3];
+// Cek apakah ada argumen '--headed' di baris perintah
+const isHeaded = process.argv.includes('--headed');
 
 if (!project) {
-  console.log('Usage: node scripts/test.js <ProjectName> [ModuleName]');
-  console.log('Example: node scripts/test.js Hris-Ascendiz-API all-schedules');
+  console.log('Usage: node scripts/test.js <ProjectName> [ModuleName] [--headed]');
+  console.log('Example: node scripts/test.js Hris-Ascendiz-API all-schedules --headed');
   process.exit(1);
 }
 
@@ -22,12 +24,17 @@ foldersToClean.forEach(folder => {
   }
 });
 
-// 2. Susun perintah Playwright
+// 2. Susun perintah Playwright dasar
 let playwrightCmd = `npx playwright test --project="${project}"`;
 
-if (moduleName) {
-  // Cukup arahkan langsung ke nama modulnya karena base proyek sudah di dalam tests/api
+// Tambahkan modul jika ada (pastikan bukan flag '--headed' yang masuk sebagai modul)
+if (moduleName && moduleName !== '--headed') {
   playwrightCmd += ` ${moduleName}`;
+}
+
+// 3. Tambahkan flag --headed jika diminta
+if (isHeaded) {
+  playwrightCmd += ` --headed`;
 }
 
 try {
