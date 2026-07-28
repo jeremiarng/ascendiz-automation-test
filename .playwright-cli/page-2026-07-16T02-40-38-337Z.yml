@@ -1,0 +1,586 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [ref=e741] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+          - list [ref=e743]:
+            - listitem [ref=e744]:
+              - link "Employee Number" [ref=e745] [cursor=pointer]:
+                - /url: /employee-number/list
+            - listitem [ref=e746]:
+              - link "Employee Data" [active] [ref=e747] [cursor=pointer]:
+                - /url: /employee/list
+            - listitem [ref=e748]:
+              - link "Employee Change Type" [ref=e749] [cursor=pointer]:
+                - /url: /employee-change-type
+            - listitem [ref=e750]:
+              - link "Employee Change Request" [ref=e751] [cursor=pointer]:
+                - /url: /employee-change-request
+            - listitem [ref=e752]:
+              - link "Job Position Details" [ref=e753] [cursor=pointer]:
+                - /url: /job-positions
+            - listitem [ref=e754]:
+              - link "Grade" [ref=e755] [cursor=pointer]:
+                - /url: /grades
+            - listitem [ref=e756]:
+              - link "Department" [ref=e757] [cursor=pointer]:
+                - /url: /departments
+            - listitem [ref=e758]:
+              - link "Employee Type" [ref=e759] [cursor=pointer]:
+                - /url: /employee-types
+            - listitem [ref=e760]:
+              - link "Document Type" [ref=e761] [cursor=pointer]:
+                - /url: /document-types
+            - listitem [ref=e762]:
+              - link "Cost Center" [ref=e763] [cursor=pointer]:
+                - /url: /cost-centers
+            - listitem [ref=e764]:
+              - link "Location" [ref=e765] [cursor=pointer]:
+                - /url: /locations
+            - listitem [ref=e766]:
+              - link "Management Level" [ref=e767] [cursor=pointer]:
+                - /url: /management-levels
+            - listitem [ref=e768]:
+              - link "Contract History" [ref=e769] [cursor=pointer]:
+                - /url: /contract-histories
+            - listitem [ref=e770]:
+              - link "Training" [ref=e771] [cursor=pointer]:
+                - /url: /trainings
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /employee/list#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - generic [ref=e772]:
+        - heading "Employee List" [level=5] [ref=e774]
+        - list [ref=e775]:
+          - listitem [ref=e776]:  Admin
+          - listitem [ref=e777]: Employee List
+      - generic [ref=e781]:
+        - generic [ref=e783]:
+          - generic [ref=e784]: Employee
+          - generic [ref=e787] [cursor=pointer]:
+            - generic [ref=e788]:
+              - combobox "All Employees" [ref=e789]
+              - generic: All Employees
+              - button [ref=e790]
+            - generic [ref=e792]: All Employees
+        - generic [ref=e794]:
+          - generic [ref=e795]: Company
+          - combobox [ref=e798]:
+            - option "Select Company" [selected]
+            - option "PT. Pendidikan Anak Bangsa"
+            - option "PT. Tujuh Anugerah Makmur"
+            - option "PT. Sumber Natural Indonesia"
+            - option "PT. Cahaya Generasi Kreatif"
+            - option "PT. Pohon Biru Jaya"
+            - option "Test Mana"
+            - option "Add new Tenant Test"
+            - option "PT Ascendiz-Test"
+            - option "PT Jaya Makmur"
+            - option "PT Ini Company"
+        - generic [ref=e800]:
+          - generic [ref=e801]: Business Unit
+          - combobox [ref=e804]:
+            - option "Select Business Unit" [selected]
+            - option "Sozo Skin (PBJ)"
+            - option "Move Physio (PBJ)"
+            - option "Tumbuh Plus (PBJ)"
+            - option "Shared Service (PBJ)"
+            - option "Sparks Education (CBO Office) (PAB)"
+            - option "Sparks English (PAB)"
+            - option "Sparks Sports Academy (PAB)"
+            - option "Sparks Math (PAB)"
+            - option "Sparks Preschool (PAB)"
+            - option "Sparks Music (PAB)"
+            - option "Sparks Swim (PAB)"
+            - option "Shared Service (PAB)"
+            - option "Sparks Education (CBO OFFICE) (TAM)"
+            - option "Sparks English (TAM)"
+            - option "Sparks Sports Academy (TAM)"
+            - option "Sparks Math (TAM)"
+            - option "Sparks Preschool (TAM)"
+            - option "Sparks Music (TAM)"
+            - option "Sparks Swim (TAM)"
+            - option "Shared Service (TAM)"
+            - option "Golden Lamian (SNI)"
+            - option "Shared Service (SNI)"
+            - option "Sparks Preschool (CGK)"
+            - option "Sozo Dental (PBJ)"
+            - option "Sozo Skin (TAM)"
+            - option "Sparks English (PBJ)"
+            - option "Sozo Dental (TAM)"
+        - generic [ref=e806]:
+          - generic [ref=e807]: Status
+          - combobox [ref=e810]:
+            - option "All" [selected]
+            - option "Active"
+            - option "Will Be Join"
+            - option "Will Be Resign"
+            - option "Inactive"
+        - generic [ref=e812]:
+          - generic [ref=e813]: Division
+          - combobox [ref=e816]:
+            - option "Select Division" [selected]
+            - option "Growth"
+            - option "Hr Operations Management"
+            - option "Recruitment"
+            - option "Management Department"
+            - option "Hr & Ga"
+            - option "Operations Management"
+            - option "Management"
+            - option "Payroll & Comben"
+            - option "Hr-Talent Acquisition"
+            - option "Hr-People & Organization Development"
+            - option "Hr Operations"
+        - generic [ref=e818]:
+          - generic [ref=e819]: Department
+          - combobox [ref=e822]:
+            - option "Select Department" [selected]
+            - option "Growth"
+            - option "Hr Operations Management"
+            - option "Recruitment"
+            - option "Management Department"
+            - option "Payroll & Comben"
+            - option "Hr-Talent Acquisition"
+            - option "Hr-People & Organization Development"
+            - option "Hr Operations"
+        - generic [ref=e824]:
+          - generic [ref=e825]: Employee Type
+          - combobox [ref=e828]:
+            - option "Select Employee Type" [selected]
+            - option "Contract"
+            - option "Permanent"
+            - option "OJT"
+            - option "Internship"
+            - option "Probation"
+        - generic [ref=e830]:
+          - generic [ref=e831]: Job Title
+          - combobox [ref=e834]:
+            - option "Select Job Title" [selected]
+            - option "Unskill"
+            - option "Skill"
+            - option "Wakil Mandor"
+            - option "Mandor"
+            - option "Dokter"
+            - option "Recruitment Supervisor"
+            - option "Recruitment Staff"
+            - option "Hr Supervisor"
+            - option "Talent Acquisition Associate Manager"
+            - option "Strategy Ops. Assistant Manager"
+            - option "Recruitment Specialist"
+            - option "Vp Of Strategy & Operations"
+            - option "Vp Of Corporate Finance"
+            - option "Senior Manager Coo Office"
+            - option "Product Growth Head"
+            - option "Group Coo"
+            - option "Generalist"
+            - option "Evp Operations & Strategy"
+            - option "Chief Of Staff"
+            - option "CEO"
+            - option "Business Unit Head"
+            - option "Business Unit Director"
+            - option "Avp, Head Of Data"
+            - option "Assistant Vice President"
+            - option "Payroll Senior Staff"
+            - option "Payroll & Compensations Benefit Staff"
+            - option "Payroll & Comben Supervisor"
+            - option "Talent Acquisition Senior Manager"
+            - option "Senior Talent Acquisition"
+            - option "People Strategy Senior Manager"
+            - option "People Strategy Intern"
+            - option "People Strategy Associate Manager"
+            - option "People Strategy Analyst"
+            - option "Hr Manager"
+        - generic [ref=e836]:
+          - generic [ref=e837]: Hire Date
+          - textbox "Hire date" [ref=e839] [cursor=pointer]
+        - generic [ref=e841]:
+          - generic [ref=e842]: Permanent Date
+          - textbox "Permanent date" [ref=e844] [cursor=pointer]
+        - generic [ref=e847]:
+          - button "Clear Filter" [ref=e848] [cursor=pointer]
+          - button "Search" [ref=e852] [cursor=pointer]
+      - generic [ref=e858]:
+        - generic [ref=e859]:
+          - button "Export" [ref=e860] [cursor=pointer]
+          - button "Bulk Update" [ref=e866] [cursor=pointer]
+          - button "Add Employee" [ref=e869] [cursor=pointer]
+        - generic [ref=e871]:
+          - table [ref=e873]:
+            - rowgroup [ref=e874]:
+              - row [ref=e875]:
+                - columnheader [ref=e876] [cursor=pointer]
+                - columnheader [ref=e880] [cursor=pointer]
+                - columnheader [ref=e884] [cursor=pointer]
+                - columnheader [ref=e888] [cursor=pointer]
+                - columnheader "Type" [ref=e892]
+                - columnheader "Company" [ref=e894]
+                - columnheader "Business Unit" [ref=e896]
+                - columnheader "Division" [ref=e898]
+                - columnheader "Department" [ref=e900]
+                - columnheader "Job Title" [ref=e902]
+                - columnheader "Gender" [ref=e904]
+                - columnheader "Hire Date" [ref=e906]
+                - columnheader "Permanent Date" [ref=e908]
+                - columnheader "Status" [ref=e910]
+                - columnheader "Action" [ref=e912]
+            - rowgroup [ref=e914]:
+              - row [ref=e915]:
+                - cell "2026010315" [ref=e916]
+                - cell "2026010315" [ref=e917]
+                - cell "Demo Baru1" [ref=e918]
+                - cell "demo.baru1@ascendiz.id" [ref=e919]
+                - cell "Permanent" [ref=e920]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e921]
+                - cell "Sparks Education (CBO Office)" [ref=e922]
+                - cell "Hr & Ga" [ref=e923]
+                - cell "Payroll & Comben" [ref=e924]
+                - cell "Evp Operations & Strategy" [ref=e925]
+                - cell "FEMALE" [ref=e926]
+                - cell "1 January 2026" [ref=e927]
+                - cell "1 January 2026" [ref=e928]
+                - cell "active" [ref=e929]
+                - cell [ref=e931]:
+                  - generic [ref=e932]:
+                    - link [ref=e933] [cursor=pointer]:
+                      - /url: /employee/1341
+                    - link [ref=e937] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e941]:
+                - cell "2026010314" [ref=e942]
+                - cell "2026010314" [ref=e943]
+                - cell "Demo Retail6" [ref=e944]
+                - cell "demo.retail6@ascendiz.id" [ref=e945]
+                - cell "Permanent" [ref=e946]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e947]
+                - cell "Sparks Education (CBO Office)" [ref=e948]
+                - cell "Hr & Ga" [ref=e949]
+                - cell "Hr Operations" [ref=e950]
+                - cell "Hr Supervisor" [ref=e951]
+                - cell "FEMALE" [ref=e952]
+                - cell "1 January 2026" [ref=e953]
+                - cell "1 January 2026" [ref=e954]
+                - cell "active" [ref=e955]
+                - cell [ref=e957]:
+                  - generic [ref=e958]:
+                    - link [ref=e959] [cursor=pointer]:
+                      - /url: /employee/1340
+                    - link [ref=e963] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e967]:
+                - cell "2026070313" [ref=e968]
+                - cell "2026070313" [ref=e969]
+                - cell "Demo Retail5" [ref=e970]
+                - cell "demo.retail5@ascendiz.id" [ref=e971]
+                - cell "Permanent" [ref=e972]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e973]
+                - cell "Sparks Education (CBO Office)" [ref=e974]
+                - cell "Hr & Ga" [ref=e975]
+                - cell "Payroll & Comben" [ref=e976]
+                - cell "Generalist" [ref=e977]
+                - cell "MALE" [ref=e978]
+                - cell "14 July 2026" [ref=e979]
+                - cell "8 July 2020" [ref=e980]
+                - cell "active" [ref=e981]
+                - cell [ref=e983]:
+                  - generic [ref=e984]:
+                    - link [ref=e985] [cursor=pointer]:
+                      - /url: /employee/1339
+                    - link [ref=e989] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e993]:
+                - cell "2026010312" [ref=e994]
+                - cell "2026010312" [ref=e995]
+                - cell "Demo Retail4" [ref=e996]
+                - cell "demo.retail4@ascendiz.id" [ref=e997]
+                - cell "Permanent" [ref=e998]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e999]
+                - cell "Sparks Education (CBO Office)" [ref=e1000]
+                - cell "Hr & Ga" [ref=e1001]
+                - cell "Hr Operations" [ref=e1002]
+                - cell "Hr Supervisor" [ref=e1003]
+                - cell "MALE" [ref=e1004]
+                - cell "1 January 2026" [ref=e1005]
+                - cell "1 January 2026" [ref=e1006]
+                - cell "active" [ref=e1007]
+                - cell [ref=e1009]:
+                  - generic [ref=e1010]:
+                    - link [ref=e1011] [cursor=pointer]:
+                      - /url: /employee/1338
+                    - link [ref=e1015] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1019]:
+                - cell "2026010311" [ref=e1020]
+                - cell "2026010311" [ref=e1021]
+                - cell "Demo Retail3" [ref=e1022]
+                - cell "demo.retail3@ascendiz.id" [ref=e1023]
+                - cell "Permanent" [ref=e1024]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1025]
+                - cell "Sparks Education (CBO Office)" [ref=e1026]
+                - cell "Hr & Ga" [ref=e1027]
+                - cell "Hr Operations" [ref=e1028]
+                - cell "Hr Supervisor" [ref=e1029]
+                - cell "MALE" [ref=e1030]
+                - cell "1 January 2026" [ref=e1031]
+                - cell "1 January 2026" [ref=e1032]
+                - cell "active" [ref=e1033]
+                - cell [ref=e1035]:
+                  - generic [ref=e1036]:
+                    - link [ref=e1037] [cursor=pointer]:
+                      - /url: /employee/1337
+                    - link [ref=e1041] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1045]:
+                - cell "2026010310" [ref=e1046]
+                - cell "2026010310" [ref=e1047]
+                - cell "Demo Retail2" [ref=e1048]
+                - cell "demo.retail2@ascendiz.id" [ref=e1049]
+                - cell "Permanent" [ref=e1050]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1051]
+                - cell "Sparks Education (CBO Office)" [ref=e1052]
+                - cell "Hr & Ga" [ref=e1053]
+                - cell "Hr Operations" [ref=e1054]
+                - cell "Hr Supervisor" [ref=e1055]
+                - cell "FEMALE" [ref=e1056]
+                - cell "1 January 2026" [ref=e1057]
+                - cell "1 January 2026" [ref=e1058]
+                - cell "active" [ref=e1059]
+                - cell [ref=e1061]:
+                  - generic [ref=e1062]:
+                    - link [ref=e1063] [cursor=pointer]:
+                      - /url: /employee/1336
+                    - link [ref=e1067] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1071]:
+                - cell "2026010309" [ref=e1072]
+                - cell "2026010309" [ref=e1073]
+                - cell "Demo Retail1" [ref=e1074]
+                - cell "demo.retail1@ascendiz.id" [ref=e1075]
+                - cell "Permanent" [ref=e1076]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1077]
+                - cell "Sparks Education (CBO Office)" [ref=e1078]
+                - cell "Hr & Ga" [ref=e1079]
+                - cell "Hr Operations" [ref=e1080]
+                - cell "Hr Supervisor" [ref=e1081]
+                - cell "MALE" [ref=e1082]
+                - cell "1 January 2026" [ref=e1083]
+                - cell "1 January 2026" [ref=e1084]
+                - cell "active" [ref=e1085]
+                - cell [ref=e1087]:
+                  - generic [ref=e1088]:
+                    - link [ref=e1089] [cursor=pointer]:
+                      - /url: /employee/1335
+                    - link [ref=e1093] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1097]:
+                - cell "2026010308" [ref=e1098]
+                - cell "2026010308" [ref=e1099]
+                - cell "Demo Seven4" [ref=e1100]
+                - cell "demo.seven4@ascendiz.id" [ref=e1101]
+                - cell "Permanent" [ref=e1102]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1103]
+                - cell "Sparks Education (CBO Office)" [ref=e1104]
+                - cell "Hr & Ga" [ref=e1105]
+                - cell "Hr Operations" [ref=e1106]
+                - cell "Hr Supervisor" [ref=e1107]
+                - cell "FEMALE" [ref=e1108]
+                - cell "1 January 2026" [ref=e1109]
+                - cell "1 January 2026" [ref=e1110]
+                - cell "active" [ref=e1111]
+                - cell [ref=e1113]:
+                  - generic [ref=e1114]:
+                    - link [ref=e1115] [cursor=pointer]:
+                      - /url: /employee/1334
+                    - link [ref=e1119] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1123]:
+                - cell "2026010307" [ref=e1124]
+                - cell "2026010307" [ref=e1125]
+                - cell "Demo Seven3" [ref=e1126]
+                - cell "demo.seven3@ascendiz.id" [ref=e1127]
+                - cell "Permanent" [ref=e1128]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1129]
+                - cell "Sparks Education (CBO Office)" [ref=e1130]
+                - cell "Hr & Ga" [ref=e1131]
+                - cell "Hr Operations" [ref=e1132]
+                - cell "Hr Supervisor" [ref=e1133]
+                - cell "MALE" [ref=e1134]
+                - cell "1 January 2026" [ref=e1135]
+                - cell "1 January 2026" [ref=e1136]
+                - cell "active" [ref=e1137]
+                - cell [ref=e1139]:
+                  - generic [ref=e1140]:
+                    - link [ref=e1141] [cursor=pointer]:
+                      - /url: /employee/1333
+                    - link [ref=e1145] [cursor=pointer]:
+                      - /url: "#!"
+              - row [ref=e1149]:
+                - cell "2026010306" [ref=e1150]
+                - cell "2026010306" [ref=e1151]
+                - cell "Demo Seven2" [ref=e1152]
+                - cell "demo.seven2@ascendiz.id" [ref=e1153]
+                - cell "Permanent" [ref=e1154]
+                - cell "PT. Pendidikan Anak Bangsa" [ref=e1155]
+                - cell "Sparks Education (CBO Office)" [ref=e1156]
+                - cell "Hr & Ga" [ref=e1157]
+                - cell "Hr Operations" [ref=e1158]
+                - cell "Hr Supervisor" [ref=e1159]
+                - cell "MALE" [ref=e1160]
+                - cell "1 January 2026" [ref=e1161]
+                - cell "1 January 2026" [ref=e1162]
+                - cell "active" [ref=e1163]
+                - cell [ref=e1165]:
+                  - generic [ref=e1166]:
+                    - link [ref=e1167] [cursor=pointer]:
+                      - /url: /employee/1332
+                    - link [ref=e1171] [cursor=pointer]:
+                      - /url: "#!"
+          - generic [ref=e1175]:
+            - paragraph [ref=e1177]: Showing 10 of 268 Results
+            - list [ref=e1179]:
+              - listitem [ref=e1180]:
+                - link [ref=e1181]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1185]:
+                - link "Prev" [ref=e1186]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1189]:
+                - link "1" [ref=e1190] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1191]:
+                - link "2" [ref=e1192] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1193]:
+                - link "3" [ref=e1194] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1195]:
+                - link "4" [ref=e1196] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1197]:
+                - link "5" [ref=e1198] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1199]: ...
+              - listitem [ref=e1200]:
+                - link "16" [ref=e1201] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1202]: ...
+              - listitem [ref=e1203]:
+                - link "27" [ref=e1204] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1205]:
+                - link "Next" [ref=e1206] [cursor=pointer]:
+                  - /url: javascript:void(0)
+              - listitem [ref=e1209]:
+                - link [ref=e1210] [cursor=pointer]:
+                  - /url: javascript:void(0)
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz

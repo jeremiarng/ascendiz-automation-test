@@ -1,0 +1,480 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [ref=e1214] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - generic [ref=e1215]:
+        - heading "Register Employee" [level=5] [ref=e1217]
+        - list [ref=e1218]:
+          - listitem [ref=e1219]:
+            - text: 
+            - link "Employee List" [ref=e1220] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e1221]: Register Employee
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - generic [ref=e1228] [cursor=pointer]: 1. Employee Data
+          - generic [ref=e1229] [cursor=pointer]: 2. Employment Data
+          - generic [ref=e1230] [cursor=pointer]: 3. Payroll
+        - generic [ref=e1231]:
+          - generic [ref=e1920]:
+            - generic [ref=e1921]:
+              - generic [ref=e1922]:
+                - generic [ref=e1923]: Employment Details
+                - generic [ref=e1926]:
+                  - generic [ref=e1928]:
+                    - generic [ref=e1929]: Employee Code
+                    - generic [ref=e1930]: "*"
+                  - textbox "Please select Department + Employee Type to generate Employee ID" [disabled] [ref=e1933]
+                - generic [ref=e1935]:
+                  - generic [ref=e1936]:
+                    - generic [ref=e1937]: Hire Date
+                    - textbox "Select date" [ref=e1940] [cursor=pointer]
+                  - generic [ref=e1941]:
+                    - generic [ref=e1942]: Exit Date
+                    - textbox "Select date" [ref=e1945] [cursor=pointer]
+                - generic [ref=e1947]:
+                  - generic [ref=e1949]:
+                    - generic [ref=e1950]: Employee Type
+                    - generic [ref=e1951]: "*"
+                  - combobox [ref=e1952]:
+                    - option "Select Employee Type"
+                    - option "Contract"
+                    - option "Permanent" [selected]
+                    - option "OJT"
+                    - option "Internship"
+                    - option "Probation"
+                - generic [ref=e2118]:
+                  - generic [ref=e2120]:
+                    - generic [ref=e2121]: Permanent Hire Date
+                    - text: "*"
+                    - textbox "Select date" [ref=e2123] [cursor=pointer]
+                  - generic [ref=e2125]:
+                    - generic [ref=e2126]: Permanent End Date
+                    - textbox "Select date" [ref=e2128] [cursor=pointer]
+                - generic [ref=e1955]:
+                  - generic [ref=e1956]: Remarks
+                  - textbox "Remarks" [ref=e1958]
+                - generic [ref=e1959]:
+                  - generic [ref=e1961]:
+                    - generic [ref=e1962]: Work Location
+                    - combobox [ref=e1965]:
+                      - option "Select Location" [selected]
+                      - option "WHAT 2"
+                      - option "Ascendiz Intermoda"
+                      - option "WHAT"
+                      - option "Testing Edits"
+                      - option "Pasar Modern Intermoda BSD"
+                      - option "Intermoda BSD"
+                      - option "Casa De Parco"
+                      - option "Pasar Moden"
+                      - option "Sozo Dental - Medan Helvetia"
+                      - option "Sozo Dental - Bali 2 (Renon)"
+                      - option "Sozo Dental - Citra Raya"
+                      - option "Sozo Dental - Pasar Kemis"
+                      - option "Sozo Dental - Bandung 3 (Mekarwangi)"
+                      - option "Sozo Dental - Madiun"
+                      - option "Sozo Dental - Tambun Grand Wisata"
+                      - option "Sozo Dental - Bogor 2 (Pajajaran)"
+                      - option "Sozo Dental - Kelapa Gading 2"
+                      - option "Sozo Dental - Sukabumi"
+                      - option "Sozo Dental - Kudus"
+                      - option "Sozo Dental - Karawaci"
+                      - option "Sozo Dental - Serang"
+                      - option "Sozo Dental - Mangga Besar"
+                      - option "Sozo Dental - Mataram"
+                      - option "Sozo Dental - Pekalongan"
+                      - option "Sozo Dental - Tegal"
+                      - option "Sozo Dental - Malang"
+                      - option "Sozo Dental - Karawang"
+                      - option "Sozo Dental - Tasikmalaya (Lite)"
+                      - option "Sozo Dental - Banjarmasin (Lite)"
+                      - option "Sozo Dental - Samarinda (Lite)"
+                      - option "Sozo Dental - Padang"
+                      - option "Sozo Dental - Jambi"
+                      - option "Sozo Dental - Pekanbaru"
+                      - option "Sozo Dental - Manado"
+                      - option "Sozo Dental - Pontianak"
+                      - option "Sozo Dental - Solo"
+                      - option "Sozo Dental - Rawamangun"
+                      - option "Sozo Dental - Lampung"
+                      - option "Sozo Dental - Summarecon Bekasi"
+                      - option "Sozo Dental - Surabaya 2 (Dharmahusada)"
+                      - option "Sozo Dental - Palembang"
+                      - option "Sozo Dental - Cirebon"
+                      - option "Sozo Dental - Bandung 2 (Buah Batu)"
+                      - option "Sozo Dental - Cikarang"
+                      - option "Sozo Dental - Makassar"
+                      - option "Sozo Dental - Bali 1 (Denpasar)"
+                      - option "Sozo Dental - Medan"
+                      - option "Sozo Dental - Batam"
+                      - option "Sozo Dental - Bandung 1 (Pasir Kaliki)"
+                      - option "Sozo Dental - Tebet"
+                      - option "Sozo Dental - Balikpapan"
+                      - option "Sozo Dental - Semarang 2 (Setiabudi)"
+                      - option "Sozo Dental - Kotwis Cibubur"
+                      - option "Sozo Dental - Ciputat"
+                      - option "Sozo Dental - Bogor 1 (Bogor Utara)"
+                      - option "Sozo Dental - Tangerang City"
+                      - option "Sozo Dental - Surabaya 1 (Bukit Darmo)"
+                      - option "Sozo Dental - Greenlake"
+                      - option "Sozo Dental - Cinere"
+                      - option "Sozo Dental - Yogyakarta"
+                      - option "Sozo Dental - Gading Serpong"
+                      - option "Sozo Dental - PIK"
+                      - option "Sozo Dental - Margonda Depok"
+                      - option "Sozo Dental - Pesanggrahan/Puri Indah"
+                      - option "Sozo Dental - BSD"
+                      - option "Sozo Dental - Kemang"
+                      - option "Sozo Dental - Arteri"
+                      - option "Sozo Dental - Kelapa Gading"
+                      - option "Sozo Dental - Bintaro"
+                      - option "Sozo Dental - Semarang 1 (Mayjen Sutoyo)"
+                      - option "Sozo Dental - Bekasi"
+                      - option "Sozo Dental - Tanjung Duren"
+                      - option "Sozo Dental - Pondok Bambu"
+                      - option "Tumbuh Plus - Tebet"
+                      - option "Tumbuh Plus - SMB"
+                      - option "Tumbuh Plus - Rawamangun"
+                      - option "Tumbuh Plus - Puri Pesanggrahan"
+                      - option "Tumbuh Plus - Depok"
+                      - option "Tumbuh Plus - Cibinong"
+                      - option "Tumbuh Plus - BSD 2"
+                      - option "Tumbuh Plus - BSD 1"
+                      - option "Tumbuh Plus - Bogor"
+                      - option "Move - Tanjung Duren 2"
+                      - option "Move - Bekasi"
+                      - option "Move - Bintaro"
+                      - option "Sparks Art & Music - Taman Palem"
+                      - option "Sparks Art & Music - Sunter"
+                      - option "Sparks Art & Music - Bekasi Harapan Indah"
+                      - option "Sparks Swim - Taman Palem"
+                      - option "Sparks Swim - Kalimalang"
+                      - option "Sparks Swim - Bekasi Harapan Indah"
+                      - option "Sparks Swim - Pamulang"
+                      - option "Sparks Swim - Karawaci"
+                      - option "Sparks Preschool - Yogyakarta Colombo"
+                      - option "Sparks Preschool - Tebet"
+                      - option "Sparks Preschool - Tanjung Duren"
+                      - option "Sparks Preschool - Taman Palem"
+                      - option "Sparks Preschool - Surabaya Gubeng"
+                      - option "Sparks Preschool - Sunter"
+                      - option "Sparks Preschool - Kemang"
+                  - generic [ref=e1967]:
+                    - generic [ref=e1969]:
+                      - generic [ref=e1970]: Employee Status
+                      - generic [ref=e1971]: "*"
+                    - combobox [ref=e1972]:
+                      - option "Active" [selected]
+                      - option "Will Be Join"
+                      - option "Will Be Resign"
+                      - option "Inactive"
+                  - generic [ref=e1974]:
+                    - generic [ref=e1975]: Work Tenure
+                    - textbox [disabled] [ref=e1980]: "-"
+                  - generic [ref=e1983]:
+                    - generic [ref=e1984]: Employee Change Status
+                    - combobox [ref=e1987]:
+                      - option "Select Employee Change Status" [selected]
+                      - option "Prosedure"
+                      - option "Non Prosedure"
+                      - option "Termination"
+                      - option "Not Renew"
+                      - option "Mutation"
+              - generic [ref=e1988]:
+                - generic [ref=e1989]: Job Details
+                - generic [ref=e1992]:
+                  - generic [ref=e1993]:
+                    - generic [ref=e1994]: Manager Name
+                    - text: "*"
+                  - generic [ref=e1996] [cursor=pointer]:
+                    - generic [ref=e1997]:
+                      - combobox "Select Manager" [ref=e1998]
+                      - generic: Select Manager
+                      - button [ref=e1999]
+                    - generic [ref=e2001]: Select Manager
+                - generic [ref=e2002]:
+                  - generic [ref=e2004]:
+                    - generic [ref=e2006]:
+                      - generic [ref=e2007]: Division
+                      - generic [ref=e2008]: "*"
+                    - combobox [ref=e2009]:
+                      - option "Select Division" [selected]
+                      - option "Growth"
+                      - option "Hr Operations Management"
+                      - option "Recruitment"
+                      - option "Management Department"
+                      - option "Hr & Ga"
+                      - option "Operations Management"
+                      - option "Management"
+                      - option "Payroll & Comben"
+                      - option "Hr-Talent Acquisition"
+                      - option "Hr-People & Organization Development"
+                      - option "Hr Operations"
+                  - generic [ref=e2011]:
+                    - generic [ref=e2013]:
+                      - generic [ref=e2014]: Department
+                      - generic [ref=e2015]: "*"
+                    - combobox [ref=e2016]:
+                      - option "Select Department" [selected]
+                  - generic [ref=e2018]:
+                    - generic [ref=e2020]:
+                      - generic [ref=e2021]: Company
+                      - generic [ref=e2022]: "*"
+                    - combobox [ref=e2023]:
+                      - option "Select Company"
+                      - option "PT. Pendidikan Anak Bangsa" [selected]
+                      - option "PT. Tujuh Anugerah Makmur"
+                      - option "PT. Sumber Natural Indonesia"
+                      - option "PT. Cahaya Generasi Kreatif"
+                      - option "PT. Pohon Biru Jaya"
+                      - option "Test Mana"
+                      - option "Add new Tenant Test"
+                      - option "PT Ascendiz-Test"
+                      - option "PT Jaya Makmur"
+                      - option "PT Ini Company"
+                  - generic [ref=e2025]:
+                    - generic [ref=e2027]:
+                      - generic [ref=e2028]: Business Unit
+                      - generic [ref=e2029]: "*"
+                    - combobox [ref=e2030]:
+                      - option "Select Business Unit" [selected]
+                      - option "Sparks Education (CBO Office)"
+                      - option "Sparks English"
+                      - option "Sparks Sports Academy"
+                      - option "Sparks Math"
+                      - option "Sparks Preschool"
+                      - option "Sparks Music"
+                      - option "Sparks Swim"
+                      - option "Shared Service"
+                - generic [ref=e2031]:
+                  - generic [ref=e2033]:
+                    - generic [ref=e2035]:
+                      - generic [ref=e2036]: Job Title
+                      - generic [ref=e2037]: "*"
+                    - combobox [ref=e2038]:
+                      - option "Select Job Title" [selected]
+                      - option "Unskill"
+                      - option "Skill"
+                      - option "Wakil Mandor"
+                      - option "Mandor"
+                      - option "Dokter"
+                      - option "Recruitment Supervisor"
+                      - option "Recruitment Staff"
+                      - option "Hr Supervisor"
+                      - option "Talent Acquisition Associate Manager"
+                      - option "Strategy Ops. Assistant Manager"
+                      - option "Recruitment Specialist"
+                      - option "Vp Of Strategy & Operations"
+                      - option "Vp Of Corporate Finance"
+                      - option "Senior Manager Coo Office"
+                      - option "Product Growth Head"
+                      - option "Group Coo"
+                      - option "Generalist"
+                      - option "Evp Operations & Strategy"
+                      - option "Chief Of Staff"
+                      - option "CEO"
+                      - option "Business Unit Head"
+                      - option "Business Unit Director"
+                      - option "Avp, Head Of Data"
+                      - option "Assistant Vice President"
+                      - option "Payroll Senior Staff"
+                      - option "Payroll & Compensations Benefit Staff"
+                      - option "Payroll & Comben Supervisor"
+                      - option "Talent Acquisition Senior Manager"
+                      - option "Senior Talent Acquisition"
+                      - option "People Strategy Senior Manager"
+                      - option "People Strategy Intern"
+                      - option "People Strategy Associate Manager"
+                      - option "People Strategy Analyst"
+                      - option "Hr Manager"
+                  - generic [ref=e2040]:
+                    - generic [ref=e2042]:
+                      - generic [ref=e2043]: Management Level
+                      - generic [ref=e2044]: "*"
+                    - combobox [ref=e2045]:
+                      - option "Select Management Level" [selected]
+                      - option "Freelance"
+                      - option "Intern"
+                      - option "Junior Associate"
+                      - option "Associate"
+                      - option "Senior Associate"
+                      - option "Associate Manager"
+                      - option "Manager"
+                      - option "Senior Manager"
+                      - option "AVP"
+                      - option "VP"
+                      - option "EVP"
+                      - option "Chief"
+                      - option "CEO"
+                      - option "Staff"
+            - generic [ref=e2046]:
+              - generic [ref=e2048]:
+                - generic [ref=e2049]: Employee Documents
+                - generic [ref=e2050]:
+                  - generic [ref=e2052]:
+                    - generic [ref=e2054]:
+                      - generic [ref=e2055]: Document Name
+                      - generic [ref=e2056]: "*"
+                    - textbox "Enter document name" [ref=e2059]
+                  - generic [ref=e2062]:
+                    - generic [ref=e2063]: Document Type
+                    - combobox [ref=e2066]:
+                      - option "Select Doc. type" [selected]
+                      - option "KK"
+                      - option "KTP"
+                - generic [ref=e2067]:
+                  - generic [ref=e2069]:
+                    - generic [ref=e2070]: Valid From
+                    - textbox "Select date" [ref=e2072] [cursor=pointer]
+                  - generic [ref=e2074]:
+                    - generic [ref=e2075]: Valid To
+                    - textbox "Select date" [ref=e2077] [cursor=pointer]
+                - generic [ref=e2078]:
+                  - generic [ref=e2079]: File Upload
+                  - generic [ref=e2080]:
+                    - heading [level=5] [ref=e2087] [cursor=pointer]:
+                      - text: Drag and drop your files or
+                      - link "browse" [ref=e2088]:
+                        - /url: "#!"
+                      - text: your files
+                    - list:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - region "scrollable content"
+                - button "Save Document" [ref=e2090] [cursor=pointer]
+              - generic [ref=e2091]:
+                - generic [ref=e2092]: Employee Documents
+                - generic [ref=e2093]:
+                  - table [ref=e2095]:
+                    - rowgroup [ref=e2096]:
+                      - row [ref=e2097]:
+                        - columnheader "Document Type" [ref=e2098]
+                        - columnheader "Document File" [ref=e2100]
+                        - columnheader "Valid From" [ref=e2102]
+                        - columnheader "Valid To" [ref=e2104]
+                        - columnheader "Action" [ref=e2106]
+                    - rowgroup
+                  - heading "Sorry! No Result Found" [level=5] [ref=e2113]
+          - generic [ref=e1600]:
+            - button "Previous" [ref=e2115] [cursor=pointer]
+            - generic [ref=e1601]:
+              - button "Save" [ref=e1602] [cursor=pointer]
+              - button "Next" [disabled] [ref=e1604]
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz

@@ -1,0 +1,438 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e91]:
+      - generic [ref=e94]:
+        - button [ref=e95] [cursor=pointer]
+        - generic [ref=e99]:
+          - button [ref=e101] [cursor=pointer]
+          - button [ref=e109] [cursor=pointer]
+          - button "0" [ref=e116] [cursor=pointer]
+          - button [ref=e126] [cursor=pointer]
+    - generic [ref=e129]:
+      - heading "Shopping Cart 0" [level=5] [ref=e132]:
+        - text: Shopping Cart
+        - generic [ref=e133]: "0"
+      - button [ref=e135] [cursor=pointer]
+    - generic [ref=e140]:
+      - generic [ref=e143]:
+        - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+        - paragraph [ref=e145]: Choose your themes & layouts etc.
+      - button [ref=e147] [cursor=pointer]
+    - generic [ref=e151]:
+      - generic [ref=e152]: 
+      - region "scrollable content" [ref=e159]:
+        - list [ref=e162]:
+          - listitem [ref=e163]:
+            - link "Homepage" [ref=e164] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e170]:
+            - link " Company" [ref=e171] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e177]: Company
+          - listitem [ref=e178]:
+            - link " Access Management" [ref=e179] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e185]: Access Management
+          - listitem [ref=e186]:
+            - link " Attendance Management" [ref=e187] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e196]: Attendance Management
+          - listitem [ref=e197]:
+            - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e207]: QR Face Attendance
+          - listitem [ref=e208]:
+            - link " Task Management" [ref=e209] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e214]: Task Management
+          - listitem [ref=e215]:
+            - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e222]: Employee Self Service
+            - text:  
+          - listitem [ref=e223]:
+            - link " Employee Management" [ref=e1214] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e231]: Employee Management
+          - listitem [ref=e232]:
+            - link " Payroll" [ref=e233] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e238]: Payroll
+            - text: 
+          - listitem [ref=e239]:
+            - link " Shift Management" [ref=e240] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e244]: Shift Management
+          - listitem [ref=e245]:
+            - link " Work Management" [ref=e246] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e251]: Work Management
+          - listitem [ref=e252]:
+            - link " Project Management" [ref=e253] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e258]: Project Management
+          - listitem [ref=e259]:
+            - link " Approval Management" [ref=e260] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e266]: Approval Management
+          - listitem [ref=e267]:
+            - link " Leave Management" [ref=e268] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e275]: Leave Management
+          - listitem [ref=e276]:
+            - link " Overtime Management" [ref=e277] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e283]: Overtime Management
+          - listitem [ref=e284]:
+            - link "Manage Notification" [ref=e285] [cursor=pointer]:
+              - /url: /notifications/manage
+          - listitem [ref=e292]:
+            - link " Performance" [ref=e293] [cursor=pointer]:
+              - /url: /employee/register#!
+              - text: 
+              - generic [ref=e298]: Performance
+          - listitem [ref=e299]:
+            - link "Audit Logs" [ref=e300] [cursor=pointer]:
+              - /url: /audit-logs
+    - generic [ref=e305]:
+      - generic [ref=e308]:
+        - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+        - paragraph [ref=e310]: Choose your themes & layouts etc.
+      - button [ref=e312] [cursor=pointer]
+    - generic [ref=e316]:
+      - generic [ref=e318]:
+        - generic [ref=e1215]:
+          - heading "Register Employee" [level=5] [ref=e1217]
+          - list [ref=e1218]:
+            - listitem [ref=e1219]:
+              - text: 
+              - link "Employee List" [ref=e1220] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e1221]: Register Employee
+        - generic [ref=e1226]:
+          - generic [ref=e1227]:
+            - generic [ref=e1228] [cursor=pointer]: 1. Employee Data
+            - generic [ref=e1229] [cursor=pointer]: 2. Employment Data
+            - generic [ref=e1230] [cursor=pointer]: 3. Payroll
+          - generic [ref=e1231]:
+            - generic [ref=e2757]:
+              - generic [ref=e2759]:
+                - generic [ref=e2760]: Tax & Payroll
+                - generic [ref=e2761]:
+                  - generic [ref=e2762]:
+                    - generic [ref=e2764]:
+                      - generic [ref=e2765]: Salary Type
+                      - generic [ref=e2766]: "*"
+                    - combobox [ref=e2767]:
+                      - option "Monthly" [selected]
+                      - option "Daily"
+                      - option "Shift-based"
+                  - generic [ref=e2768]:
+                    - generic [ref=e2770]:
+                      - generic [ref=e2771]: Currency
+                      - generic [ref=e2772]: "*"
+                    - combobox [ref=e2773]:
+                      - option "IDR" [selected]
+                      - option "USD"
+                  - generic [ref=e2774]:
+                    - generic [ref=e2776]:
+                      - generic [ref=e2777]: Basic Salary
+                      - generic [ref=e2778]: "*"
+                    - textbox "Rp 0" [ref=e2781]: Rp 5.000.000
+                - generic [ref=e2783]:
+                  - generic [ref=e2784]:
+                    - generic [ref=e2785]: Overtime Pay
+                    - textbox "Rp 0" [disabled] [ref=e2790]
+                  - generic [ref=e2792]:
+                    - generic [ref=e2793]: Day Off Pay
+                    - textbox "Rp 0" [disabled] [ref=e2798]
+                  - generic [ref=e2800]:
+                    - generic [ref=e2801]: JSHK Status
+                    - combobox [ref=e2804]:
+                      - option "Select JSHK Status"
+                      - option "Active" [selected]
+                      - option "Inactive"
+                - generic [ref=e2805]:
+                  - generic [ref=e2806]:
+                    - generic [ref=e2807]: Working Schedule
+                    - combobox [ref=e2810]:
+                      - option "Select Working Schedule"
+                      - option "5-2" [selected]
+                      - option "6-1"
+                  - generic [ref=e2811]:
+                    - generic [ref=e2812]: Bank Type
+                    - combobox [disabled] [ref=e2815]:
+                      - option "Select Bank Type"
+                      - option "Bank Bukopin"
+                      - option "Bank Central Asia" [selected]
+                      - option "Bank Permata"
+                      - option "Bank Rakyat Indonesia"
+                      - option "Others"
+                  - generic [ref=e2817]:
+                    - generic [ref=e2818]: Bank Name
+                    - combobox [ref=e2821]:
+                      - option "Select Bank"
+                      - option "Bank Central Asia" [selected]
+                      - option "Bank Rakyat Indonesia"
+                      - option "Bank Mandiri"
+                      - option "Bank Negara Indonesia"
+                      - option "Bank Tabungan Negara"
+                      - option "Bank CIMB Niaga"
+                      - option "Bank Danamon Indonesia"
+                      - option "Bank Permata"
+                      - option "Bank Syariah Indonesia"
+                      - option "Bank Panin"
+                      - option "Bank Maybank Indonesia"
+                      - option "Bank OCBC NISP"
+                      - option "Bank UOB Indonesia"
+                      - option "Bank Mega"
+                      - option "Bank BTPN"
+                      - option "Bank Muamalat Indonesia"
+                      - option "Bank Sinarmas"
+                      - option "Bank Commonwealth"
+                      - option "Bank HSBC Indonesia"
+                      - option "Citibank"
+                      - option "Standard Chartered Bank"
+                      - option "Bank DBS Indonesia"
+                      - option "Bank Bukopin"
+                      - option "Bank KEB Hana Indonesia"
+                      - option "Bank Mestika Dharma"
+                      - option "Bank Artha Graha Internasional"
+                      - option "Bank Mayapada Internasional"
+                      - option "Bank Ganesha"
+                      - option "Bank ICBC Indonesia"
+                      - option "Bank QNB Indonesia"
+                      - option "Bank Woori Saudara Indonesia 1906"
+                      - option "Bank Shinhan Indonesia"
+                      - option "Bank Maspion Indonesia"
+                      - option "Bank of India Indonesia"
+                      - option "Bank CTBC Indonesia"
+                      - option "Bank IBK Indonesia"
+                      - option "Bank SBI Indonesia"
+                      - option "Bank MNC Internasional"
+                      - option "Bank Nationalnobu"
+                      - option "Bank Ina Perdana"
+                      - option "Bank Sahabat Sampoerna"
+                      - option "Bank Mayora"
+                      - option "Bank Index Selindo"
+                      - option "Bank Mandiri Taspen"
+                      - option "Bank Victoria International"
+                      - option "Bank Mega Syariah"
+                      - option "Bank BCA Syariah"
+                      - option "Bank Panin Dubai Syariah"
+                      - option "Bank BTPN Syariah"
+                      - option "Bank Victoria Syariah"
+                      - option "Bank BJB Syariah"
+                      - option "Bank Aladin Syariah"
+                      - option "Bank BJB"
+                      - option "Bank Jago"
+                      - option "Bank Seabank Indonesia"
+                      - option "Bank Neo Commerce"
+                      - option "Bank Raya Indonesia"
+                      - option "Allo Bank Indonesia"
+                      - option "Bank Amar Indonesia"
+                      - option "Bank Oke Indonesia"
+                      - option "Bank Digital BCA"
+                      - option "Krom Bank Indonesia"
+                      - option "Bank DKI"
+                      - option "BPD DI Yogyakarta"
+                      - option "Bank Jateng"
+                      - option "Bank Jatim"
+                      - option "Bank Jambi"
+                      - option "Bank Aceh Syariah"
+                      - option "Bank Sumut"
+                      - option "Bank Nagari"
+                      - option "Bank Riau Kepri Syariah"
+                      - option "Bank Sumsel Babel"
+                      - option "Bank Lampung"
+                      - option "Bank Kalsel"
+                      - option "Bank Kalbar"
+                      - option "Bank Kaltimtara"
+                      - option "Bank Kalteng"
+                      - option "Bank Sulselbar"
+                      - option "Bank SulutGo"
+                      - option "Bank NTB Syariah"
+                      - option "Bank BPD Bali"
+                      - option "Bank NTT"
+                      - option "Bank Maluku Malut"
+                      - option "Bank Papua"
+                      - option "Bank Bengkulu"
+                      - option "Bank Sulteng"
+                      - option "Bank Sultra"
+                - generic [ref=e2822]:
+                  - generic [ref=e2824]:
+                    - generic [ref=e2825]: Bank Branch
+                    - textbox "Enter bank branch" [ref=e2830]: Jakarta
+                  - generic [ref=e2833]:
+                    - generic [ref=e2834]: Bank Account Number
+                    - textbox "Enter account number" [ref=e2839]: "1234567890"
+                  - generic [ref=e2842]:
+                    - generic [ref=e2843]: Account Holder
+                    - textbox "Enter account holder" [ref=e2848]: Play Right
+                - generic [ref=e2850]:
+                  - generic [ref=e2852]:
+                    - generic [ref=e2854]:
+                      - generic [ref=e2855]: Cost Center
+                      - generic [ref=e2856]: "*"
+                    - combobox [ref=e2857]:
+                      - option "Select Cost Center"
+                      - option "In-Direct" [selected]
+                      - option "HRGA"
+                      - option "Product"
+                  - generic [ref=e2859]:
+                    - checkbox "Has NPWP" [checked] [ref=e2861] [cursor=pointer]
+                    - generic [ref=e2863] [cursor=pointer]: Has NPWP
+                - generic [ref=e3013]:
+                  - generic [ref=e3015]:
+                    - generic [ref=e3017]:
+                      - generic [ref=e3018]: NPWP (Tax ID)
+                      - generic [ref=e3019]: "*"
+                    - textbox "Enter NPWP" [ref=e3022]: "123456789012345"
+                  - generic [ref=e3024]:
+                    - generic [ref=e3025]: Registered NPWP Date
+                    - text: "*"
+                    - textbox "Select date" [ref=e3027] [cursor=pointer]: 2026-07-16
+                - generic [ref=e2864]:
+                  - generic [ref=e2866]:
+                    - generic [ref=e2867]: Tax Marital Status
+                    - combobox [ref=e2870]:
+                      - option "Select Tax Marital Status"
+                      - option "TK/0" [selected]
+                      - option "TK/1"
+                      - option "TK/2"
+                      - option "TK/3"
+                      - option "K/0"
+                      - option "K/1"
+                      - option "K/2"
+                      - option "K/3"
+                  - generic [ref=e2872]:
+                    - generic [ref=e2873]: Tax Method
+                    - combobox [ref=e2879]:
+                      - option "Gross" [selected]
+                      - option "Netto"
+                      - option "THP"
+              - generic [ref=e2881]:
+                - generic [ref=e2882]: Social Security (BPJS)
+                - generic [ref=e2883]:
+                  - generic [ref=e2884]:
+                    - generic [ref=e2885]: BPJS Ketenagakerjaan Number
+                    - textbox "No BPJS Ketenagakerjaan" [ref=e2890]
+                  - generic [ref=e2892]:
+                    - generic [ref=e2893]: NPP BPJS Ketenagakerjaan
+                    - combobox [ref=e2896]:
+                      - option "Select NPP" [selected]
+                      - option "Default NPP BPJS TK"
+                - generic [ref=e2897]:
+                  - generic [ref=e2898]:
+                    - generic [ref=e2899]: BPJS Kesehatan Number
+                    - textbox "No BPJS Kesehatan" [ref=e2904]
+                  - generic [ref=e2906]:
+                    - generic [ref=e2907]: BPJS Kesehatan Cost
+                    - combobox [ref=e2910]:
+                      - option "Not Paid"
+                      - option "Paid by Company"
+                      - option "Paid by Employee" [selected]
+                - generic [ref=e2911]:
+                  - generic [ref=e2912]:
+                    - generic [ref=e2913]: Jaminan Hari Tua Cost
+                    - combobox [ref=e2916]:
+                      - option "Not Paid"
+                      - option "Paid by Company"
+                      - option "Paid by Employee" [selected]
+                  - generic [ref=e2917]:
+                    - generic [ref=e2918]: Jaminan Pensiun Cost
+                    - combobox [ref=e2921]:
+                      - option "Not Paid"
+                      - option "Paid by Company"
+                      - option "Paid by Employee" [selected]
+              - generic [ref=e2923]:
+                - generic [ref=e2924]:
+                  - generic [ref=e2925]: Payroll Components
+                  - button "Add" [ref=e2928] [cursor=pointer]
+                - table [ref=e2931]:
+                  - rowgroup [ref=e2932]:
+                    - row [ref=e2933]:
+                      - columnheader "No" [ref=e2934]
+                      - columnheader "Payroll Component" [ref=e2935]
+                      - columnheader "Amount" [ref=e2936]
+                      - columnheader "Action" [ref=e2937]
+                  - rowgroup [ref=e2938]:
+                    - row [ref=e2939]:
+                      - cell "1" [ref=e2940]
+                      - cell [ref=e2941]:
+                        - combobox [ref=e2943]:
+                          - option "Select Component"
+                          - option "Basic Salary"
+                          - option "Upah Makan"
+                          - option "Tunjangan Jabatan" [selected]
+                          - option "Transportation Allowance"
+                      - cell [ref=e2944]:
+                        - textbox "Enter amount" [ref=e2948]: Rp 100.000
+                      - cell [ref=e2950]:
+                        - button [ref=e2951] [cursor=pointer]
+                    - row [ref=e2955]:
+                      - cell "2" [ref=e2956]
+                      - cell [ref=e2957]:
+                        - combobox [ref=e2959]:
+                          - option "Select Component"
+                          - option "Basic Salary"
+                          - option "Upah Makan"
+                          - option "Tunjangan Transport" [selected]
+                          - option "Transportation Allowance"
+                      - cell [ref=e2960]:
+                        - textbox "Enter amount" [ref=e2964]: Rp 10.000
+                      - cell [ref=e2966]:
+                        - button [ref=e2967] [cursor=pointer]
+                    - row [ref=e2971]:
+                      - cell "3" [ref=e2972]
+                      - cell [ref=e2973]:
+                        - combobox [ref=e2975]:
+                          - option "Select Component"
+                          - option "Basic Salary"
+                          - option "Upah Makan"
+                          - option "Transportation Allowance"
+                          - option "Tunjangan Komunikasi" [selected]
+                      - cell [ref=e2976]:
+                        - textbox "Enter amount" [ref=e2980]: Rp 0
+                      - cell [ref=e2982]:
+                        - button [ref=e2983] [cursor=pointer]
+              - generic [ref=e2987]:
+                - generic [ref=e2988]:
+                  - generic [ref=e2989]: Assets
+                  - button "Add" [ref=e2992] [cursor=pointer]
+                - generic [ref=e2994]:
+                  - table [ref=e2996]:
+                    - rowgroup [ref=e2997]:
+                      - row [ref=e2998]:
+                        - columnheader "Asset" [ref=e2999]
+                        - columnheader "Qty" [ref=e3001]
+                        - columnheader "Description" [ref=e3003]
+                        - columnheader "Action" [ref=e3005]
+                    - rowgroup
+                  - heading "Sorry! No Result Found" [level=5] [ref=e3012]
+            - generic [ref=e1600]:
+              - button "Previous" [ref=e2115] [cursor=pointer]
+              - button "Save" [ref=e1602] [cursor=pointer]
+      - contentinfo [ref=e735]:
+        - generic [ref=e737]:
+          - generic [ref=e738]: 2026 © Ascendiz.
+          - generic [ref=e739]: Built by Ascendiz
+  - generic [ref=e3103] [cursor=pointer]:
+    - alert [ref=e3104]:
+      - generic [ref=e3105]: Your data has been successfully saved.
+    - button "close" [ref=e3106]
+    - progressbar [ref=e3109]

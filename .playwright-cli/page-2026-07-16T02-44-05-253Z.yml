@@ -1,0 +1,581 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [ref=e1214] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /employee/register#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - generic [ref=e1215]:
+        - heading "Register Employee" [level=5] [ref=e1217]
+        - list [ref=e1218]:
+          - listitem [ref=e1219]:
+            - text: 
+            - link "Employee List" [ref=e1220] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e1221]: Register Employee
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - generic [ref=e1228] [cursor=pointer]: 1. Employee Data
+          - generic [ref=e1229] [cursor=pointer]: 2. Employment Data
+          - generic [ref=e1230] [cursor=pointer]: 3. Payroll
+        - generic [ref=e1231]:
+          - generic [ref=e1232]:
+            - generic [ref=e1679]: Nationality is required
+            - generic [ref=e1233]:
+              - generic [ref=e1235]:
+                - generic [ref=e1236]: Account Info
+                - generic [ref=e1237]:
+                  - generic [ref=e1239]:
+                    - generic [ref=e1241]:
+                      - generic [ref=e1242]: Username
+                      - generic [ref=e1243]: "*"
+                    - textbox "Enter username" [ref=e1246]: Playright
+                  - generic [ref=e1249]:
+                    - generic [ref=e1251]:
+                      - generic [ref=e1252]: Email Address
+                      - generic [ref=e1253]: "*"
+                    - textbox "Email Address" [ref=e1259]: play.right@gmail.com
+                  - generic [ref=e1262]:
+                    - generic [ref=e1264]:
+                      - generic [ref=e1265]: Phone Number
+                      - generic [ref=e1266]: "*"
+                    - generic [ref=e1267]:
+                      - generic [ref=e1269]:
+                        - img "Indonesia" [ref=e1270]
+                        - generic [ref=e1271]: "+62"
+                      - textbox "Phone number" [ref=e1272]: "81234567890"
+                  - generic [ref=e1275]:
+                    - generic [ref=e1276]: Password
+                    - textbox "Password" [ref=e1284]: Password123!
+              - generic [ref=e1287]:
+                - generic [ref=e1288]: Personal Info
+                - generic [ref=e1289]:
+                  - generic [ref=e1290]:
+                    - generic [ref=e1292]:
+                      - generic [ref=e1294]:
+                        - generic [ref=e1295]: First Name
+                        - generic [ref=e1296]: "*"
+                      - textbox "Enter your first name" [ref=e1299]: Play
+                    - generic [ref=e1301]:
+                      - generic [ref=e1302]: Last Name
+                      - textbox "Enter your last name" [ref=e1307]: Right
+                    - generic [ref=e1310]:
+                      - generic [ref=e1312]:
+                        - generic [ref=e1313]: Gender
+                        - generic [ref=e1314]: "*"
+                      - combobox [ref=e1315]:
+                        - option "Select Gender"
+                        - option "Male" [selected]
+                        - option "Female"
+                  - generic [ref=e1316]:
+                    - generic [ref=e1318]:
+                      - generic [ref=e1319]: Date of Birth
+                      - text: "*"
+                      - textbox "Select date" [ref=e1321] [cursor=pointer]: 15-07-1990
+                    - generic [ref=e1324]:
+                      - generic [ref=e1326]:
+                        - generic [ref=e1327]: Place of Birth
+                        - generic [ref=e1328]: "*"
+                      - textbox "Enter your place of birth" [ref=e1331]: Jakarta
+                    - generic [ref=e1334]:
+                      - generic [ref=e1335]: Age
+                      - textbox [disabled] [ref=e1340]: 0 years 0 months
+                  - generic [ref=e1342]:
+                    - generic [ref=e1344]:
+                      - generic [ref=e1346]:
+                        - generic [ref=e1347]: Last Education
+                        - generic [ref=e1348]: "*"
+                      - combobox [ref=e1349]:
+                        - option "Select Last Education"
+                        - option "SD (Sekolah Dasar)"
+                        - option "SMP / MTs (Sekolah Menengah Pertama / Madrasah Tsanawiyah) / SLTP"
+                        - option "SMA (Sekolah Menengah Atas) / SLTA / SMU"
+                        - option "SMK (Sekolah Menengah Kejuruan) / SLTA / STM"
+                        - option "MA (Madrasah Aliyah) / SLTA"
+                        - option "D1 (Diploma 1)"
+                        - option "D2 (Diploma 2)"
+                        - option "D3 (Diploma 3 / Ahli Madya)"
+                        - option "D4 (Diploma 4 / Sarjana Terapan)"
+                        - option "S1 (Sarjana)" [selected]
+                        - option "S2 (Magister)"
+                        - option "S3 (Doktor)"
+                    - generic [ref=e1351]:
+                      - generic [ref=e1353]:
+                        - generic [ref=e1354]: Institution
+                        - generic [ref=e1355]: "*"
+                      - textbox "Enter Institution" [ref=e1358]: Universitas Indonesia
+                  - generic [ref=e1360]:
+                    - generic [ref=e1363]:
+                      - generic [ref=e1365]:
+                        - generic [ref=e1366]: KTP Number
+                        - generic [ref=e1367]: "*"
+                      - textbox "Enter KTP Number" [ref=e1370]: "1234567890123456"
+                    - generic [ref=e1372]:
+                      - generic [ref=e1373]:
+                        - generic [ref=e1375]:
+                          - generic [ref=e1376]: Nationality
+                          - generic [ref=e1377]: "*"
+                        - generic [ref=e1378]:
+                          - textbox "Search Nationality" [active] [ref=e1380]
+                          - list [ref=e1682]:
+                            - listitem [ref=e1683] [cursor=pointer]: Select Nationality
+                            - listitem [ref=e1684] [cursor=pointer]: Indonesia
+                            - listitem [ref=e1685] [cursor=pointer]: Afghanistan
+                            - listitem [ref=e1686] [cursor=pointer]: Albania
+                            - listitem [ref=e1687] [cursor=pointer]: Algeria
+                            - listitem [ref=e1688] [cursor=pointer]: Andorra
+                            - listitem [ref=e1689] [cursor=pointer]: Angola
+                            - listitem [ref=e1690] [cursor=pointer]: Antarctica
+                            - listitem [ref=e1691] [cursor=pointer]: Argentina
+                            - listitem [ref=e1692] [cursor=pointer]: Armenia
+                            - listitem [ref=e1693] [cursor=pointer]: Aruba
+                            - listitem [ref=e1694] [cursor=pointer]: Australia
+                            - listitem [ref=e1695] [cursor=pointer]: Austria
+                            - listitem [ref=e1696] [cursor=pointer]: Azerbaijan
+                            - listitem [ref=e1697] [cursor=pointer]: Bahrain
+                            - listitem [ref=e1698] [cursor=pointer]: Bangladesh
+                            - listitem [ref=e1699] [cursor=pointer]: Belarus
+                            - listitem [ref=e1700] [cursor=pointer]: Belgium
+                            - listitem [ref=e1701] [cursor=pointer]: Belize
+                            - listitem [ref=e1702] [cursor=pointer]: Benin
+                            - listitem [ref=e1703] [cursor=pointer]: Bhutan
+                            - listitem [ref=e1704] [cursor=pointer]: Bolivia
+                            - listitem [ref=e1705] [cursor=pointer]: Bosnia and Herzegovina
+                            - listitem [ref=e1706] [cursor=pointer]: Botswana
+                            - listitem [ref=e1707] [cursor=pointer]: Brazil
+                            - listitem [ref=e1708] [cursor=pointer]: British Indian Ocean Territory
+                            - listitem [ref=e1709] [cursor=pointer]: Brunei
+                            - listitem [ref=e1710] [cursor=pointer]: Bulgaria
+                            - listitem [ref=e1711] [cursor=pointer]: Burkina Faso
+                            - listitem [ref=e1712] [cursor=pointer]: Burundi
+                            - listitem [ref=e1713] [cursor=pointer]: Cambodia
+                            - listitem [ref=e1714] [cursor=pointer]: Cameroon
+                            - listitem [ref=e1715] [cursor=pointer]: Canada
+                            - listitem [ref=e1716] [cursor=pointer]: Cape Verde
+                            - listitem [ref=e1717] [cursor=pointer]: Central African Republic
+                            - listitem [ref=e1718] [cursor=pointer]: Chad
+                            - listitem [ref=e1719] [cursor=pointer]: Chile
+                            - listitem [ref=e1720] [cursor=pointer]: China
+                            - listitem [ref=e1721] [cursor=pointer]: Christmas Island
+                            - listitem [ref=e1722] [cursor=pointer]: Cocos Islands
+                            - listitem [ref=e1723] [cursor=pointer]: Colombia
+                            - listitem [ref=e1724] [cursor=pointer]: Comoros
+                            - listitem [ref=e1725] [cursor=pointer]: Cook Islands
+                            - listitem [ref=e1726] [cursor=pointer]: Costa Rica
+                            - listitem [ref=e1727] [cursor=pointer]: Croatia
+                            - listitem [ref=e1728] [cursor=pointer]: Cuba
+                            - listitem [ref=e1729] [cursor=pointer]: Curacao
+                            - listitem [ref=e1730] [cursor=pointer]: Cyprus
+                            - listitem [ref=e1731] [cursor=pointer]: Czech Republic
+                            - listitem [ref=e1732] [cursor=pointer]: Democratic Republic of the Congo
+                            - listitem [ref=e1733] [cursor=pointer]: Denmark
+                            - listitem [ref=e1734] [cursor=pointer]: Djibouti
+                            - listitem [ref=e1735] [cursor=pointer]: East Timor
+                            - listitem [ref=e1736] [cursor=pointer]: Ecuador
+                            - listitem [ref=e1737] [cursor=pointer]: Egypt
+                            - listitem [ref=e1738] [cursor=pointer]: El Salvador
+                            - listitem [ref=e1739] [cursor=pointer]: Equatorial Guinea
+                            - listitem [ref=e1740] [cursor=pointer]: Eritrea
+                            - listitem [ref=e1741] [cursor=pointer]: Estonia
+                            - listitem [ref=e1742] [cursor=pointer]: Ethiopia
+                            - listitem [ref=e1743] [cursor=pointer]: Falkland Islands
+                            - listitem [ref=e1744] [cursor=pointer]: Faroe Islands
+                            - listitem [ref=e1745] [cursor=pointer]: Fiji
+                            - listitem [ref=e1746] [cursor=pointer]: Finland
+                            - listitem [ref=e1747] [cursor=pointer]: France
+                            - listitem [ref=e1748] [cursor=pointer]: French Polynesia
+                            - listitem [ref=e1749] [cursor=pointer]: Gabon
+                            - listitem [ref=e1750] [cursor=pointer]: Gambia
+                            - listitem [ref=e1751] [cursor=pointer]: Georgia
+                            - listitem [ref=e1752] [cursor=pointer]: Germany
+                            - listitem [ref=e1753] [cursor=pointer]: Ghana
+                            - listitem [ref=e1754] [cursor=pointer]: Gibraltar
+                            - listitem [ref=e1755] [cursor=pointer]: Greece
+                            - listitem [ref=e1756] [cursor=pointer]: Greenland
+                            - listitem [ref=e1757] [cursor=pointer]: Guatemala
+                            - listitem [ref=e1758] [cursor=pointer]: Guinea
+                            - listitem [ref=e1759] [cursor=pointer]: Guinea-Bissau
+                            - listitem [ref=e1760] [cursor=pointer]: Guyana
+                            - listitem [ref=e1761] [cursor=pointer]: Haiti
+                            - listitem [ref=e1762] [cursor=pointer]: Honduras
+                            - listitem [ref=e1763] [cursor=pointer]: Hong Kong
+                            - listitem [ref=e1764] [cursor=pointer]: Hungary
+                            - listitem [ref=e1765] [cursor=pointer]: Iceland
+                            - listitem [ref=e1766] [cursor=pointer]: India
+                            - listitem [ref=e1767] [cursor=pointer]: Iran
+                            - listitem [ref=e1768] [cursor=pointer]: Iraq
+                            - listitem [ref=e1769] [cursor=pointer]: Ireland
+                            - listitem [ref=e1770] [cursor=pointer]: Israel
+                            - listitem [ref=e1771] [cursor=pointer]: Italy
+                            - listitem [ref=e1772] [cursor=pointer]: Ivory Coast
+                            - listitem [ref=e1773] [cursor=pointer]: Japan
+                            - listitem [ref=e1774] [cursor=pointer]: Jordan
+                            - listitem [ref=e1775] [cursor=pointer]: Kazakhstan
+                            - listitem [ref=e1776] [cursor=pointer]: Kenya
+                            - listitem [ref=e1777] [cursor=pointer]: Kiribati
+                            - listitem [ref=e1778] [cursor=pointer]: Kosovo
+                            - listitem [ref=e1779] [cursor=pointer]: Kuwait
+                            - listitem [ref=e1780] [cursor=pointer]: Kyrgyzstan
+                            - listitem [ref=e1781] [cursor=pointer]: Laos
+                            - listitem [ref=e1782] [cursor=pointer]: Latvia
+                            - listitem [ref=e1783] [cursor=pointer]: Lebanon
+                            - listitem [ref=e1784] [cursor=pointer]: Lesotho
+                            - listitem [ref=e1785] [cursor=pointer]: Liberia
+                            - listitem [ref=e1786] [cursor=pointer]: Libya
+                            - listitem [ref=e1787] [cursor=pointer]: Liechtenstein
+                            - listitem [ref=e1788] [cursor=pointer]: Lithuania
+                            - listitem [ref=e1789] [cursor=pointer]: Luxembourg
+                            - listitem [ref=e1790] [cursor=pointer]: Macau
+                            - listitem [ref=e1791] [cursor=pointer]: Macedonia
+                            - listitem [ref=e1792] [cursor=pointer]: Madagascar
+                            - listitem [ref=e1793] [cursor=pointer]: Malawi
+                            - listitem [ref=e1794] [cursor=pointer]: Malaysia
+                            - listitem [ref=e1795] [cursor=pointer]: Maldives
+                            - listitem [ref=e1796] [cursor=pointer]: Mali
+                            - listitem [ref=e1797] [cursor=pointer]: Malta
+                            - listitem [ref=e1798] [cursor=pointer]: Marshall Islands
+                            - listitem [ref=e1799] [cursor=pointer]: Mauritania
+                            - listitem [ref=e1800] [cursor=pointer]: Mauritius
+                            - listitem [ref=e1801] [cursor=pointer]: Mayotte
+                            - listitem [ref=e1802] [cursor=pointer]: Mexico
+                            - listitem [ref=e1803] [cursor=pointer]: Micronesia
+                            - listitem [ref=e1804] [cursor=pointer]: Moldova
+                            - listitem [ref=e1805] [cursor=pointer]: Monaco
+                            - listitem [ref=e1806] [cursor=pointer]: Mongolia
+                            - listitem [ref=e1807] [cursor=pointer]: Montenegro
+                            - listitem [ref=e1808] [cursor=pointer]: Morocco
+                            - listitem [ref=e1809] [cursor=pointer]: Mozambique
+                            - listitem [ref=e1810] [cursor=pointer]: Myanmar
+                            - listitem [ref=e1811] [cursor=pointer]: Namibia
+                            - listitem [ref=e1812] [cursor=pointer]: Nauru
+                            - listitem [ref=e1813] [cursor=pointer]: Nepal
+                            - listitem [ref=e1814] [cursor=pointer]: Netherlands
+                            - listitem [ref=e1815] [cursor=pointer]: Netherlands Antilles
+                            - listitem [ref=e1816] [cursor=pointer]: New Caledonia
+                            - listitem [ref=e1817] [cursor=pointer]: New Zealand
+                            - listitem [ref=e1818] [cursor=pointer]: Nicaragua
+                            - listitem [ref=e1819] [cursor=pointer]: Niger
+                            - listitem [ref=e1820] [cursor=pointer]: Nigeria
+                            - listitem [ref=e1821] [cursor=pointer]: Niue
+                            - listitem [ref=e1822] [cursor=pointer]: North Korea
+                            - listitem [ref=e1823] [cursor=pointer]: Norway
+                            - listitem [ref=e1824] [cursor=pointer]: Oman
+                            - listitem [ref=e1825] [cursor=pointer]: Pakistan
+                            - listitem [ref=e1826] [cursor=pointer]: Palau
+                            - listitem [ref=e1827] [cursor=pointer]: Palestine
+                            - listitem [ref=e1828] [cursor=pointer]: Panama
+                            - listitem [ref=e1829] [cursor=pointer]: Papua New Guinea
+                            - listitem [ref=e1830] [cursor=pointer]: Paraguay
+                            - listitem [ref=e1831] [cursor=pointer]: Peru
+                            - listitem [ref=e1832] [cursor=pointer]: Philippines
+                            - listitem [ref=e1833] [cursor=pointer]: Pitcairn
+                            - listitem [ref=e1834] [cursor=pointer]: Poland
+                            - listitem [ref=e1835] [cursor=pointer]: Portugal
+                            - listitem [ref=e1836] [cursor=pointer]: Qatar
+                            - listitem [ref=e1837] [cursor=pointer]: Republic of the Congo
+                            - listitem [ref=e1838] [cursor=pointer]: Reunion
+                            - listitem [ref=e1839] [cursor=pointer]: Romania
+                            - listitem [ref=e1840] [cursor=pointer]: Russia
+                            - listitem [ref=e1841] [cursor=pointer]: Rwanda
+                            - listitem [ref=e1842] [cursor=pointer]: Saint Barthelemy
+                            - listitem [ref=e1843] [cursor=pointer]: Saint Helena
+                            - listitem [ref=e1844] [cursor=pointer]: Saint Martin
+                            - listitem [ref=e1845] [cursor=pointer]: Saint Pierre and Miquelon
+                            - listitem [ref=e1846] [cursor=pointer]: Samoa
+                            - listitem [ref=e1847] [cursor=pointer]: San Marino
+                            - listitem [ref=e1848] [cursor=pointer]: Sao Tome and Principe
+                            - listitem [ref=e1849] [cursor=pointer]: Saudi Arabia
+                            - listitem [ref=e1850] [cursor=pointer]: Senegal
+                            - listitem [ref=e1851] [cursor=pointer]: Serbia
+                            - listitem [ref=e1852] [cursor=pointer]: Seychelles
+                            - listitem [ref=e1853] [cursor=pointer]: Sierra Leone
+                            - listitem [ref=e1854] [cursor=pointer]: Singapore
+                            - listitem [ref=e1855] [cursor=pointer]: Slovakia
+                            - listitem [ref=e1856] [cursor=pointer]: Slovenia
+                            - listitem [ref=e1857] [cursor=pointer]: Solomon Islands
+                            - listitem [ref=e1858] [cursor=pointer]: Somalia
+                            - listitem [ref=e1859] [cursor=pointer]: South Africa
+                            - listitem [ref=e1860] [cursor=pointer]: South Korea
+                            - listitem [ref=e1861] [cursor=pointer]: South Sudan
+                            - listitem [ref=e1862] [cursor=pointer]: Spain
+                            - listitem [ref=e1863] [cursor=pointer]: Sri Lanka
+                            - listitem [ref=e1864] [cursor=pointer]: Sudan
+                            - listitem [ref=e1865] [cursor=pointer]: Suriname
+                            - listitem [ref=e1866] [cursor=pointer]: Svalbard and Jan Mayen
+                            - listitem [ref=e1867] [cursor=pointer]: Swaziland
+                            - listitem [ref=e1868] [cursor=pointer]: Sweden
+                            - listitem [ref=e1869] [cursor=pointer]: Switzerland
+                            - listitem [ref=e1870] [cursor=pointer]: Syria
+                            - listitem [ref=e1871] [cursor=pointer]: Taiwan
+                            - listitem [ref=e1872] [cursor=pointer]: Tajikistan
+                            - listitem [ref=e1873] [cursor=pointer]: Tanzania
+                            - listitem [ref=e1874] [cursor=pointer]: Thailand
+                            - listitem [ref=e1875] [cursor=pointer]: Togo
+                            - listitem [ref=e1876] [cursor=pointer]: Tokelau
+                            - listitem [ref=e1877] [cursor=pointer]: Tonga
+                            - listitem [ref=e1878] [cursor=pointer]: Tunisia
+                            - listitem [ref=e1879] [cursor=pointer]: Turkey
+                            - listitem [ref=e1880] [cursor=pointer]: Turkmenistan
+                            - listitem [ref=e1881] [cursor=pointer]: Tuvalu
+                            - listitem [ref=e1882] [cursor=pointer]: Uganda
+                            - listitem [ref=e1883] [cursor=pointer]: Ukraine
+                            - listitem [ref=e1884] [cursor=pointer]: United Arab Emirates
+                            - listitem [ref=e1885] [cursor=pointer]: United Kingdom
+                            - listitem [ref=e1886] [cursor=pointer]: Uruguay
+                            - listitem [ref=e1887] [cursor=pointer]: Uzbekistan
+                            - listitem [ref=e1888] [cursor=pointer]: Vanuatu
+                            - listitem [ref=e1889] [cursor=pointer]: Vatican
+                            - listitem [ref=e1890] [cursor=pointer]: Venezuela
+                            - listitem [ref=e1891] [cursor=pointer]: Vietnam
+                            - listitem [ref=e1892] [cursor=pointer]: Wallis and Futuna
+                            - listitem [ref=e1893] [cursor=pointer]: Western Sahara
+                            - listitem [ref=e1894] [cursor=pointer]: Yemen
+                            - listitem [ref=e1895] [cursor=pointer]: Zambia
+                            - listitem [ref=e1896] [cursor=pointer]: Zimbabwe
+                            - listitem [ref=e1897] [cursor=pointer]: Palestine
+                      - text: Nationality is required
+                    - generic [ref=e1382]:
+                      - generic [ref=e1384]:
+                        - generic [ref=e1385]: Personal Email
+                        - generic [ref=e1386]: "*"
+                      - textbox "Enter your personal email" [ref=e1389]: play.right@gmail.com
+                  - generic [ref=e1391]:
+                    - generic [ref=e1393]:
+                      - generic [ref=e1395]:
+                        - generic [ref=e1396]: Religion
+                        - generic [ref=e1397]: "*"
+                      - combobox [ref=e1398]:
+                        - option "Select Religion"
+                        - option "Christianity"
+                        - option "Catholicism"
+                        - option "Islam" [selected]
+                        - option "Hinduism"
+                        - option "Buddhism"
+                        - option "Confucianism"
+                        - option "Others"
+                    - generic [ref=e1400]:
+                      - generic [ref=e1402]:
+                        - generic [ref=e1403]: Marital Status
+                        - generic [ref=e1404]: "*"
+                      - combobox [ref=e1405]:
+                        - option "Select Marital Status"
+                        - option "Single" [selected]
+                        - option "Married"
+                        - option "Divorced"
+                    - generic [ref=e1407]:
+                      - generic [ref=e1408]: Blood Type
+                      - combobox [ref=e1411]:
+                        - option "Select Blood Type"
+                        - option "A" [selected]
+                        - option "B"
+                        - option "AB"
+                        - option "O"
+              - generic [ref=e1413]:
+                - generic [ref=e1414]: Address
+                - generic [ref=e1415]: KTP Address
+                - generic [ref=e1416]:
+                  - generic [ref=e1418]:
+                    - generic [ref=e1419]: Province
+                    - textbox "Enter province" [ref=e1424]: DKI Jakarta
+                  - generic [ref=e1427]:
+                    - generic [ref=e1428]: City
+                    - textbox "Enter city" [ref=e1433]: Jakarta Selatan
+                - generic [ref=e1435]:
+                  - generic [ref=e1437]:
+                    - generic [ref=e1438]: District
+                    - textbox "Enter district" [ref=e1443]: Kebayoran Baru
+                  - generic [ref=e1446]:
+                    - generic [ref=e1447]: Sub District
+                    - textbox "Enter sub district" [ref=e1452]: Cipete
+                - generic [ref=e1454]:
+                  - generic [ref=e1456]:
+                    - generic [ref=e1457]: Postal Code
+                    - textbox "Enter postal code" [ref=e1462]: "12345"
+                  - generic [ref=e1465]:
+                    - generic [ref=e1466]: RT
+                    - textbox "Enter RT" [ref=e1471]: "001"
+                  - generic [ref=e1474]:
+                    - generic [ref=e1475]: RW
+                    - textbox "Enter RW" [ref=e1480]: "002"
+                - generic [ref=e1483]:
+                  - generic [ref=e1484]: Address Details
+                  - textbox "Enter address details" [ref=e1489]: Jl. Cipete Raya No. 10
+                - generic [ref=e1491]: Residential Address
+                - generic [ref=e1492] [cursor=pointer]:
+                  - checkbox "Same as KTP Address" [checked] [ref=e1493]
+                  - text: Same as KTP Address
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Province
+                        - generic:
+                          - textbox "Enter province": DKI Jakarta
+                    - generic:
+                      - generic:
+                        - generic: City
+                        - generic:
+                          - textbox "Enter city": Jakarta Selatan
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: District
+                        - generic:
+                          - textbox "Enter district": Kebayoran Baru
+                    - generic:
+                      - generic:
+                        - generic: Sub District
+                        - generic:
+                          - textbox "Enter sub district": Cipete
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Postal Code
+                        - generic:
+                          - textbox "Enter postal code": "12345"
+                    - generic:
+                      - generic:
+                        - generic: RT
+                        - generic:
+                          - textbox "Enter RT": "001"
+                    - generic:
+                      - generic:
+                        - generic: RW
+                        - generic:
+                          - textbox "Enter RW": "002"
+                  - generic:
+                    - generic:
+                      - generic: Address Details
+                      - generic:
+                        - textbox "Enter address details": Jl. Cipete Raya No. 10
+              - generic [ref=e1571]:
+                - generic [ref=e1572]:
+                  - generic [ref=e1573]: Emergency Contacts
+                  - button "Add" [ref=e1576] [cursor=pointer]
+                - generic [ref=e1578]:
+                  - table [ref=e1580]:
+                    - rowgroup [ref=e1581]:
+                      - row [ref=e1582]:
+                        - columnheader "No" [ref=e1583]
+                        - columnheader "Name" [ref=e1585]
+                        - columnheader "Relationship" [ref=e1587]
+                        - columnheader "Phone" [ref=e1589]
+                        - columnheader "Action" [ref=e1591]
+                    - rowgroup
+                  - heading "Sorry! No Result Found" [level=5] [ref=e1598]
+          - generic [ref=e1601]:
+            - button "Save" [ref=e1602] [cursor=pointer]
+            - button "Next" [disabled] [ref=e1604]
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz

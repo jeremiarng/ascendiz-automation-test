@@ -1,0 +1,502 @@
+- generic [ref=e2]:
+  - banner [ref=e91]:
+    - generic [ref=e94]:
+      - button [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button [ref=e101] [cursor=pointer]
+        - button [ref=e109] [cursor=pointer]
+        - button "0" [ref=e116] [cursor=pointer]
+        - button [ref=e126] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "Shopping Cart 0" [level=5] [ref=e132]:
+      - text: Shopping Cart
+      - generic [ref=e133]: "0"
+    - button [ref=e135] [cursor=pointer]
+  - generic [ref=e140]:
+    - generic [ref=e143]:
+      - heading "Tailwick Theme Customizer" [level=5] [ref=e144]
+      - paragraph [ref=e145]: Choose your themes & layouts etc.
+    - button [ref=e147] [cursor=pointer]
+  - generic [ref=e151]:
+    - generic [ref=e152]: 
+    - region "scrollable content" [ref=e159]:
+      - list [ref=e162]:
+        - listitem [ref=e163]:
+          - link "Homepage" [ref=e164] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e170]:
+          - link " Company" [ref=e171] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e177]: Company
+        - listitem [ref=e178]:
+          - link " Access Management" [ref=e179] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e185]: Access Management
+        - listitem [ref=e186]:
+          - link " Attendance Management" [ref=e187] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e196]: Attendance Management
+        - listitem [ref=e197]:
+          - link " QR Face Attendance" [ref=e198] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e207]: QR Face Attendance
+        - listitem [ref=e208]:
+          - link " Task Management" [ref=e209] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e214]: Task Management
+        - listitem [ref=e215]:
+          - link " Employee Self Service" [ref=e216] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e222]: Employee Self Service
+          - text:  
+        - listitem [ref=e223]:
+          - link " Employee Management" [active] [ref=e741] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e231]: Employee Management
+          - list [ref=e743]:
+            - listitem [ref=e744]:
+              - link "Employee Number" [ref=e745] [cursor=pointer]:
+                - /url: /employee-number/list
+            - listitem [ref=e746]:
+              - link "Employee Data" [ref=e747] [cursor=pointer]:
+                - /url: /employee/list
+            - listitem [ref=e748]:
+              - link "Employee Change Type" [ref=e749] [cursor=pointer]:
+                - /url: /employee-change-type
+            - listitem [ref=e750]:
+              - link "Employee Change Request" [ref=e751] [cursor=pointer]:
+                - /url: /employee-change-request
+            - listitem [ref=e752]:
+              - link "Job Position Details" [ref=e753] [cursor=pointer]:
+                - /url: /job-positions
+            - listitem [ref=e754]:
+              - link "Grade" [ref=e755] [cursor=pointer]:
+                - /url: /grades
+            - listitem [ref=e756]:
+              - link "Department" [ref=e757] [cursor=pointer]:
+                - /url: /departments
+            - listitem [ref=e758]:
+              - link "Employee Type" [ref=e759] [cursor=pointer]:
+                - /url: /employee-types
+            - listitem [ref=e760]:
+              - link "Document Type" [ref=e761] [cursor=pointer]:
+                - /url: /document-types
+            - listitem [ref=e762]:
+              - link "Cost Center" [ref=e763] [cursor=pointer]:
+                - /url: /cost-centers
+            - listitem [ref=e764]:
+              - link "Location" [ref=e765] [cursor=pointer]:
+                - /url: /locations
+            - listitem [ref=e766]:
+              - link "Management Level" [ref=e767] [cursor=pointer]:
+                - /url: /management-levels
+            - listitem [ref=e768]:
+              - link "Contract History" [ref=e769] [cursor=pointer]:
+                - /url: /contract-histories
+            - listitem [ref=e770]:
+              - link "Training" [ref=e771] [cursor=pointer]:
+                - /url: /trainings
+        - listitem [ref=e232]:
+          - link " Payroll" [ref=e233] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e238]: Payroll
+          - text: 
+        - listitem [ref=e239]:
+          - link " Shift Management" [ref=e240] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e244]: Shift Management
+        - listitem [ref=e245]:
+          - link " Work Management" [ref=e246] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e251]: Work Management
+        - listitem [ref=e252]:
+          - link " Project Management" [ref=e253] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e258]: Project Management
+        - listitem [ref=e259]:
+          - link " Approval Management" [ref=e260] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e266]: Approval Management
+        - listitem [ref=e267]:
+          - link " Leave Management" [ref=e268] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e275]: Leave Management
+        - listitem [ref=e276]:
+          - link " Overtime Management" [ref=e277] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e283]: Overtime Management
+        - listitem [ref=e284]:
+          - link "Manage Notification" [ref=e285] [cursor=pointer]:
+            - /url: /notifications/manage
+        - listitem [ref=e292]:
+          - link " Performance" [ref=e293] [cursor=pointer]:
+            - /url: /#!
+            - text: 
+            - generic [ref=e298]: Performance
+        - listitem [ref=e299]:
+          - link "Audit Logs" [ref=e300] [cursor=pointer]:
+            - /url: /audit-logs
+  - generic [ref=e305]:
+    - generic [ref=e308]:
+      - heading "Ascendiz Theme Customizer" [level=5] [ref=e309]
+      - paragraph [ref=e310]: Choose your themes & layouts etc.
+    - button [ref=e312] [cursor=pointer]
+  - generic [ref=e316]:
+    - generic [ref=e318]:
+      - heading "Dashboard" [level=5] [ref=e321]
+      - generic [ref=e322]:
+        - generic [ref=e325]:
+          - generic [ref=e327]:
+            - heading "Contract Employees Expiracy" [level=6] [ref=e328]
+            - generic [ref=e330]:
+              - textbox "Search By" [ref=e335]
+              - combobox [ref=e339]:
+                - option "January"
+                - option "February"
+                - option "March"
+                - option "April"
+                - option "May"
+                - option "June"
+                - option "July" [selected]
+                - option "August"
+                - option "September"
+                - option "October"
+                - option "November"
+                - option "December"
+          - generic [ref=e341]:
+            - table [ref=e343]:
+              - rowgroup [ref=e344]:
+                - row [ref=e345]:
+                  - columnheader "Employee Code" [ref=e346]
+                  - columnheader "Employee Name" [ref=e348]
+                  - columnheader "Department" [ref=e350]
+                  - columnheader "Employee Type" [ref=e352]
+                  - columnheader "Original Hire Date" [ref=e354]
+                  - columnheader "Contract Start Date" [ref=e356]
+                  - columnheader "Contract End Date" [ref=e358]
+                  - columnheader "Work Tenure" [ref=e360]
+                  - columnheader "Remaining Contract Period" [ref=e362]
+              - rowgroup [ref=e364]:
+                - row [ref=e365]:
+                  - cell "2026060133" [ref=e366]
+                  - cell "tes" [ref=e367]
+                  - cell "Recruitment" [ref=e368]
+                  - cell "Contract" [ref=e369]
+                  - cell "5 June 2026" [ref=e370]
+                  - cell "5 June 2025" [ref=e371]
+                  - cell "5 July 2026" [ref=e372]
+                  - cell "1 Bulan 11 Hari" [ref=e373]
+                  - cell "Expired 11 days ago" [ref=e374]
+                - row [ref=e375]:
+                  - cell "2026060143" [ref=e376]
+                  - cell "test dokter 2" [ref=e377]
+                  - cell "Hr Operations" [ref=e378]
+                  - cell "Contract" [ref=e379]
+                  - cell "8 June 2026" [ref=e380]
+                  - cell "1 May 2026" [ref=e381]
+                  - cell "8 July 2026" [ref=e382]
+                  - cell "1 Bulan 8 Hari" [ref=e383]
+                  - cell "Expired 8 days ago" [ref=e384]
+            - generic [ref=e385]:
+              - paragraph [ref=e387]: Showing 2 of 2 Results
+              - list [ref=e389]:
+                - listitem [ref=e390]:
+                  - link [ref=e391]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e395]:
+                  - link "Prev" [ref=e396]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e399]:
+                  - link "1" [ref=e400] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e401]:
+                  - link "Next" [ref=e402]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e405]:
+                  - link [ref=e406]:
+                    - /url: javascript:void(0)
+        - generic [ref=e412]:
+          - generic [ref=e414]:
+            - heading "Employee Performance Summary" [level=6] [ref=e415]
+            - generic [ref=e417]:
+              - textbox "Search By" [ref=e422]
+              - textbox "Select date" [ref=e426] [cursor=pointer]: 09/07/2026 to 16/07/2026
+          - generic [ref=e428]:
+            - table [ref=e430]:
+              - rowgroup [ref=e431]:
+                - row [ref=e432]:
+                  - columnheader "Employee Code" [ref=e433]
+                  - columnheader [ref=e435] [cursor=pointer]
+                  - columnheader "Department" [ref=e439]
+                  - columnheader "Section" [ref=e441]
+                  - columnheader [ref=e443] [cursor=pointer]
+                  - columnheader [ref=e447] [cursor=pointer]
+                  - columnheader [ref=e451] [cursor=pointer]
+                  - columnheader [ref=e455] [cursor=pointer]
+                  - columnheader [ref=e459] [cursor=pointer]
+                  - columnheader [ref=e463] [cursor=pointer]
+                  - columnheader [ref=e467] [cursor=pointer]
+                  - columnheader [ref=e471] [cursor=pointer]
+                  - columnheader [ref=e475] [cursor=pointer]
+                  - columnheader [ref=e479] [cursor=pointer]
+              - rowgroup [ref=e483]:
+                - row [ref=e484]:
+                  - cell "2025040001" [ref=e485]
+                  - cell [ref=e486]
+                  - cell "-" [ref=e487]
+                  - cell "-" [ref=e488]
+                  - cell "0" [ref=e489]
+                  - cell "0" [ref=e490]
+                  - cell "0" [ref=e491]
+                  - cell "0" [ref=e492]
+                  - cell "0" [ref=e493]
+                  - cell "0" [ref=e494]
+                  - cell "0" [ref=e495]
+                  - cell "0" [ref=e496]
+                  - cell "0" [ref=e497]
+                  - cell "0" [ref=e498]
+                - row [ref=e499]:
+                  - cell "2025060103" [ref=e500]
+                  - cell "Admin 7R2" [ref=e501]
+                  - cell "Hr & Ga" [ref=e502]
+                  - cell "-" [ref=e503]
+                  - cell "0" [ref=e504]
+                  - cell "0" [ref=e505]
+                  - cell "0" [ref=e506]
+                  - cell "0" [ref=e507]
+                  - cell "0" [ref=e508]
+                  - cell "0" [ref=e509]
+                  - cell "0" [ref=e510]
+                  - cell "0" [ref=e511]
+                  - cell "0" [ref=e512]
+                  - cell "0" [ref=e513]
+                - row [ref=e514]:
+                  - cell "2024040034" [ref=e515]
+                  - cell "Albert Hans Christian M" [ref=e516]
+                  - cell "Management" [ref=e517]
+                  - cell "Management Department" [ref=e518]
+                  - cell "0" [ref=e519]
+                  - cell "0" [ref=e520]
+                  - cell "0" [ref=e521]
+                  - cell "0" [ref=e522]
+                  - cell "0" [ref=e523]
+                  - cell "0" [ref=e524]
+                  - cell "0" [ref=e525]
+                  - cell "0" [ref=e526]
+                  - cell "0" [ref=e527]
+                  - cell "0" [ref=e528]
+                - row [ref=e529]:
+                  - cell "2025120043" [ref=e530]
+                  - cell "Andrea Maria" [ref=e531]
+                  - cell "Hr & Ga" [ref=e532]
+                  - cell "Hr-People & Organization Development" [ref=e533]
+                  - cell "0" [ref=e534]
+                  - cell "0" [ref=e535]
+                  - cell "0" [ref=e536]
+                  - cell "0" [ref=e537]
+                  - cell "0" [ref=e538]
+                  - cell "0" [ref=e539]
+                  - cell "0" [ref=e540]
+                  - cell "0" [ref=e541]
+                  - cell "0" [ref=e542]
+                  - cell "0" [ref=e543]
+                - row [ref=e544]:
+                  - cell "2022050011" [ref=e545]
+                  - cell "Anniltal Manzilah" [ref=e546]
+                  - cell "Hr & Ga" [ref=e547]
+                  - cell "Hr Operations" [ref=e548]
+                  - cell "0" [ref=e549]
+                  - cell "0" [ref=e550]
+                  - cell "0" [ref=e551]
+                  - cell "0" [ref=e552]
+                  - cell "0" [ref=e553]
+                  - cell "0" [ref=e554]
+                  - cell "0" [ref=e555]
+                  - cell "0" [ref=e556]
+                  - cell "0" [ref=e557]
+                  - cell "0" [ref=e558]
+                - row [ref=e559]:
+                  - cell "2024060048" [ref=e560]
+                  - cell "Ardeliass Apti" [ref=e561]
+                  - cell "Recruitment" [ref=e562]
+                  - cell "Payroll & Comben" [ref=e563]
+                  - cell "0" [ref=e564]
+                  - cell "0" [ref=e565]
+                  - cell "0" [ref=e566]
+                  - cell "0" [ref=e567]
+                  - cell "0" [ref=e568]
+                  - cell "0" [ref=e569]
+                  - cell "0" [ref=e570]
+                  - cell "0" [ref=e571]
+                  - cell "0" [ref=e572]
+                  - cell "0" [ref=e573]
+                - row [ref=e574]:
+                  - cell "2026060190" [ref=e575]
+                  - cell "Bala bala" [ref=e576]
+                  - cell "Management" [ref=e577]
+                  - cell "Management Department" [ref=e578]
+                  - cell "0" [ref=e579]
+                  - cell "0" [ref=e580]
+                  - cell "0" [ref=e581]
+                  - cell "0" [ref=e582]
+                  - cell "0" [ref=e583]
+                  - cell "0" [ref=e584]
+                  - cell "0" [ref=e585]
+                  - cell "0" [ref=e586]
+                  - cell "0" [ref=e587]
+                  - cell "0" [ref=e588]
+                - row [ref=e589]:
+                  - cell "2026060191" [ref=e590]
+                  - cell "Bala bali" [ref=e591]
+                  - cell "Management" [ref=e592]
+                  - cell "Management Department" [ref=e593]
+                  - cell "0" [ref=e594]
+                  - cell "0" [ref=e595]
+                  - cell "0" [ref=e596]
+                  - cell "0" [ref=e597]
+                  - cell "0" [ref=e598]
+                  - cell "0" [ref=e599]
+                  - cell "0" [ref=e600]
+                  - cell "0" [ref=e601]
+                  - cell "0" [ref=e602]
+                  - cell "0" [ref=e603]
+                - row [ref=e604]:
+                  - cell "2026060192" [ref=e605]
+                  - cell "Bali bali" [ref=e606]
+                  - cell "Management" [ref=e607]
+                  - cell "Management Department" [ref=e608]
+                  - cell "0" [ref=e609]
+                  - cell "0" [ref=e610]
+                  - cell "0" [ref=e611]
+                  - cell "0" [ref=e612]
+                  - cell "0" [ref=e613]
+                  - cell "0" [ref=e614]
+                  - cell "0" [ref=e615]
+                  - cell "0" [ref=e616]
+                  - cell "0" [ref=e617]
+                  - cell "0" [ref=e618]
+                - row [ref=e619]:
+                  - cell "2026060127" [ref=e620]
+                  - cell "Bara" [ref=e621]
+                  - cell "Management" [ref=e622]
+                  - cell "Management Department" [ref=e623]
+                  - cell "0" [ref=e624]
+                  - cell "0" [ref=e625]
+                  - cell "0" [ref=e626]
+                  - cell "0" [ref=e627]
+                  - cell "0" [ref=e628]
+                  - cell "0" [ref=e629]
+                  - cell "0" [ref=e630]
+                  - cell "0" [ref=e631]
+                  - cell "0" [ref=e632]
+                  - cell "0" [ref=e633]
+            - generic [ref=e634]:
+              - paragraph [ref=e636]: Showing 10 of 268 Results
+              - list [ref=e638]:
+                - listitem [ref=e639]:
+                  - link [ref=e640]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e644]:
+                  - link "Prev" [ref=e645]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e648]:
+                  - link "1" [ref=e649] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e650]:
+                  - link "2" [ref=e651] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e652]:
+                  - link "3" [ref=e653] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e654]:
+                  - link "4" [ref=e655] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e656]:
+                  - link "5" [ref=e657] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e658]: ...
+                - listitem [ref=e659]:
+                  - link "16" [ref=e660] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e661]: ...
+                - listitem [ref=e662]:
+                  - link "27" [ref=e663] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e664]:
+                  - link "Next" [ref=e665] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                - listitem [ref=e668]:
+                  - link [ref=e669] [cursor=pointer]:
+                    - /url: javascript:void(0)
+        - generic [ref=e675]:
+          - generic [ref=e677]:
+            - heading "Overtime Recap" [level=6] [ref=e678]
+            - textbox "Select date" [ref=e681] [cursor=pointer]: 2026-07-16
+          - generic [ref=e684]:
+            - img [ref=e685]:
+              - generic [ref=e687]:
+                - generic [ref=e688]:
+                  - generic "120" [ref=e689]
+                  - generic "100" [ref=e690]
+                  - generic "80" [ref=e691]
+                  - generic "60" [ref=e692]
+                  - generic "40" [ref=e693]
+                  - generic "20" [ref=e694]
+                  - generic "0" [ref=e695]
+                - generic [ref=e696]: hour(s)
+              - generic [ref=e698]:
+                - generic [ref=e702]:
+                  - generic:
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 180m
+                    - generic: 420m
+                    - generic: 1620m
+                  - generic:
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 6060m
+                    - generic: 3539m
+                    - generic: 0m
+                  - generic:
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 1560m
+                  - generic:
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 0m
+                    - generic: 540m
+                    - generic: 120m
+                - generic [ref=e716]:
+                  - generic "Week -4" [ref=e717]
+                  - generic "Week -3" [ref=e718]
+                  - generic "Week -2" [ref=e719]
+                  - generic "Week -1" [ref=e720]
+                  - generic "Current Week" [ref=e721]
+            - generic [ref=e722]:
+              - generic [ref=e723] [cursor=pointer]: Hr & Ga
+              - generic [ref=e726] [cursor=pointer]: Hr Operations Management
+              - generic [ref=e729] [cursor=pointer]: Hr-People & Organization Development
+              - generic [ref=e732] [cursor=pointer]: Management
+            - generic: ● ● ● ●
+    - contentinfo [ref=e735]:
+      - generic [ref=e737]:
+        - generic [ref=e738]: 2026 © Ascendiz.
+        - generic [ref=e739]: Built by Ascendiz

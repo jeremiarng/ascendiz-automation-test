@@ -1,0 +1,38 @@
+- generic [ref=e3]:
+  - img "<Group>" [ref=e5]
+  - img "<Group>" [ref=e20]
+  - generic [ref=e35]:
+    - link [ref=e36] [cursor=pointer]:
+      - /url: "#!"
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - heading "Welcome Back !" [level=4] [ref=e39]
+        - paragraph [ref=e40]:
+          - text: Sign in to continue to
+          - text: Ascendiz - Business Performance Solutions
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e44]:
+            - generic [ref=e46]:
+              - generic [ref=e47]: UserName/ Email ID
+              - generic [ref=e48]: "*"
+            - textbox "Enter username or email" [ref=e51]
+          - generic [ref=e54]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: Password
+              - generic [ref=e58]: "*"
+            - textbox "Enter password" [ref=e61]
+          - generic [ref=e63]:
+            - checkbox "Remember me" [checked] [ref=e64] [cursor=pointer]
+            - generic [ref=e65] [cursor=pointer]: Remember me
+        - button "Sign In" [ref=e67] [cursor=pointer]
+        - heading "Sign In with" [level=5] [ref=e69]
+        - generic [ref=e73]:
+          - button "Sign in with Google. Opens in new tab" [ref=e75] [cursor=pointer]:
+            - generic [ref=e77]:
+              - img [ref=e79]
+              - generic [ref=e86]: Sign in with Google
+          - iframe
+        - paragraph [ref=e88]:
+          - link "Forgot password ?" [ref=e89] [cursor=pointer]:
+            - /url: /forgot-password
