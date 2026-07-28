@@ -1,6 +1,7 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -34,7 +35,7 @@ test.describe('Shift Request History API Tests - Negative Cases', () => {
     test('TC-07: GET /v1/shifts/all-transactions - Access All Transactions without Authentication', async ({ }, testInfo) => {
       const api = new ApiFixture(unauthContext, testInfo);
 
-      const { response } = await api.get('/api/v1/shifts/all-transactions', undefined, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.ALL_TRANSACTIONS, undefined, {
         resTitle: 'Response Body For Unauthenticated Request'
       });
       const status = response.status();
@@ -43,7 +44,7 @@ test.describe('Shift Request History API Tests - Negative Cases', () => {
     test('TC-11: GET /v1/shifts/subordinate-transactions - View Subordinate Requests without Manager Role', async ({ }, testInfo) => {
       const api = new ApiFixture(employeeContext, testInfo);
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/subordinate-transactions', undefined, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.SUBORDINATE_TRANSACTIONS, undefined, {
         resTitle: 'Response Body For Unauthorized Subordinate Request'
       });
       const status = response.status();
@@ -60,7 +61,7 @@ test.describe('Shift Request History API Tests - Negative Cases', () => {
     test('TC-08: GET /v1/shifts/transactions/:id - Get Request Details with non-existent ID', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
 
-      const { response } = await api.get('/api/v1/shifts/transactions/999999', undefined, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(999999), undefined, {
         resTitle: 'Response Body For Non-Existent Transaction ID'
       });
       const status = response.status();
@@ -69,7 +70,7 @@ test.describe('Shift Request History API Tests - Negative Cases', () => {
     test('TC-09: DELETE /v1/shifts/transactions/:id - Delete Request with non-existent ID', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
 
-      const { response } = await api.delete('/api/v1/shifts/transactions/999999', {
+      const { response } = await api.delete(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(999999), {
         resTitle: 'Response Body For Delete Non-Existent Transaction'
       });
       const status = response.status();
@@ -79,7 +80,7 @@ test.describe('Shift Request History API Tests - Negative Cases', () => {
       const api = new ApiFixture(adminContext, testInfo);
       const params = { start_date: '2026-06-30', end_date: '2026-06-01' };
 
-      const { response } = await api.get('/api/v1/shifts/all-transactions', params, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.ALL_TRANSACTIONS, params, {
         paramsTitle: 'Request Params For Invalid Date Range Filter'
       });
       const status = response.status();

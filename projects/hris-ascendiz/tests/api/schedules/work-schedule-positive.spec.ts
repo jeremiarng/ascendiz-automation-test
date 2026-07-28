@@ -6,7 +6,8 @@ import {
   getRandomItem,
   getNextJobPosition,
 } from "@hris-ascendiz/factories/work-schedule.factory";
-import { ApiFixture } from "@hris-ascendiz/fixtures/api.fixture";
+import { ApiFixture } from "@shared/fixtures/api.fixture";
+import { ENDPOINTS } from "@hris-ascendiz/config/endpoints";
 import { setAllureLabels } from "@shared/helpers/allure-labels";
 
 test.beforeEach(async ({}, testInfo) => {
@@ -30,7 +31,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
       },
     });
 
-    const compRes = await apiContext.get("/api/v1/tenants/10/companies");
+    const compRes = await apiContext.get(ENDPOINTS.TENANTS.COMPANIES(10));
     validCompanies =
       (await compRes.json()).companies?.filter(
         (c: any) => c.parent_company_id !== null,
@@ -38,7 +39,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
     if (validCompanies.length === 0)
       throw new Error("Data Company tidak ditemukan!");
 
-    const jobRes = await apiContext.get("/api/v1/positions?limit=30");
+    const jobRes = await apiContext.get(`${ENDPOINTS.POSITIONS}?limit=30`);
     validJobPositions = (await jobRes.json()).positions || [];
     if (validJobPositions.length === 0)
       throw new Error("Data Job Position tidak ditemukan!");
@@ -49,7 +50,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
   });
 
   test.describe("Read Schedules", () => {
-    test("GET /v1/schedules - Request with various parameters successfully", async ({}, testInfo) => {
+    test("TC-01: GET /v1/schedules - Request with various parameters successfully", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const params = {
         search: "day",
@@ -60,7 +61,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
       };
 
       const { response, responseBody } = await api.get(
-        "/api/v1/schedules",
+        ENDPOINTS.SCHEDULES.BASE,
         params,
         {
           paramsTitle: "Request Params For Checking Data",
@@ -75,7 +76,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
   });
 
   test.describe("Create Schedules (Isolated)", () => {
-    test("POST /v1/schedules - Create schedule successfully", async ({}, testInfo) => {
+    test("TC-02: POST /v1/schedules - Create schedule successfully", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       let localId: number | undefined;
       const payload = buildPayload({
@@ -87,7 +88,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
 
       try {
         const { response, responseBody } = await api.post(
-          "/api/v1/schedules",
+          ENDPOINTS.SCHEDULES.BASE,
           payload,
           {
             reqTitle: "Request Body For Normal Create Data",
@@ -99,11 +100,11 @@ test.describe("Schedules API Tests - Positive Cases", () => {
         expect(responseBody.schedule.name).toBe(payload.name);
         expect(localId).toBeDefined();
       } finally {
-        if (localId) await apiContext.delete(`/api/v1/schedules/${localId}`);
+        if (localId) await apiContext.delete(ENDPOINTS.SCHEDULES.BY_ID(localId));
       }
     });
 
-    test("POST /v1/schedules - Create with multiple scopes", async ({}, testInfo) => {
+    test("TC-03: POST /v1/schedules - Create with multiple scopes", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       let localId: number | undefined;
       const comp1 = validCompanies[0];
@@ -126,7 +127,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
 
       try {
         const { response, responseBody } = await api.post(
-          "/api/v1/schedules",
+          ENDPOINTS.SCHEDULES.BASE,
           payload,
           {
             reqTitle: "Request Body For Multiple Scopes Create",
@@ -140,11 +141,11 @@ test.describe("Schedules API Tests - Positive Cases", () => {
           payload.company_ids.length,
         );
       } finally {
-        if (localId) await apiContext.delete(`/api/v1/schedules/${localId}`);
+        if (localId) await apiContext.delete(ENDPOINTS.SCHEDULES.BY_ID(localId));
       }
     });
 
-    test("POST /v1/schedules - Can create if same time combination but existing is inactive", async ({}, testInfo) => {
+    test("TC-04: POST /v1/schedules - Can create if same time combination but existing is inactive", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       let createdIds: number[] = [];
 
@@ -157,7 +158,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
           break_end_time: "09:15",
         });
         const { response: res1, responseBody: body1 } = await api.post(
-          "/api/v1/schedules",
+          ENDPOINTS.SCHEDULES.BASE,
           payload1,
           {
             reqTitle: "Request Body For First Inactive Schedule",
@@ -179,7 +180,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
         });
 
         const { response: res2, responseBody: body2 } = await api.post(
-          "/api/v1/schedules",
+          ENDPOINTS.SCHEDULES.BASE,
           payload2,
           {
             reqTitle: "Request Body For Conflicting Active Schedule",
@@ -189,7 +190,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
         expect(res2.status()).toBe(201);
       } finally {
         for (const id of createdIds) {
-          await apiContext.delete(`/api/v1/schedules/${id}`);
+          await apiContext.delete(ENDPOINTS.SCHEDULES.BY_ID(id));
         }
       }
     });
@@ -229,7 +230,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
       });
 
       const { responseBody } = await api.post(
-        "/api/v1/schedules",
+        ENDPOINTS.SCHEDULES.BASE,
         initialPayload,
         {
           reqTitle: "Request Body For Dummy Data",
@@ -243,14 +244,14 @@ test.describe("Schedules API Tests - Positive Cases", () => {
     test.afterEach(async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       if (scheduleId) {
-        await api.delete(`/api/v1/schedules/${scheduleId}`, {
+        await api.delete(ENDPOINTS.SCHEDULES.BY_ID(scheduleId), {
           resTitle: "Response Body For Cleanup Delete Dummy Schedule",
         });
         scheduleId = 0;
       }
     });
 
-    test("PATCH /v1/schedules/:id - Update schedule valid fields", async ({}, testInfo) => {
+    test("TC-05: PATCH /v1/schedules/:id - Update schedule valid fields", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const payload = buildPayload({
         name: generateRandomName(),
@@ -259,7 +260,7 @@ test.describe("Schedules API Tests - Positive Cases", () => {
       });
 
       const { response, responseBody } = await api.patch(
-        `/api/v1/schedules/${scheduleId}`,
+        ENDPOINTS.SCHEDULES.BY_ID(scheduleId),
         payload,
         {
           reqTitle: "Request Body For Updating Schedule Data",
@@ -271,10 +272,10 @@ test.describe("Schedules API Tests - Positive Cases", () => {
       expect(responseBody.schedule.end_time).toBe(payload.end_time);
     });
 
-    test("DELETE /v1/schedules/:id - Delete success", async ({}, testInfo) => {
+    test("TC-06: DELETE /v1/schedules/:id - Delete success", async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const { response, responseBody } = await api.delete(
-        `/api/v1/schedules/${scheduleId}`,
+        ENDPOINTS.SCHEDULES.BY_ID(scheduleId),
         {
           resTitle: "Response Body For Deleted Schedule",
         },

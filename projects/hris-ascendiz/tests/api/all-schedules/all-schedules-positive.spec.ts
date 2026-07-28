@@ -1,7 +1,8 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildTransactionPayload, buildScheduleUpdatePayload } from '@hris-ascendiz/factories/all-schedules.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 import { z } from 'zod';
 
@@ -38,18 +39,18 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
   });
 
   test.describe('Read Schedules based on Role', () => {
-    test('GET /v1/shifts/schedules - View Schedule Calendar (Admin)', async ({ }, testInfo) => {
+    test('TC-01: GET /v1/shifts/schedules - View Schedule Calendar (Admin)', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
       const params = { offset: 0, limit: 10, start_date: '2026-06-21', end_date: '2026-06-27' };
 
-      const { response } = await api.get('/api/v1/shifts/schedules', params, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.SCHEDULES, params, {
         paramsTitle: 'Request Params For Admin View Schedules',
       });
       const status = response.status();
       expect([200].includes(status), `Expected: 200, but Received: ${status}`).toBeTruthy();
     });
 
-    test('GET /v1/shifts/schedules - View with various filter parameters (Admin)', async ({ }, testInfo) => {
+    test('TC-02: GET /v1/shifts/schedules - View with various filter parameters (Admin)', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
       const params = {
         employee_name: 'salsa',
@@ -59,7 +60,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         department_id: Number(process.env.DEPARTMENT_ID),
       };
 
-      const { response, responseBody } = await api.get('/api/v1/shifts/schedules', params, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.SCHEDULES, params, {
         paramsTitle: 'Request Params For Filtered Admin View',
       });
       const status = response.status();
@@ -73,18 +74,18 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       }
     });
 
-    test('GET /v1/shifts/subordinate-schedules - View Subordinate Schedule Calendar (Manager)', async ({ }, testInfo) => {
+    test('TC-03: GET /v1/shifts/subordinate-schedules - View Subordinate Schedule Calendar (Manager)', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
-      const { response } = await api.get('/api/v1/shifts/subordinate-schedules', undefined, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.SUBORDINATE_SCHEDULES, undefined, {
         resTitle: 'Response Body For Subordinate Schedules',
       });
       const status = response.status();
       expect([200].includes(status), `Expected: 200, but Received: ${status}`).toBeTruthy();
     });
 
-    test('GET /v1/shifts/my-schedules - View My Schedules (Employee)', async ({ }, testInfo) => {
+    test('TC-04: GET /v1/shifts/my-schedules - View My Schedules (Employee)', async ({ }, testInfo) => {
       const api = new ApiFixture(employeeContext, testInfo);
-      const { response } = await api.get('/api/v1/shifts/my-schedules', undefined, {
+      const { response } = await api.get(ENDPOINTS.SHIFTS.MY_SCHEDULES, undefined, {
         resTitle: 'Response Body For My Schedules',
       });
       const status = response.status();
@@ -99,17 +100,17 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       const api = new ApiFixture(managerContext, testInfo);
       for (const record of createdRecords) {
         for (const scheduleId of record.scheduleIds) {
-          await api.delete(`/api/v1/shifts/schedules/${scheduleId}`, {
+          await api.delete(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(scheduleId), {
             resTitle: 'Response Body For Cleanup Delete Schedule',
           });
         }
-        await api.delete(`/api/v1/shifts/transactions/${record.transactionId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(record.transactionId), {
           resTitle: 'Response Body For Cleanup Delete Transaction',
         });
       }
     });
 
-    test('POST /v1/shifts/transactions - Assign Day Off Schedule', async ({ }, testInfo) => {
+    test('TC-05: POST /v1/shifts/transactions - Assign Day Off Schedule', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const payload = buildTransactionPayload(masterEmployeeIds, {
         schedule_type: 'manual',
@@ -124,7 +125,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         break_end_time: '',
       });
 
-      const { response, responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Day Off Schedule Assign',
       });
 
@@ -142,7 +143,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       }
     });
 
-    test('POST /v1/shifts/transactions - Assign Multiple Shift Schedule', async ({ }, testInfo) => {
+    test('TC-06: POST /v1/shifts/transactions - Assign Multiple Shift Schedule', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const payload = buildTransactionPayload(masterEmployeeIds, {
         schedule_type: 'shift_schedule',
@@ -164,7 +165,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         is_break_end_time_next_day: false,
       });
 
-      const { response, responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Multiple Shift Assign',
       });
 
@@ -182,7 +183,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       }
     });
 
-    test('POST /v1/shifts/transactions - Assign Multiple Shift Template', async ({ }, testInfo) => {
+    test('TC-07: POST /v1/shifts/transactions - Assign Multiple Shift Template', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const payload = buildTransactionPayload(masterEmployeeIds, {
         schedule_type: 'shift_schedule',
@@ -206,7 +207,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         is_break_end_time_next_day: false,
       });
 
-      const { response, responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Multiple Shift Template Assign',
       });
 
@@ -224,7 +225,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       }
     });
 
-    test('POST /v1/shifts/transactions - Assign Multiple Manual Shift', async ({ }, testInfo) => {
+    test('TC-08: POST /v1/shifts/transactions - Assign Multiple Manual Shift', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const payload = buildTransactionPayload(masterEmployeeIds, {
         schedule_type: 'manual',
@@ -248,7 +249,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         is_break_end_time_next_day: false,
       });
 
-      const { response, responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { response, responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Multiple Manual Shift Assign',
       });
 
@@ -285,7 +286,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         break_end_time: '13:00',
       });
 
-      const { responseBody } = await api.post('/api/v1/shifts/transactions', payload, {
+      const { responseBody } = await api.post(ENDPOINTS.SHIFTS.TRANSACTIONS, payload, {
         reqTitle: 'Request Body For Dummy Manual Schedule',
       });
 
@@ -299,22 +300,22 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
     test.afterEach(async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       if (createdScheduleId) {
-        await api.delete(`/api/v1/shifts/schedules/${createdScheduleId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(createdScheduleId), {
           resTitle: 'Response Body For Dummy Schedule Cleanup',
         });
         createdScheduleId = 0;
       }
       if (createdTransactionId) {
-        await api.delete(`/api/v1/shifts/transactions/${createdTransactionId}`, {
+        await api.delete(ENDPOINTS.SHIFTS.TRANSACTION_BY_ID(createdTransactionId), {
           resTitle: 'Response Body For Dummy Transaction Cleanup',
         });
         createdTransactionId = 0;
       }
     });
 
-    test('GET /v1/shifts/schedules/:id - Get Shift Schedule By valid id', async ({ }, testInfo) => {
+    test('TC-09: GET /v1/shifts/schedules/:id - Get Shift Schedule By valid id', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
-      const { response, responseBody } = await api.get(`/api/v1/shifts/schedules/${createdScheduleId}`, undefined, {
+      const { response, responseBody } = await api.get(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(createdScheduleId), undefined, {
         resTitle: 'Response Body For Get Schedule By ID',
       });
 
@@ -330,7 +331,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       getScheduleResponseSchema.parse(responseBody);
     });
 
-    test('PATCH /v1/shifts/schedules/:id - Update Shift Schedule', async ({ }, testInfo) => {
+    test('TC-10: PATCH /v1/shifts/schedules/:id - Update Shift Schedule', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const updatePayload = buildScheduleUpdatePayload({
         id: createdScheduleId,
@@ -339,7 +340,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         location_id: Number(process.env.LOCATION_ID),
       });
 
-      const { response, responseBody } = await api.patch(`/api/v1/shifts/schedules/${createdScheduleId}`, updatePayload, {
+      const { response, responseBody } = await api.patch(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(createdScheduleId), updatePayload, {
         reqTitle: 'Request Body For Update Shift Schedule',
       });
 
@@ -348,7 +349,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       expect(responseBody?.start_time || updatePayload.start_time).toBe(updatePayload.start_time);
     });
 
-    test('INVALID PATCH /v1/shifts/schedules/:id - Update Schedule with invalid payload', async ({ }, testInfo) => {
+    test('TC-11: PATCH /v1/shifts/schedules/:id - Update Schedule with invalid payload', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
       const updatePayload = buildScheduleUpdatePayload({
         id: createdScheduleId,
@@ -356,7 +357,7 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
         end_time: '18:00',
       });
 
-      const { response } = await api.patch(`/api/v1/shifts/schedules/${createdScheduleId}`, updatePayload, {
+      const { response } = await api.patch(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(createdScheduleId), updatePayload, {
         reqTitle: 'Request Body For Update Invalid Payload'
       });
 
@@ -364,9 +365,9 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       expect([400, 422].includes(status), `Expected: 400/422, but Received: ${status}`).toBeTruthy();
     });
 
-    test('DELETE /v1/shifts/schedules/:id - Delete Shift Schedule', async ({ }, testInfo) => {
+    test('TC-12: DELETE /v1/shifts/schedules/:id - Delete Shift Schedule', async ({ }, testInfo) => {
       const api = new ApiFixture(managerContext, testInfo);
-      const { response } = await api.delete(`/api/v1/shifts/schedules/${createdScheduleId}`, {
+      const { response } = await api.delete(ENDPOINTS.SHIFTS.SCHEDULE_BY_ID(createdScheduleId), {
         resTitle: 'Response Body For Delete Shift Schedule',
       });
 

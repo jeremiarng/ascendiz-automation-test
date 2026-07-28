@@ -1,121 +1,117 @@
-import { APIRequestContext, TestInfo } from "@playwright/test";
-import { attachLog } from "../helpers/logger";
+import { APIRequestContext } from '@playwright/test';
+import { attachLog } from '../helpers/logger';
+
+interface RequestLogOptions {
+  reqTitle?: string;
+  paramsTitle?: string;
+  resTitle?: string;
+  params?: Record<string, string | number | boolean | undefined>;
+}
+
 export class ApiFixture {
   constructor(
-    private apiContext: APIRequestContext,
-    private testInfo: TestInfo,
+    private readonly request: APIRequestContext,
+    private readonly testInfo: import('@playwright/test').TestInfo,
   ) {}
-  async post(
-    endpoint: string,
-    payload: any,
-    options: {
-      reqTitle?: string;
-      resTitle?: string;
-      params?: any;
-      paramsTitle?: string;
-    } = {},
+
+  async get(
+    url: string,
+    params?: Record<string, string | number | boolean | undefined>,
+    options?: RequestLogOptions,
   ) {
-    const response = await this.apiContext.post(endpoint, {
-      data: payload,
-      params: options.params,
-    });
-    const responseBody = await response.json().catch(() => null);
+    const response = await this.request.get(url, { params: params as any });
+    const responseBody = await this.safeJson(response);
     const status = response.status();
-
     await attachLog(this.testInfo, {
-      requestParams: options.params,
-      paramsTitle: options.paramsTitle || "Request Params",
-      requestBody: payload,
-      reqTitle: options.reqTitle || `Request Body For POST ${endpoint}`,
+      requestParams: params,
+      paramsTitle: options?.paramsTitle || `Request Params For GET ${url}`,
       responseBody,
-      resTitle: options.resTitle || `Response Body [${status}] For POST ${endpoint}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For GET ${url}`,
     });
-
     return { response, responseBody };
   }
-  async postMultipart(
-    endpoint: string,
-    formData: Record<string, string | number | boolean>,
-    options: { reqTitle?: string; resTitle?: string } = {},
+
+  async post(
+    url: string,
+    data?: any,
+    options?: RequestLogOptions,
   ) {
-    const multipartPayload: Record<string, string> = {};
-    for (const [key, value] of Object.entries(formData)) {
-      multipartPayload[key] = String(value);
-    }
-
-    const response = await this.apiContext.post(endpoint, {
-      multipart: multipartPayload,
-    });
-    const responseBody = await response.json().catch(() => null);
+    const response = await this.request.post(url, { data, params: options?.params as any });
+    const responseBody = await this.safeJson(response);
     const status = response.status();
-
     await attachLog(this.testInfo, {
-      requestBody: formData,
-      reqTitle:
-        options.reqTitle || `Request Body (multipart) For POST ${endpoint}`,
+      requestParams: options?.params,
+      paramsTitle: options?.paramsTitle || `Request Params For POST ${url}`,
+      requestBody: data,
+      reqTitle: options?.reqTitle || `Request Body For POST ${url}`,
       responseBody,
-      resTitle: options.resTitle || `Response Body [${status}] For POST ${endpoint}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For POST ${url}`,
     });
-
     return { response, responseBody };
   }
 
   async patch(
-    endpoint: string,
-    payload: any,
-    options: {
-      reqTitle?: string;
-      resTitle?: string;
-      params?: any;
-      paramsTitle?: string;
-    } = {},
+    url: string,
+    data?: any,
+    options?: RequestLogOptions,
   ) {
-    const response = await this.apiContext.patch(endpoint, {
-      data: payload,
-      params: options.params,
-    });
-    const responseBody = await response.json().catch(() => null);
+    const response = await this.request.patch(url, { data, params: options?.params as any });
+    const responseBody = await this.safeJson(response);
     const status = response.status();
-
     await attachLog(this.testInfo, {
-      requestParams: options.params,
-      paramsTitle: options.paramsTitle || "Request Params",
-      requestBody: payload,
-      reqTitle: options.reqTitle || `Request Body For PATCH ${endpoint}`,
+      requestParams: options?.params,
+      paramsTitle: options?.paramsTitle || `Request Params For PATCH ${url}`,
+      requestBody: data,
+      reqTitle: options?.reqTitle || `Request Body For PATCH ${url}`,
       responseBody,
-      resTitle: options.resTitle || `Response Body [${status}] For PATCH ${endpoint}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For PATCH ${url}`,
     });
-
     return { response, responseBody };
   }
-  async delete(endpoint: string, options: { resTitle?: string } = {}) {
-    const response = await this.apiContext.delete(endpoint);
-    const responseBody = await response.json().catch(() => null);
-    const status = response.status();
 
+  async delete(
+    url: string,
+    options?: RequestLogOptions,
+  ) {
+    const response = await this.request.delete(url);
+    const responseBody = await this.safeJson(response);
+    const status = response.status();
     await attachLog(this.testInfo, {
       responseBody,
-      resTitle: options.resTitle || `Response Body [${status}] For DELETE ${endpoint}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For DELETE ${url}`,
     });
-
     return { response, responseBody };
   }
-  async get(
-    endpoint: string,
-    params: any,
-    options: { paramsTitle?: string; resTitle?: string } = {},
+
+  async postMultipart(
+    url: string,
+    data: Record<string, any>,
+    options?: RequestLogOptions,
   ) {
-    const response = await this.apiContext.get(endpoint, { params });
-    const responseBody = await response.json().catch(() => null);
+    const multipartPayload: Record<string, string> = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (value !== undefined && value !== null) {
+        multipartPayload[key] = String(value);
+      }
+    }
+    const response = await this.request.post(url, { multipart: multipartPayload });
+    const responseBody = await this.safeJson(response);
     const status = response.status();
-
     await attachLog(this.testInfo, {
-      requestParams: params,
-      paramsTitle: options.paramsTitle || `Request Params For GET ${endpoint}`,
+      requestBody: data,
+      reqTitle: options?.reqTitle || `Request Body (multipart) For POST ${url}`,
       responseBody,
-      resTitle: options.resTitle || `Response Body [${status}] For GET ${endpoint}`,
+      resTitle: options?.resTitle || `Response Body [${status}] For POST ${url}`,
     });
-
     return { response, responseBody };
+  }
+
+  private async safeJson(response: any): Promise<any> {
+    try {
+      const text = await response.text();
+      return text ? JSON.parse(text) : null;
+    } catch {
+      return null;
+    }
   }
 }

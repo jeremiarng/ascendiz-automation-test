@@ -1,6 +1,7 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -41,7 +42,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
     test.describe('View Attendance (Admin)', () => {
         test('TC-01: GET /v1/attendance/ - View all employee attendance', async ({ }, testInfo) => {
             const api = new ApiFixture(adminContext, testInfo);
-            const { response, responseBody } = await api.get('/api/v1/attendance/', undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.BASE, undefined, {
                 resTitle: 'Response Body For All Employee Attendance'
             });
 
@@ -54,7 +55,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
             const api = new ApiFixture(adminContext, testInfo);
             const params = { employee_name: 'salsa' };
 
-            const { response, responseBody } = await api.get('/api/v1/attendance/', params, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.BASE, params, {
                 paramsTitle: 'Request Params For Search By Name',
                 resTitle: 'Response Body For Search Results'
             });
@@ -72,7 +73,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
             const api = new ApiFixture(adminContext, testInfo);
             const params = { location_ids: String(process.env.LOCATION_ID), status_ids: '21' };
 
-            const { response } = await api.get('/api/v1/attendance/', params, {
+            const { response } = await api.get(ENDPOINTS.ATTENDANCE.BASE, params, {
                 paramsTitle: 'Request Params For Filter Location & Status'
             });
 
@@ -84,7 +85,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
     test.describe('View Attendance (Employee)', () => {
         test('TC-04: GET /v1/attendance/me - View personal attendance list', async ({ }, testInfo) => {
             const api = new ApiFixture(employeeContext, testInfo);
-            const { response, responseBody } = await api.get('/api/v1/attendance/me', undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.MY, undefined, {
                 resTitle: 'Response Body For Personal Attendance'
             });
 
@@ -97,7 +98,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
             const api = new ApiFixture(employeeContext, testInfo);
             const params = { date_from: '2026-06-26', date_to: '2026-06-30' };
 
-            const { response, responseBody } = await api.get('/api/v1/attendance/me/per-date', params, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.MY_PER_DATE, params, {
                 paramsTitle: 'Request Params For Personal Grouped Attendance'
             });
 
@@ -113,7 +114,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
 
         test('TC-08: GET /v1/attendance/me/statistics - Get personal attendance statistics', async ({ }, testInfo) => {
             const api = new ApiFixture(employeeContext, testInfo);
-            const { response, responseBody } = await api.get('/api/v1/attendance/me/statistics', undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.MY_STATISTICS, undefined, {
                 resTitle: 'Response Body For Personal Statistics'
             });
 
@@ -127,7 +128,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
         test('TC-06: GET /v1/attendance/superior/:id - View subordinate attendance', async ({ }, testInfo) => {
             const api = new ApiFixture(managerContext, testInfo);
 
-            const { response, responseBody } = await api.get(`/api/v1/attendance/superior/${SUPERIOR_ID}`, undefined, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.SUPERIOR(SUPERIOR_ID), undefined, {
                 resTitle: 'Response Body For Subordinate Attendance'
             });
 
@@ -140,7 +141,7 @@ test.describe('Attendance View API Tests - Positive Cases', () => {
             const api = new ApiFixture(managerContext, testInfo);
             const params = { date_from: '2026-06-26', date_to: '2026-06-30' };
 
-            const { response, responseBody } = await api.get(`/api/v1/attendance/employee/${SUBORDINATE_EMP_ID}/per-date`, params, {
+            const { response, responseBody } = await api.get(ENDPOINTS.ATTENDANCE.EMPLOYEE_PER_DATE(SUBORDINATE_EMP_ID), params, {
                 paramsTitle: 'Request Params For Subordinate Grouped Attendance'
             });
 

@@ -1,7 +1,8 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { buildPayload } from '@hris-ascendiz/factories/shift-template.factory';
-import { ApiFixture } from '@hris-ascendiz/fixtures/api.fixture';
+import { ApiFixture } from '@shared/fixtures/api.fixture';
+import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
 
 test.beforeEach(async ({}, testInfo) => {
@@ -22,17 +23,17 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
     for (const id of createdRecordIds) {
-      await api.delete(`/api/v1/shift-templates/${id}`, { resTitle: 'Response Body For Cleanup Delete Template' });
+      await api.delete(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(id), { resTitle: 'Response Body For Cleanup Delete Template' });
     }
     if (apiContext) await apiContext.dispose();
   });
 
   test.describe('Invalid Create Shift Templates', () => {
-    test('POST /v1/shift-templates - Create with invalid time format', async ({}, testInfo) => {
+    test('TC-06: POST /v1/shift-templates - Create with invalid time format', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const payload = buildPayload({ start_time: '25:00' });
       
-      const { response } = await api.post('/api/v1/shift-templates', payload, {
+      const { response } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, payload, {
         reqTitle: 'Request Body For Invalid Time Format'
       });
 
@@ -40,7 +41,7 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
       expect([400, 422].includes(status), `Expected: 400/422, but Received: ${status}`).toBeTruthy();
     });
 
-    test('POST /v1/shift-templates - End time is earlier than Start time without next-day flag', async ({}, testInfo) => {
+    test('TC-07: POST /v1/shift-templates - End time is earlier than Start time without next-day flag', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const payload = buildPayload({ 
         start_time: '15:00', 
@@ -48,7 +49,7 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
         is_end_time_next_day: false 
       });
       
-      const { response } = await api.post('/api/v1/shift-templates', payload, {
+      const { response } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, payload, {
         reqTitle: 'Request Body For End Time Earlier Than Start Time'
       });
 
@@ -56,14 +57,14 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
       expect([400, 422].includes(status), `Expected: 400/422, but Received: ${status}`).toBeTruthy();
     });
 
-    test('POST /v1/shift-templates - Create with break end time earlier than break start time', async ({}, testInfo) => {
+    test('TC-08: POST /v1/shift-templates - Create with break end time earlier than break start time', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const payload = buildPayload({ 
         break_start_time: '14:00', 
         break_end_time: '13:00' 
       });
       
-      const { response } = await api.post('/api/v1/shift-templates', payload, {
+      const { response } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, payload, {
         reqTitle: 'Request Body For Invalid Break Times'
       });
 
@@ -71,16 +72,16 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
       expect([400, 422].includes(status), `Expected: 400/422, but Received: ${status}`).toBeTruthy();
     });
 
-    test('POST /v1/shift-templates - Create with duplicate name', async ({}, testInfo) => {
+    test('TC-09: POST /v1/shift-templates - Create with duplicate name', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
       const initialPayload = buildPayload();
       
-      const { response: res1, responseBody: body1 } = await api.post('/api/v1/shift-templates', initialPayload, {
+      const { response: res1, responseBody: body1 } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, initialPayload, {
         reqTitle: 'Request Body For Initial Template'
       });
       if (body1?.shift?.id) createdRecordIds.push(body1.shift.id);
 
-      const { response: res2 } = await api.post('/api/v1/shift-templates', initialPayload, {
+      const { response: res2 } = await api.post(ENDPOINTS.SHIFT_TEMPLATES.BASE, initialPayload, {
         reqTitle: 'Request Body For Duplicate Name Template'
       });
       
@@ -90,9 +91,9 @@ test.describe('Shift Templates API Tests - Negative Cases', () => {
   });
 
   test.describe('Invalid Read Shift Templates', () => {
-    test('GET /v1/shift-templates/:id - Get using a non-existent ID', async ({}, testInfo) => {
+    test('TC-10: GET /v1/shift-templates/:id - Get using a non-existent ID', async ({}, testInfo) => {
       const api = new ApiFixture(apiContext, testInfo);
-      const { response } = await api.get('/api/v1/shift-templates/99999999', undefined, {
+      const { response } = await api.get(ENDPOINTS.SHIFT_TEMPLATES.BY_ID(99999999), undefined, {
         resTitle: 'Response Body For Non-Existent ID'
       });
 
