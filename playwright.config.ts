@@ -1,6 +1,6 @@
 import { defineConfig } from "@playwright/test";
 import { config } from "dotenv";
-config();
+config({ override: true });
 
 export default defineConfig({
   fullyParallel: true,
