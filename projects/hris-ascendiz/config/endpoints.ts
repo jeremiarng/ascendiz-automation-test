@@ -41,4 +41,7 @@ export const ENDPOINTS = {
     CITIES: '/api/v1/cities',
     EMPLOYEES: '/api/v1/employees',
   },
+  OFFICE_LIST: {
+    BY_ID: (id: number | string) => `/api/v1/office/${id}`,
+  }
 } as const;
