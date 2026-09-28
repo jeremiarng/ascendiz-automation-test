@@ -4,9 +4,9 @@ config({ override: true });
 
 export default defineConfig({
   fullyParallel: true,
-  retries: process.env.CI ? 2 : 0,
+  retries: 0,
   reporter: [["line"], ["allure-playwright", { resultsDir: "allure-results" }]],
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
 
   projects: [
     // {
