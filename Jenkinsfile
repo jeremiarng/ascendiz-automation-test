@@ -2,9 +2,9 @@ pipeline {
   agent any
   options { ansiColor('xterm'); timestamps() }
   parameters {
-    string('PROJECT', 'Hris-Ascendiz-API', 'Nama project Playwright')
-    string('MODULE', '', 'Sub-folder test opsional')
-    string('GREP', '', 'Filter tag opsional')
+    string(name: 'PROJECT', defaultValue: 'Hris-Ascendiz-API', description: 'Nama project Playwright')
+    string(name: 'MODULE', defaultValue: '', description: 'Sub-folder test opsional')
+    string(name: 'GREP', defaultValue: '', description: 'Filter tag opsional')
   }
   environment {
     CI = 'true'
