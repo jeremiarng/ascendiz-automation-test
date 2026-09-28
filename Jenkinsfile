@@ -39,7 +39,15 @@ pipeline {
           def base = "npx playwright test --project=\"${params.PROJECT}\""
           if (params.MODULE) base += " ${params.MODULE}"
           if (params.GREP)   base += " --grep=\"${params.GREP}\""
-          sh base
+
+          // Menggunakan try-catch agar error dari playwright test tidak langsung menggagalkan pipeline,
+          // sehingga stage Allure Report di bawahnya tetap bisa berjalan.
+          try {
+            sh base
+          } catch (err) {
+            currentBuild.result = 'UNSTABLE'
+            echo "Ada test yang gagal (failed), tetapi pipeline dilanjutkan untuk men-generate Allure Report."
+          }
         }
       }
     }
@@ -51,7 +59,8 @@ pipeline {
   }
   post {
     always { cleanWs() }
-    success { echo 'Test sukses & report terpublish.' }
-    failure { echo 'Test gagal. Lihat console & Allure report.' }
+    success { echo 'Pipeline selesai.' }
+    unstable { echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE). Cek Allure report untuk detailnya.' }
+    failure { echo 'Pipeline mengalami kendala serius di luar test failure.' }
   }
 }
