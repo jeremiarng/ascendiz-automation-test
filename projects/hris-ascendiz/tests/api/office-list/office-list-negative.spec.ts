@@ -16,7 +16,7 @@ test.beforeEach(async ({}, testInfo) => {
 test.describe("Office List API Tests - Negative Cases", () => {
   let apiContext: APIRequestContext;
   let unauthContext: APIRequestContext;
-  let createdRecordIds: number[] = [];
+  let createdRecords: { locationId: number; officeId?: number }[] = [];
 
   test.beforeAll(async ({ playwright, request }) => {
     const token = await getAccessToken(request);
@@ -30,8 +30,13 @@ test.describe("Office List API Tests - Negative Cases", () => {
 
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
-    for (const id of createdRecordIds) {
-      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(id), {
+    for (const record of createdRecords) {
+      if (record.officeId) {
+        await api.delete(ENDPOINTS.OFFICE_LIST.BY_ID(record.officeId), {
+          resTitle: "Response Body For Cleanup Delete Office",
+        });
+      }
+      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(record.locationId), {
         resTitle: "Response Body For Cleanup Delete Location",
       });
     }
@@ -68,7 +73,12 @@ test.describe("Office List API Tests - Negative Cases", () => {
         },
       );
 
-      if (responseBody?.location?.id) createdRecordIds.push(responseBody.location.id);
+      if (responseBody?.location?.id) {
+        createdRecords.push({
+          locationId: responseBody.location.id,
+          officeId: responseBody?.location?.office?.id,
+        });
+      }
 
       const status = response.status();
       expect(
@@ -90,7 +100,12 @@ test.describe("Office List API Tests - Negative Cases", () => {
           resTitle: "Response Body For First Location",
         },
       );
-      if (body1?.location?.id) createdRecordIds.push(body1.location.id);
+      if (body1?.location?.id) {
+        createdRecords.push({
+          locationId: body1.location.id,
+          officeId: body1?.location?.office?.id,
+        });
+      }
 
       const secondPayload = buildCreatePayload({ code: duplicateCode });
       const { response: res2 } = await api.postMultipart(
@@ -122,7 +137,12 @@ test.describe("Office List API Tests - Negative Cases", () => {
         },
       );
 
-      if (responseBody?.location?.id) createdRecordIds.push(responseBody.location.id);
+      if (responseBody?.location?.id) {
+        createdRecords.push({
+          locationId: responseBody.location.id,
+          officeId: responseBody?.location?.office?.id,
+        });
+      }
 
       const status = response.status();
       expect(
@@ -147,7 +167,12 @@ test.describe("Office List API Tests - Negative Cases", () => {
         },
       );
 
-      if (responseBody?.location?.id) createdRecordIds.push(responseBody.location.id);
+      if (responseBody?.location?.id) {
+        createdRecords.push({
+          locationId: responseBody.location.id,
+          officeId: responseBody?.location?.office?.id,
+        });
+      }
 
       const status = response.status();
       expect(
@@ -244,7 +269,10 @@ test.describe("Office List API Tests - Negative Cases", () => {
         throw new Error(
           "Prerequisite: Failed to create dummy location in beforeEach",
         );
-      createdRecordIds.push(tempLocationId);
+      createdRecords.push({
+        locationId: tempLocationId,
+        officeId: responseBody?.location?.office?.id,
+      });
     });
 
     test("TC-N06: PATCH /v1/locations/:id - Update non-existent location", async ({}, testInfo) => {

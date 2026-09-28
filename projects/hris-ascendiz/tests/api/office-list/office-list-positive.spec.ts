@@ -14,7 +14,7 @@ test.beforeEach(async ({}, testInfo) => {
 
 test.describe("Office List API Tests - Positive Cases", () => {
   let apiContext: APIRequestContext;
-  let createdRecordIds: number[] = [];
+  let createdRecords: { locationId: number; officeId?: number }[] = [];
 
   test.beforeAll(async ({ playwright, request }) => {
     const token = await getAccessToken(request);
@@ -27,8 +27,13 @@ test.describe("Office List API Tests - Positive Cases", () => {
 
   test.afterAll(async ({}, testInfo) => {
     const api = new ApiFixture(apiContext, testInfo);
-    for (const id of createdRecordIds) {
-      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(id), {
+    for (const record of createdRecords) {
+      if (record.officeId) {
+        await api.delete(ENDPOINTS.OFFICE_LIST.BY_ID(record.officeId), {
+          resTitle: "Response Body For Cleanup Delete Office",
+        });
+      }
+      await api.delete(ENDPOINTS.LOCATIONS.BY_ID(record.locationId), {
         resTitle: "Response Body For Cleanup Delete Location",
       });
     }
@@ -194,7 +199,10 @@ test.describe("Office List API Tests - Positive Cases", () => {
 
       createdLocationId = responseBody.location.id;
       expect(createdLocationId).toBeDefined();
-      createdRecordIds.push(createdLocationId);
+      createdRecords.push({
+        locationId: createdLocationId,
+        officeId: responseBody?.location?.office?.id,
+      });
     });
 
     test("TC-07: GET /v1/locations/:id - Get created location detail", async ({}, testInfo) => {
