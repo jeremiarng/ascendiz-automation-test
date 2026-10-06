@@ -36,12 +36,10 @@ pipeline {
     stage('Run Tests') {
       steps {
         script {
-          def base = "npx playwright test --project=\"${params.PROJECT}\""
+          def base = "npx playwright test --project=\"${params.PROJECT}\" --retries=0"
           if (params.MODULE) base += " ${params.MODULE}"
           if (params.GREP)   base += " --grep=\"${params.GREP}\""
 
-          // Menggunakan try-catch agar error dari playwright test tidak langsung menggagalkan pipeline,
-          // sehingga stage Allure Report di bawahnya tetap bisa berjalan.
           try {
             sh base
           } catch (err) {
@@ -58,9 +56,30 @@ pipeline {
     }
   }
   post {
-    always { cleanWs() }
-    success { echo 'Pipeline selesai.' }
-    unstable { echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE). Cek Allure report untuk detailnya.' }
-    failure { echo 'Pipeline mengalami kendala serius di luar test failure.' }
+    always {
+      cleanWs()
+    }
+    success {
+      script {
+        // TEMPATKAN DI SINI (untuk status sukses)
+        // Ganti URL https://xxxx.ngrok-free.app dengan URL ngrok kamu saat ini
+        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"SUCCESS\"}'"
+      }
+      echo 'Pipeline selesai.'
+    }
+    unstable {
+      script {
+        // TEMPATKAN DI SINI JUGA (jika ada test yang gagal tapi tetap generate report)
+        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"UNSTABLE\"}'"
+      }
+      echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE). Cek Allure report untuk detailnya.'
+    }
+    failure {
+      script {
+        // TEMPATKAN DI SINI (jika pipeline gagal total di luar test)
+        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"FAILURE\"}'"
+      }
+      echo 'Pipeline mengalami kendala serius di luar test failure.'
+    }
   }
 }
