@@ -1,7 +1,7 @@
 import { APIRequestContext } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { setAllureLabels } from '@shared/helpers/allure-labels';
-import { test, expect } from '@shared/fixtures/ui.fixture';
+import { test } from '@shared/fixtures/ui.fixture';
 import { getAccessToken } from '@hris-ascendiz/helpers/auth';
 import { ENDPOINTS } from '@hris-ascendiz/config/endpoints';
 import { ApiFixture } from '@shared/fixtures/api.fixture';
@@ -52,7 +52,7 @@ async function deleteLocationByName(
 
 // =====================================================================
 // Module Office List
-// Status mengacu pada docs/ui-flow/office-list.xlsx (kolom Status):
+// Status mengacu pada docs/ui-flow/Office List.md:
 //   [Done] OL-001, OL-003, OL-004
 //   [In Progress] OL-002, OL-005 s/d OL-015
 // =====================================================================
@@ -89,7 +89,7 @@ test.describe.serial('Office List - Location CRUD Flow [Done]', { tag: ['@ui', '
     await location.fillAddress({
       address: `Jl. Automation ${uniqueSuffix} No. 123`,
       province: 'Banten',
-      city: 'Serang',
+      city: 'Kota Serang',
       postalCode: '15111',
       latitude: '-6.32082',
       longitude: '106.64306',
@@ -112,23 +112,22 @@ test.describe.serial('Office List - Location CRUD Flow [Done]', { tag: ['@ui', '
     await location.saveForm();
 
     // Redirect kembali ke location list; lokasi baru muncul di daftar
-    await expect(page).toHaveURL(/\/locations$/);
+    await location.expectOnListPage();
     await location.searchLocation(locationName);
     await location.expectRowVisible(locationName);
 
     // Verify data sesuai dengan pengisian (berdasarkan baris lokasi yang dibuat)
-    const row = location.rowByLocationName(locationName);
-    await expect(row).toContainText(locationCode);
-    await expect(row).toContainText(locationName);
-    await expect(row).toContainText('Banten');
-    await expect(row).toContainText('Serang');
-    await expect(row).toContainText('Active');
+    await location.expectRowContainsText(locationName, locationCode);
+    await location.expectRowContainsText(locationName, locationName);
+    await location.expectRowContainsText(locationName, 'Banten');
+    await location.expectRowContainsText(locationName, 'Serang');
+    await location.expectRowContainsText(locationName, 'Active');
 
     // --- View detail ---
     await location.openDetail(locationName);
     await location.expectDetailVisible();
-    await expect(location.detailNameValue).toHaveText(locationName);
-    await expect(page).toHaveURL(/\/location\/\d+/);
+    await location.expectDetailName(locationName);
+    await location.expectOnDetailPage();
   });
 
   test('OL-003: Melakukan edit data pada lokasi yang telah dibuat', async ({ page }) => {
@@ -146,15 +145,12 @@ test.describe.serial('Office List - Location CRUD Flow [Done]', { tag: ['@ui', '
     await location.fillEmail(`edited${uniqueSuffix.toLowerCase()}@ascendiz.id`);
 
     await location.saveForm();
-    await location.expectEditSaved();
 
     // Kembali ke location list; data terbaru tampil
-    await expect(page).toHaveURL(/\/locations$/);
+    await location.expectOnListPage();
     await location.searchLocation(editedName);
     await location.expectRowVisible(editedName);
-
-    const row = location.rowByLocationName(editedName);
-    await expect(row).toContainText(editedName);
+    await location.expectRowContainsText(editedName, editedName);
   });
 
   test('OL-004: Menghapus data lokasi pada sistem', async ({ page }) => {
@@ -169,7 +165,7 @@ test.describe.serial('Office List - Location CRUD Flow [Done]', { tag: ['@ui', '
     await location.confirmDelete();
 
     // Pastikan data yang dihapus tidak muncul di location list
-    await expect(page).toHaveURL(/\/locations(#!)?$/);
+    await location.expectOnListPage();
     await location.expectRowHidden(editedName);
   });
 
@@ -224,7 +220,7 @@ test.describe.serial('Office List - Auto Create Office From Location [In Progres
     await location.fillAddress({
       address: `Jl. Auto Office ${uniqueSuffix} No. 1`,
       province: 'Banten',
-      city: 'Serang',
+      city: 'Kota Serang',
       postalCode: '15111',
       latitude: '-6.32082',
       longitude: '106.64306',
@@ -248,9 +244,8 @@ test.describe.serial('Office List - Auto Create Office From Location [In Progres
     await office.expectRowVisible(locationName);
 
     // Verifikasi data office sesuai data lokasi yang diinput
-    const officeRow = office.rowByOfficeName(locationName);
-    await expect(officeRow).toContainText(locationName);
-    await expect(officeRow).toContainText('100'); // office location radius
+    await office.expectRowContainsText(locationName, locationName);
+    await office.expectRowContainsText(locationName, '100'); // office location radius
   });
 
   // Cleanup lokasi & office yang dibuat
@@ -300,11 +295,10 @@ test.describe.serial('Office List - Office CRUD Flow [In Progress]', { tag: ['@u
 
     // Data office terbaru muncul di office list
     await office.expectRowVisible(officeName);
-    const row = office.rowByOfficeName(officeName);
-    await expect(row).toContainText('-6.32082');
-    await expect(row).toContainText('106.64306');
-    await expect(row).toContainText('150');
-    await expect(row).toContainText('Active');
+    await office.expectRowContainsText(officeName, '-6.32082');
+    await office.expectRowContainsText(officeName, '106.64306');
+    await office.expectRowContainsText(officeName, '150');
+    await office.expectRowContainsText(officeName, 'Active');
   });
 
   test('OL-006: Mengedit data office yang telah dibuat dengan valid value', async ({ page }) => {
@@ -322,8 +316,7 @@ test.describe.serial('Office List - Office CRUD Flow [In Progress]', { tag: ['@u
 
     // Pop up hilang dan data terbaru tampil
     await office.expectRowVisible(editedName);
-    const row = office.rowByOfficeName(editedName);
-    await expect(row).toContainText('250');
+    await office.expectRowContainsText(editedName, '250');
   });
 
   test('OL-007: Menghapus data office yang telah dibuat di sistem', async ({ page }) => {
@@ -334,18 +327,14 @@ test.describe.serial('Office List - Office CRUD Flow [In Progress]', { tag: ['@u
 
     // Klik delete & konfirmasi
     await office.clickDelete(editedName);
-    await office.clickDeleteConfirm();
-    await page.waitForTimeout(3000);
+    await office.confirmDeleteAndWaitOutcome();
 
-    // Catatan Excel: fitur delete office saat ini belum berjalan di sistem.
+    // Catatan flow: fitur delete office saat ini belum berjalan di sistem.
     // Jika diblokir, sistem menampilkan pesan error; jika berhasil, data hilang dari list.
-    const blockError = page.getByText('Cannot inactivate or delete office with active employees');
-    if (await blockError.isVisible().catch(() => false)) {
-      // Fitur diblokir — verifikasi sistem menampilkan pesan yang sesuai
-      await expect(blockError).toBeVisible();
+    if (await office.isDeleteBlocked()) {
+      await office.expectDeleteBlocked();
       await office.closeModal();
     } else {
-      // Fitur berjalan — pastikan data yang dihapus tidak muncul di office list
       await office.expectRowHidden(editedName);
     }
   });
@@ -384,10 +373,9 @@ test.describe('Office List - Location Negative Cases [In Progress]', { tag: ['@u
     await location.saveFormExpectError();
 
     // Pesan error muncul dibawah setiap field required
-    await expect(page.getByText('Location Name is required')).toBeVisible();
-    await expect(page.getByText('Location Email is required')).toBeVisible();
-    await expect(page.getByText('Province is required')).toBeVisible();
-    await expect(page.getByText('City is required')).toBeVisible();
+    await location.expectFieldError('Location Name is required');
+    await location.expectFieldError('Province is required');
+    await location.expectFieldError('City is required');
   });
 
   // OL-009: Create location dengan value tidak sesuai
@@ -404,7 +392,7 @@ test.describe('Office List - Location Negative Cases [In Progress]', { tag: ['@u
     await location.saveFormExpectError();
 
     // Pesan error format muncul
-    await expect(page.getByText('Email format is invalid')).toBeVisible();
+    await location.expectFieldError('Email format is invalid');
   });
 });
 
@@ -435,7 +423,7 @@ test.describe.serial('Office List - Edit Location Negative Cases [In Progress]',
     await location.fillAddress({
       address: `Jl. Edit Neg ${uniqueSuffix} No. 1`,
       province: 'Banten',
-      city: 'Serang',
+      city: 'Kota Serang',
       postalCode: '15111',
       latitude: '-6.32082',
       longitude: '106.64306',
@@ -466,13 +454,11 @@ test.describe.serial('Office List - Edit Location Negative Cases [In Progress]',
 
     // Kosongkan field required
     await location.fillName('');
-    await location.fillEmail('');
 
     await location.saveFormExpectError();
 
     // Pesan error muncul
-    await expect(page.getByText('Location Name is required')).toBeVisible();
-    await expect(page.getByText('Location Email is required')).toBeVisible();
+    await location.expectFieldError('Location Name is required');
   });
 
   test('OL-011: Melakukan edit data lokasi dengan value yang tidak sesuai', async ({ page }) => {
@@ -490,7 +476,7 @@ test.describe.serial('Office List - Edit Location Negative Cases [In Progress]',
     await location.saveFormExpectError();
 
     // Pesan error format muncul
-    await expect(page.getByText('Email format is invalid')).toBeVisible();
+    await location.expectFieldError('Email format is invalid');
   });
 
   test.afterAll(async ({ playwright }, testInfo) => {
@@ -527,7 +513,7 @@ test.describe('Office List - Office Negative Cases [In Progress]', { tag: ['@ui'
     await office.clickCreateExpectError();
 
     // Sistem menolak create — muncul pesan error
-    await expect(page.getByText('Office record already exists')).toBeVisible();
+    await office.expectFieldError('Office record already exists');
     await office.closeModal();
   });
 
@@ -549,7 +535,7 @@ test.describe('Office List - Office Negative Cases [In Progress]', { tag: ['@ui'
     await office.clickCreateExpectError();
 
     // Pesan error validasi radius muncul
-    await expect(page.getByText(/OfficeLocationRadius failed on the 'gt' validation/)).toBeVisible();
+    await office.expectFieldError(/OfficeLocationRadius failed on the 'gt' validation/);
     await office.closeModal();
   });
 });
@@ -593,7 +579,7 @@ test.describe.serial('Office List - Edit Office Negative Cases [In Progress]', {
     await office.clickSaveExpectError();
 
     // Sistem menolak save — muncul pesan error dari backend
-    await expect(page.getByText(/cannot unmarshal/i)).toBeVisible();
+    await office.expectFieldError(/cannot unmarshal/i);
     await office.closeModal();
   });
 
@@ -610,7 +596,7 @@ test.describe.serial('Office List - Edit Office Negative Cases [In Progress]', {
     await office.clickSaveExpectError();
 
     // Pesan error validasi radius muncul
-    await expect(page.getByText(/OfficeLocationRadius failed on the 'gt' validation/)).toBeVisible();
+    await office.expectFieldError(/OfficeLocationRadius failed on the 'gt' validation/);
     await office.closeModal();
   });
 

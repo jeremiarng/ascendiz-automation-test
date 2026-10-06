@@ -11,16 +11,26 @@ export class OfficePage extends BasePage {
   private readonly officeRows: Locator = this.page.locator('table tbody tr');
   private readonly addOfficeButton: Locator = this.page.getByRole('button', { name: 'Add Office' });
 
-  // --- Office form modal (create & edit) ---
+  // --- Office form modal (create & edit share one form: #create-form) ---
   private readonly officeNameInput: Locator = this.page.getByPlaceholder('Enter Office Name');
   private readonly latitudeInput: Locator = this.page.getByPlaceholder('Enter Latitute');
   private readonly longitudeInput: Locator = this.page.getByPlaceholder('Enter Longitude');
   private readonly radiusInput: Locator = this.page.getByPlaceholder('Enter Location Radius');
   private readonly locationInput: Locator = this.page.locator('#selected-location');
-  private readonly statusSelect: Locator = this.page.locator('select').nth(2);
+  private readonly statusSelect: Locator = this.page.locator('#create-form select');
+
+  private readonly createButton: Locator = this.page.getByRole('button', { name: 'Create', exact: true });
+  private readonly editButton: Locator = this.page.getByRole('button', { name: 'Edit', exact: true });
+  private readonly cancelButton: Locator = this.page.getByRole('button', { name: 'Cancel', exact: true });
 
   // --- Delete confirmation modal ---
+  private readonly deleteConfirmText: Locator = this.page.getByText('Are you certain you want to delete this record?');
   private readonly deleteConfirmButton: Locator = this.page.getByRole('button', { name: 'Yes, Delete It!' });
+  private readonly deleteBlockedMessage: Locator = this.page.getByText('Cannot inactivate or delete office with active employees');
+
+  // --- Toasts ---
+  private readonly savedSuccessToast: Locator = this.page.getByText('Your data has been successfully saved.');
+  private readonly deleteSuccessToast: Locator = this.page.getByText('Your data has been successfully deleted.');
 
   constructor(page: Page) {
     super(page);
@@ -49,10 +59,23 @@ export class OfficePage extends BasePage {
     await expect(this.rowByOfficeName(name)).toHaveCount(0, { timeout: 10000 });
   }
 
+  async expectRowContainsText(name: string, text: string | RegExp): Promise<void> {
+    await expect(this.rowByOfficeName(name)).toContainText(text);
+  }
+
+  async expectSuccessToast(): Promise<void> {
+    await expect(this.savedSuccessToast).toBeVisible({ timeout: 10000 });
+  }
+
+  async expectFieldError(message: string | RegExp): Promise<void> {
+    await expect(this.page.getByText(message)).toBeVisible();
+  }
+
   // ===================== Create Office =====================
 
   async openCreateModal(): Promise<void> {
     await this.addOfficeButton.click();
+    await expect(this.officeNameInput).toBeVisible();
   }
 
   async fillOfficeForm(data: {
@@ -80,24 +103,29 @@ export class OfficePage extends BasePage {
   }
 
   async clickCreate(): Promise<void> {
-    await this.page.getByRole('button', { name: 'Create', exact: true }).click({ force: true });
-    await expect(this.page.getByText('Your data has been successfully saved.')).toBeVisible({ timeout: 10000 });
+    await this.createButton.click({ force: true });
+    await this.expectSuccessToast();
   }
 
   async clickCreateExpectError(): Promise<void> {
-    await this.page.getByRole('button', { name: 'Create', exact: true }).click({ force: true });
+    await this.createButton.click({ force: true });
+  }
+
+  async expectCreateModalVisible(): Promise<void> {
+    await expect(this.officeNameInput).toBeVisible();
   }
 
   async closeModal(): Promise<void> {
-    await this.page.getByRole('button', { name: 'Cancel', exact: true }).click({ force: true });
-    await this.page.waitForTimeout(500);
+    await this.cancelButton.click({ force: true });
+    await expect(this.officeNameInput).toBeHidden();
   }
 
   // ===================== Edit Office =====================
 
   async openEditModal(name: string): Promise<void> {
     const row = this.rowByOfficeName(name);
-    await row.locator('a .lucide-pencil-icon').first().click();
+    await row.locator('a.edit-item-btn[href="#!"]').first().click();
+    await expect(this.officeNameInput).toBeVisible();
   }
 
   async fillEditForm(data: {
@@ -115,28 +143,45 @@ export class OfficePage extends BasePage {
   }
 
   async clickSave(): Promise<void> {
-    await this.page.getByRole('button', { name: 'Edit', exact: true }).click({ force: true });
-    await expect(this.page.getByText('Your data has been successfully saved.')).toBeVisible({ timeout: 10000 });
+    await this.editButton.click({ force: true });
+    await this.expectSuccessToast();
   }
 
   async clickSaveExpectError(): Promise<void> {
-    await this.page.getByRole('button', { name: 'Edit', exact: true }).click({ force: true });
+    await this.editButton.click({ force: true });
   }
 
   // ===================== Delete Office =====================
 
   async clickDelete(name: string): Promise<void> {
     const row = this.rowByOfficeName(name);
-    await row.locator('a.remove-item-btn').click();
-    await expect(this.page.getByText('Are you certain you want to delete this record?')).toBeVisible();
+    await row.locator('a.remove-item-btn[href="#!"]').click();
+    await expect(this.deleteConfirmText).toBeVisible();
   }
 
   async confirmDelete(): Promise<void> {
     await this.deleteConfirmButton.click();
-    await expect(this.page.getByText('Your data has been successfully deleted.')).toBeVisible({ timeout: 10000 });
+    await expect(this.deleteSuccessToast).toBeVisible({ timeout: 10000 });
   }
 
-  async clickDeleteConfirm(): Promise<void> {
+  /**
+   * Konfirmasi delete lalu tunggu salah satu hasil:
+   * fitur berhasil (row hilang) atau diblokir sistem (muncul pesan error).
+   */
+  async confirmDeleteAndWaitOutcome(): Promise<void> {
     await this.deleteConfirmButton.click();
+    await this.deleteBlockedMessage
+      .or(this.deleteSuccessToast)
+      .first()
+      .waitFor({ state: 'visible', timeout: 15000 })
+      .catch(() => {});
+  }
+
+  async isDeleteBlocked(): Promise<boolean> {
+    return this.deleteBlockedMessage.isVisible().catch(() => false);
+  }
+
+  async expectDeleteBlocked(): Promise<void> {
+    await expect(this.deleteBlockedMessage).toBeVisible();
   }
 }

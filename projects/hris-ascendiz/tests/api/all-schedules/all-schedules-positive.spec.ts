@@ -148,13 +148,13 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       const payload = buildTransactionPayload(masterEmployeeIds, {
         schedule_type: 'shift_schedule',
         start_date: '2026-07-02',
-        end_date: '2026-07-03',
+        end_date: '2026-07-02',
         schedule_date: '2026-07-02',
-        shift_id: 52,
-        shift_ids: [52, 30],
+        shift_id: 122,
+        shift_ids: [122, 123],
         shifts: [
           { start_time: '06:00', end_time: '16:00', break_start_time: '12:00', break_end_time: '13:00', is_end_time_next_day: false, is_break_end_time_next_day: false },
-          { start_time: '09:00', end_time: '17:00', break_start_time: '12:00', break_end_time: '13:00', is_end_time_next_day: false, is_break_end_time_next_day: false },
+          { start_time: '22:00', end_time: '23:00', break_start_time: '', break_end_time: '', is_end_time_next_day: false, is_break_end_time_next_day: false },
         ],
         start_time: '06:00',
         end_time: '16:00',

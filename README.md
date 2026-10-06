@@ -68,11 +68,8 @@ playwright-automation/
 │   │           ├── login/
 │   │           └── dashboard/
 │   │
-│   └── project-b/                # Future project (same structure)
-│
 ├── scripts/
-│   ├── test.js                   # Dynamic project test runner
-│   └── deploy-report.ps1         # Deploy Allure report to GitHub Pages
+│   └── test.js                   # Dynamic project test runner
 │
 ├── test-results/                 # Playwright output (gitignored)
 ├── allure-results/               # Allure raw results (gitignored)
@@ -86,14 +83,13 @@ playwright-automation/
 |---------|-------------|
 | `npm run test` | Run all projects |
 | `npm run t Hris-Ascendiz-API` | Run single project (API) |
-| `npm run t Hris-Ascendiz-UI-Chrome` | Run single project (UI) |
+| `npm run t Hris-Ascendiz-UI` | Run single project (UI) |
 | `npm run test:smoke` | Run smoke-tagged tests only |
-| `npm run t Ascendiz-API` | Run another project |
 
 ### Headed mode (for UI debugging)
 
 ```powershell
-npm run t Hris-Ascendiz-UI-Chrome -- --headed
+npm run t Hris-Ascendiz-UI -- --headed
 ```
 
 ### Record tests with Codegen
@@ -118,24 +114,6 @@ npm run report
 
 Opens the report in your browser automatically.
 
-### Deploy to GitHub Pages
-
-```powershell
-npm run deploy:report
-npm run deploy:report -- Hris-Ascendiz-API
-npm run deploy:report -- Hris-Ascendiz-API -SkipTests
-```
-
-- Without arguments: runs all tests, generates report, deploys
-- With project name: runs single project, generates report, deploys
-- `-SkipTests`: uses existing `allure-results/`, just regenerates and deploys
-
-Reports are deployed to the `gh-pages` branch. View at:
-
-```
-https://<org>.github.io/ascendiz-playwright-automation/
-```
-
 Module separation is visible in the Allure **Behaviors** tab:
 
 ```
@@ -158,15 +136,6 @@ git commit -m "test: add <module> tests"
 git push origin main
 ```
 
-### Push test code + deploy report
-
-```powershell
-git add -A
-git commit -m "test: add <module> tests"
-git push origin main
-npm run deploy:report -- Hris-Ascendiz-API
-```
-
 ## Path Aliases
 
 Defined in `tsconfig.json`:
@@ -175,8 +144,6 @@ Defined in `tsconfig.json`:
 |-------|-------------|
 | `@shared/*` | `shared/*` |
 | `@hris-ascendiz/*` | `projects/hris-ascendiz/*` |
-| `@ascendiz/*` | `projects/ascendiz/*` |
-| `@project-b/*` | `projects/project-b/*` |
 
 ## Environment Variables
 
