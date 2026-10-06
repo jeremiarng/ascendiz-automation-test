@@ -6,8 +6,16 @@ export const generateRandomDate = () => {
 
 export const buildTransactionPayload = (employeeIds: number[], overrides: any = {}) => {
   const defaultPayload = {
+    "id": 0,
+    "description": "",
+    "location_id": 431,
+    "business_unit_ids": [],
+    "company_ids": [],
+    "job_position_ids": [],
+    "exclude_days": [],
+    "work_schedule_id": 0,
     creator_type: 'management',
-    shift_type: 'manual',
+    shift_type: '',
     employee_ids: employeeIds.length > 0 ? employeeIds : [Number(process.env.SUBORDINATE_ID)],
     start_date: '2026-06-21',
     end_date: '2026-06-27',

@@ -3,3 +3,8 @@ export { LoginPage } from './LoginPage';
 export { DashboardPage } from './DashboardPage';
 export { LocationPage } from './LocationPage';
 export { OfficePage } from './OfficePage';
+export { EmployeePage } from './EmployeePage';
+export { ShiftTemplatePage } from './ShiftTemplatePage';
+export { AllShiftSchedulePage } from './AllShiftSchedulePage';
+export { AllShiftRequestHistoryPage } from './AllShiftRequestHistoryPage';
+export { WorkSchedulePage } from './WorkSchedulePage';

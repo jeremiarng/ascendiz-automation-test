@@ -9,23 +9,6 @@ export default defineConfig({
   workers: 1,
 
   projects: [
-    // {
-    //   name: "Ascendiz-API",
-    //   testDir: "./projects/ascendiz/tests/api",
-    //   use: {
-    //     baseURL: process.env.ASCENDIZ_API_URL,
-    //     extraHTTPHeaders: { Accept: "application/json" },
-    //   },
-    // },
-    // {
-    //   name: "Ascendiz-UI-Chrome",
-    //   testDir: "./projects/ascendiz/tests/ui",
-    //   use: {
-    //     baseURL: process.env.ASCENDIZ_WEB_URL,
-    //     browserName: "chromium",
-    //     viewport: { width: 1280, height: 720 },
-    //   },
-    // },
     {
       name: 'Hris-Ascendiz-API',
       testDir: './projects/hris-ascendiz/tests/api',
@@ -53,14 +36,6 @@ export default defineConfig({
         baseURL: process.env.HRIS_WEB_URL,
         browserName: 'chromium',
         viewport: { width: 1280, height: 720 },
-      },
-    },
-    {
-      name: "ProjectB-API",
-      testDir: "./projects/project-b/tests/api",
-      use: {
-        baseURL: process.env.PROJECTB_API_URL,
-        extraHTTPHeaders: { Accept: "application/json" },
       },
     },
   ],

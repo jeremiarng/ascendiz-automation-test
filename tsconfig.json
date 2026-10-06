@@ -12,8 +12,6 @@
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["shared/*"],
-      "@ascendiz/*": ["projects/ascendiz/*"],
-      "@project-b/*": ["projects/project-b/*"],
       "@hris-ascendiz/*": ["projects/hris-ascendiz/*"]
     }
   },

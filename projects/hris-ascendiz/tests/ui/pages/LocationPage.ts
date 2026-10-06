@@ -38,7 +38,12 @@ export class LocationPage extends BasePage {
   private readonly saveButton: Locator = this.page.getByRole('button', { name: 'Save', exact: true });
 
   // --- Delete confirmation modal ---
+  private readonly deleteConfirmText: Locator = this.page.getByText('Are you certain you want to delete this record?');
   private readonly deleteConfirmButton: Locator = this.page.getByRole('button', { name: 'Yes, Delete It!' });
+  private readonly deleteSuccessToast: Locator = this.page.getByText('Your data has been successfully deleted.');
+
+  // --- Success toast ---
+  private readonly savedSuccessToast: Locator = this.page.getByText('Your data has been successfully saved.');
 
   constructor(page: Page) {
     super(page);
@@ -86,6 +91,10 @@ export class LocationPage extends BasePage {
     await expect(this.rowByLocationName(name)).toHaveCount(0, { timeout: 10000 });
   }
 
+  async expectRowContainsText(name: string, text: string | RegExp): Promise<void> {
+    await expect(this.rowByLocationName(name)).toContainText(text);
+  }
+
   async openDetail(name: string): Promise<void> {
     const row = this.rowByLocationName(name);
     await row.locator('a[href*="/location/"]').first().click();
@@ -100,12 +109,12 @@ export class LocationPage extends BasePage {
   async clickDelete(name: string): Promise<void> {
     const row = this.rowByLocationName(name);
     await row.locator('a[href="#!"]').click();
-    await expect(this.page.getByText('Are you certain you want to delete this record?')).toBeVisible();
+    await expect(this.deleteConfirmText).toBeVisible();
   }
 
   async confirmDelete(): Promise<void> {
     await this.deleteConfirmButton.click();
-    await expect(this.page.getByText('Your data has been successfully deleted.')).toBeVisible({ timeout: 10000 });
+    await expect(this.deleteSuccessToast).toBeVisible({ timeout: 10000 });
   }
 
   // ===================== Form (create & edit) =====================
@@ -143,7 +152,7 @@ export class LocationPage extends BasePage {
     await this.addressInput.fill(data.address);
     await this.provinceSelect.selectOption({ label: data.province });
     await this.cityInput.click();
-    await this.page.locator('[role="option"]', { hasText: data.city }).click();
+    await this.page.getByRole('option', { name: data.city, exact: true }).click();
     await this.postalCodeInput.fill(data.postalCode);
     await this.latitudeInput.fill(data.latitude);
     await this.longitudeInput.fill(data.longitude);
@@ -176,25 +185,37 @@ export class LocationPage extends BasePage {
 
   async saveForm(): Promise<void> {
     await this.saveButton.click();
-    await expect(this.page.getByText('Your data has been successfully saved.')).toBeVisible({ timeout: 10000 });
+    await expect(this.savedSuccessToast).toBeVisible({ timeout: 10000 });
   }
 
   async saveFormExpectError(): Promise<void> {
     await this.saveButton.click();
   }
 
-  async expectEditSaved(): Promise<void> {
-    await expect(this.page.getByText('Your data has been successfully saved.')).toBeVisible({ timeout: 10000 });
+  async expectSuccessToast(): Promise<void> {
+    await expect(this.savedSuccessToast).toBeVisible({ timeout: 10000 });
   }
 
-  async expectErrorVisible(message: string | RegExp): Promise<void> {
+  async expectFieldError(message: string | RegExp): Promise<void> {
     await expect(this.page.getByText(message)).toBeVisible();
   }
 
   // ===================== Detail =====================
 
+  async expectOnListPage(): Promise<void> {
+    await expect(this.page).toHaveURL(/\/locations(#!)?$/);
+  }
+
+  async expectOnDetailPage(): Promise<void> {
+    await expect(this.page).toHaveURL(/\/location\/\d+/);
+  }
+
   async expectDetailVisible(): Promise<void> {
     await expect(this.heading('Location Details')).toBeVisible();
+  }
+
+  async expectDetailName(name: string): Promise<void> {
+    await expect(this.detailNameValue).toHaveText(name);
   }
 
   async expectDetailValue(label: string, value: string): Promise<void> {
