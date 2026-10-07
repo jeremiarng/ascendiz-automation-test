@@ -62,7 +62,6 @@ pipeline {
       cleanWs()
     }
     success {
-      success {
       script {
         sh '''
           node -e '
@@ -107,9 +106,7 @@ pipeline {
             });
 
             const { execSync } = require("child_process");
-            // Menggunakan escape payload yang aman
-            const escapedPayload = payload.replace(/"/g, "\\\\\"");
-            execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d "${payload}"`);
+            execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d '\''${payload}'\''`);
           '
         '''
       }
