@@ -42,9 +42,11 @@ pipeline {
 
           try {
             sh base
+            env.TEST_STATUS = "SUCCESS"
           } catch (err) {
             currentBuild.result = 'UNSTABLE'
-            echo "Ada test yang gagal (failed), tetapi pipeline dilanjutkan untuk men-generate Allure Report."
+            env.TEST_STATUS = "UNSTABLE"
+            echo "Ada test yang gagal, pipeline dilanjutkan untuk Allure Report."
           }
         }
       }
@@ -61,25 +63,104 @@ pipeline {
     }
     success {
       script {
-        // TEMPATKAN DI SINI (untuk status sukses)
-        // Ganti URL https://xxxx.ngrok-free.app dengan URL ngrok kamu saat ini
-        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"SUCCESS\"}'"
+        // Skrip Node.js inline untuk membaca file JSON Playwright dan mengirim webhook dinamis
+        sh '''
+          node -e '
+            const fs = require("fs");
+            try {
+              const data = JSON.parse(fs.readFileSync("test-results/test-results.json", "utf8"));
+              let passed = 0, failed = 0, total = 0;
+              
+              // Menghitung jumlah test dari struktur JSON Playwright
+              if (data.suites) {
+                function countTests(suites) {
+                  suites.forEach(suite => {
+                    if (suite.specs) {
+                      suite.specs.forEach(spec => {
+                        spec.tests.forEach(test => {
+                          total++;
+                          if (test.status === "expected" || test.status === "passed") passed++;
+                          else failed++;
+                        });
+                      });
+                    }
+                    if (suite.suites) countTests(suite.suites);
+                  });
+                }
+                countTests(data.suites);
+              }
+
+              const payload = JSON.stringify({
+                buildNumber: process.env.BUILD_NUMBER,
+                status: "SUCCESS",
+                total: total,
+                passed: passed,
+                failed: failed
+              });
+
+              console.log("Mengirim payload webhook:", payload);
+              // Kirim via curl menggunakan node
+              const { execSync } = require("child_process");
+              execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d '\''${payload}'\''`);
+            } catch (e) {
+              console.error("Gagal membaca hasil test:", e.message);
+            }
+          '
+        '''
       }
       echo 'Pipeline selesai.'
     }
     unstable {
       script {
-        // TEMPATKAN DI SINI JUGA (jika ada test yang gagal tapi tetap generate report)
-        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"UNSTABLE\"}'"
+        // Menggunakan logika hitung yang sama untuk status UNSTABLE
+        sh '''
+          node -e '
+            const fs = require("fs");
+            try {
+              const data = JSON.parse(fs.readFileSync("test-results/test-results.json", "utf8"));
+              let passed = 0, failed = 0, total = 0;
+              
+              if (data.suites) {
+                function countTests(suites) {
+                  suites.forEach(suite => {
+                    if (suite.specs) {
+                      suite.specs.forEach(spec => {
+                        spec.tests.forEach(test => {
+                          total++;
+                          if (test.status === "expected" || test.status === "passed") passed++;
+                          else failed++;
+                        });
+                      });
+                    }
+                    if (suite.suites) countTests(suite.suites);
+                  });
+                }
+                countTests(data.suites);
+              }
+
+              const payload = JSON.stringify({
+                buildNumber: process.env.BUILD_NUMBER,
+                status: "UNSTABLE",
+                total: total,
+                passed: passed,
+                failed: failed
+              });
+
+              const { execSync } = require("child_process");
+              execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d '\''${payload}'\''`);
+            } catch (e) {
+              console.error("Gagal membaca hasil test:", e.message);
+            }
+          '
+        '''
       }
-      echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE). Cek Allure report untuk detailnya.'
+      echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE).'
     }
     failure {
       script {
-        // TEMPATKAN DI SINI (jika pipeline gagal total di luar test)
-        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"FAILURE\"}'"
+        sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"FAILURE\", \"total\": 0, \"passed\": 0, \"failed\": 0}'"
       }
-      echo 'Pipeline mengalami kendala serius di luar test failure.'
+      echo 'Pipeline mengalami kendala serius.'
     }
   }
 }

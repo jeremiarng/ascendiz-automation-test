@@ -1,11 +1,11 @@
-import { defineConfig } from "@playwright/test";
-import { config } from "dotenv";
+import { defineConfig } from '@playwright/test';
+import { config } from 'dotenv';
 config({ override: true });
 
 export default defineConfig({
   fullyParallel: true,
   retries: 0,
-  reporter: [["line"], ["allure-playwright", { resultsDir: "allure-results" }]],
+  reporter: [['line'], ['allure-playwright', { resultsDir: 'allure-results' }], ['json', { outputFile: 'test-results/test-results.json' }]],
   workers: 1,
 
   projects: [
