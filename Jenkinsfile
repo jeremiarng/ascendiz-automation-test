@@ -66,6 +66,7 @@ pipeline {
         sh '''
           node -e '
             const fs = require("fs");
+            const https = require("https");
             const path = "test-results/test-results.json";
             
             let passed = 0, failed = 0, total = 0;
@@ -91,10 +92,8 @@ pipeline {
                   countTests(data.suites);
                 }
               } catch (e) {
-                console.log("Gagal parsing JSON, menggunakan nilai default:", e.message);
+                console.log("Gagal parsing JSON:", e.message);
               }
-            } else {
-              console.log("File test-results.json tidak ditemukan, menggunakan nilai default.");
             }
 
             const payload = JSON.stringify({
@@ -105,8 +104,26 @@ pipeline {
               failed: failed
             });
 
-            const { execSync } = require("child_process");
-            execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d '\''${payload}'\''`);
+            const url = new URL("https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook");
+            const options = {
+              hostname: url.hostname,
+              port: 443,
+              path: url.pathname,
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Content-Length": Buffer.byteLength(payload)
+              }
+            };
+
+            const req = https.request(options, (res) => {
+              console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+            });
+            req.on("error", (error) => {
+              console.error("Gagal mengirim webhook:", error);
+            });
+            req.write(payload);
+            req.end();
           '
         '''
       }
@@ -117,6 +134,7 @@ pipeline {
         sh '''
           node -e '
             const fs = require("fs");
+            const https = require("https");
             const path = "test-results/test-results.json";
             
             let passed = 0, failed = 0, total = 0;
@@ -142,10 +160,8 @@ pipeline {
                   countTests(data.suites);
                 }
               } catch (e) {
-                console.log("Gagal parsing JSON, menggunakan nilai default:", e.message);
+                console.log("Gagal parsing JSON:", e.message);
               }
-            } else {
-              console.log("File test-results.json tidak ditemukan, menggunakan nilai default.");
             }
 
             const payload = JSON.stringify({
@@ -156,12 +172,30 @@ pipeline {
               failed: failed > 0 ? failed : 2
             });
 
-            const { execSync } = require("child_process");
-            execSync(`curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H "Content-Type: application/json" -d '\''${payload}'\''`);
+            const url = new URL("https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook");
+            const options = {
+              hostname: url.hostname,
+              port: 443,
+              path: url.pathname,
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Content-Length": Buffer.byteLength(payload)
+              }
+            };
+
+            const req = https.request(options, (res) => {
+              console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+            });
+            req.on("error", (error) => {
+              console.error("Gagal mengirim webhook:", error);
+            });
+            req.write(payload);
+            req.end();
           '
         '''
       }
-      echo 'Test selesai dengan beberapa assertion/test yang gagal (UNSTABLE). Cek Allure report untuk detailnya.'
+      echo 'Test selesai dengan beberapa test yang gagal (UNSTABLE).'
     }
     failure {
       script {
