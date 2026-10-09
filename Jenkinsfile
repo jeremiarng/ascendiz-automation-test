@@ -60,7 +60,6 @@ pipeline {
   post {
     always {
       archiveArtifacts artifacts: 'test-results/test-results.json', allowEmptyArchive: true
-      cleanWs()
     }
     success {
       script {
@@ -100,8 +99,8 @@ pipeline {
             const payload = JSON.stringify({
               buildNumber: process.env.BUILD_NUMBER,
               status: "SUCCESS",
-              total: total > 0 ? total : 10,
-              passed: passed > 0 ? passed : 10,
+              total: total,
+              passed: passed,
               failed: failed
             });
 
@@ -118,7 +117,11 @@ pipeline {
             };
 
             const req = https.request(options, (res) => {
-              console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+              // Mencegah hang dengan mengkonsumsi stream balasan dari server
+              res.on("data", () => {}); 
+              res.on("end", () => {
+                console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+              });
             });
             req.on("error", (error) => {
               console.error("Gagal mengirim webhook:", error);
@@ -168,9 +171,9 @@ pipeline {
             const payload = JSON.stringify({
               buildNumber: process.env.BUILD_NUMBER,
               status: "UNSTABLE",
-              total: total > 0 ? total : 10,
-              passed: passed > 0 ? passed : 8,
-              failed: failed > 0 ? failed : 2
+              total: total,
+              passed: passed,
+              failed: failed
             });
 
             const url = new URL("https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook");
@@ -186,7 +189,11 @@ pipeline {
             };
 
             const req = https.request(options, (res) => {
-              console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+              // Mencegah hang dengan mengkonsumsi stream balasan dari server
+              res.on("data", () => {});
+              res.on("end", () => {
+                console.log(`Webhook terkirim dengan status: ${res.statusCode}`);
+              });
             });
             req.on("error", (error) => {
               console.error("Gagal mengirim webhook:", error);
@@ -203,6 +210,10 @@ pipeline {
         sh "curl -X POST https://parsleylike-allopatrically-meg.ngrok-free.dev/api/jenkins-webhook -H 'Content-Type: application/json' -d '{\"buildNumber\": \"${env.BUILD_NUMBER}\", \"status\": \"FAILURE\", \"total\": 0, \"passed\": 0, \"failed\": 0}'"
       }
       echo 'Pipeline mengalami kendala serius.'
+    }
+    cleanup {
+      // workspace dibersihkan setelah webhook dan semua step selesai dilaporkan
+      cleanWs()
     }
   }
 }
