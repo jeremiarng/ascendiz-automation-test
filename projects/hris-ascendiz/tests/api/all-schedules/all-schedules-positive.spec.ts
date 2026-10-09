@@ -50,6 +50,17 @@ test.describe('All Schedules API Tests - Positive Cases', () => {
       expect([200].includes(status), `Expected: 200, but Received: ${status}`).toBeTruthy();
     });
 
+    test('TC-01 From Web IDE :)', async ({ }, testInfo) => {
+      const api = new ApiFixture(adminContext, testInfo);
+      const params = { offset: 0, limit: 10, start_date: '2026-06-21', end_date: '2026-06-27' };
+
+      const { response } = await api.get(ENDPOINTS.SHIFTS.SCHEDULES, params, {
+        paramsTitle: 'Request Params For Admin View Schedules',
+      });
+      const status = response.status();
+      expect([200].includes(status), `Expected: 200, but Received: ${status}`).toBeTruthy();
+    });
+
     test('TC-02: GET /v1/shifts/schedules - View with various filter parameters (Admin)', async ({ }, testInfo) => {
       const api = new ApiFixture(adminContext, testInfo);
       const params = {
